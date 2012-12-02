@@ -44,6 +44,7 @@ use warnings;
 # Use address to WeBWorK code library where WebworkClient.pm is located.
 
 use lib "." ;
+use lib "../webwork2/lib";
 #use Crypt::SSLeay;  # needed for https
 use WebworkClient;
 use MIME::Base64 qw( encode_base64 decode_base64);
@@ -183,7 +184,7 @@ die;
 }
 
 
-use constant DISPLAYMODE   => 'images'; #  jsMath  is another possibilities.
+use constant DISPLAYMODE   => 'jsMath'; #  images, jsMath, MathJax  are another possibilities.
 
 
 our @COMMANDS = qw( listLibraries    renderProblem  ); #listLib  readFile tex2pdf 
