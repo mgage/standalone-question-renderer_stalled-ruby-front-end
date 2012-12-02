@@ -1,0 +1,17 @@
+<h2>MAA WeBWorK DEMO Course</h2>
+
+This is a sample course you can use to experiment with WeBWorK.
+
+<p>
+To login, use one of the login names and its password
+on the card you were given for this workshop.
+(Alternatively, click on the <strong>Guest Login</strong> button
+to view problems without supplying a password.)
+
+<p>
+If you login as a student (<strong>jdoe</strong> or <strong>jsmith</strong>),
+you will see the student interface and can work as a student.
+
+<p>
+If you login as a professor (<strong>profa</strong> or <strong>profb</strong>),
+you will see the instructor interface and can work as an instructor.

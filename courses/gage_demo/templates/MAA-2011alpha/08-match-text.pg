@@ -1,0 +1,80 @@
+####	08-match-1.pg
+# DESCRIPTION
+#	match list of functions with scrambled list of derivatives
+# ENDDESCRIPTION
+
+## DBsubject('WeBWorK')
+## DBchapter('WeBWorK Tutorial')
+## DBsection('MAA Tutorial')
+## KEYWORDS('MathObjects','match','derivatives')
+## Author('Mike Gage, Dick Lane')
+## Institution('U Rochester, U Montana')
+## Date('05/18/2011)
+## SeeAlso('http://webwork.maa.org/wiki/MatchingProblems')
+
+
+DOCUMENT();
+
+loadMacros(
+	"PGstandard.pl",
+	"PGchoicemacros.pl",
+	"PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+####	title for this demo
+TEXT($BBOLD, $BCENTER,
+	"Matching --- questions above, answers below" ,
+	$ECENTER, $EBOLD, $BR);
+
+$a  = random(2,15,1) ;
+$a1 = $a - 1 ;
+do  {$b = random(2,15,1)}  until  ($b != $a) ;
+do  {$c = random(2,15,1)}  until  ( ($c != $a) and ($c != $b) ) ;
+$d  = random(-15,-2,1) ;
+
+####	create the Match List object
+$mL = new_match_list();
+
+####	Insert question,answer pairs: use double quotes, separate with comma
+$mL -> qa (
+	"\( \sin(x) \)" ,	"\( \cos(x) \)" ,
+	"\( $a1 - \cos(x) \)" ,	"\( \sin(x) \)" ,
+	"\( x^{$a} \)" ,	"\( $a x^{$a1} \)" ,
+	"\( \sin($b x) \)" ,	"\( $b \cos($b x) \)" ,
+	"\( \cos($c x) \)" ,	"\( - $c \sin($c x) \)" ,
+	"\( \sin($c x) \)" ,	"\( $c \cos($c x) \)" ,
+	"\( \tan($d x) \)" ,	"\( $d \sec^{2} ($d x) \)" ,
+);
+
+####	Random choice of four question and answer pairs
+$mL -> choose(4);
+
+####	Add distractors: answers for two unused questions
+$mL -> choose_extra(2) ;
+
+####	Add a "none of the above" choice"
+$mL -> makeLast( "derivative not shown" ) ;
+
+
+####	Now display the set of questions and answers
+BEGIN_TEXT
+	Match each of these functions (write appropriate letter in each box)
+	\{ $mL -> print_q() \}
+$BR
+	with its derivative
+	\{ $mL -> print_a() \}
+END_TEXT
+
+
+####	suppress feedback about which parts are correct and which are wrong
+$showPartialCorrectAnswers = 0 ;
+
+####	use the all-or-nothing grader, i.e., no partial credit
+####		http://webwork.maa.org/wiki/WeightedGrader
+install_problem_grader( ~~&std_problem_grader ) ;
+
+ANS( str_cmp( $mL -> ra_correct_ans )   ) ;
+
+ENDDOCUMENT();

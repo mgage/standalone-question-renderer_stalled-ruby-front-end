@@ -1,0 +1,65 @@
+# ASimpleCombinedHeaderFile.pg
+# This header file can be used for both the screen and hardcopy output
+
+
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"PGchoicemacros.pl",
+"MathObjects.pl",
+"parserFormulaUpToConstant.pl",
+);
+
+Context("Numeric");
+Context()->variables->add(y=>'Real');
+
+Context()->flags->set(
+  tolerance=>0.11,
+  tolType=>"absolute"
+);
+
+TEXT(beginproblem());
+
+$x0 = non_zero_random(-4,4,1);
+$y0 = non_zero_random(-4,4,1);
+
+$M = Formula("x*y");
+$N = Formula("-y");
+
+$mx = $M->eval(x=>$x0,y=>$y0);
+$my = $N->eval(x=>$x0,y=>$y0);
+
+####################################################
+#
+# The items below are printed out only when set is displayed on screen
+# 
+####################################################
+TEXT(MODES(TeX =>"",HTML=>EV3(<<'EOT')));
+
+
+$BBOLD WeBWorK  Assignment \{ protect_underbar($setNumber) \}  is due :  $formattedDueDate. $EBOLD.
+Determine a vector 
+
+\[ <\Delta{x},\Delta{y}> \] 
+
+at \(($x0,$y0)\) that points in the correct direction in the given vector field.
+$BR $BR
+\(  <\Delta{x},\Delta{y}> = < \) \{ ans_rule(15) \},\{ ans_rule(15) \}\(>\)
+
+$PAR
+<iframe  src="http://sagenb.mc.edu/home/pub/28/" width="800" height="640"> Go to http://sagenb.mc.edu/home/pub/20/</iframe>
+$PAR
+
+
+EOT
+
+Context()->normalStrings;
+
+#  Actually need to accept any delx and dely up to a common constant
+ANS( Compute($mx)->cmp() );
+ANS( Compute($my)->cmp() );
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

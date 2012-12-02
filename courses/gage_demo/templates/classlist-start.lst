@@ -1,0 +1,16 @@
+####	Dick Lane's revision, 2011-01-14
+# Field order: student_id,last_name,first_name,status,comment,section,recitation,email_address,user_id,password,permission
+
+####	professors
+profa	 , Profa    , Professor , C , , , , , profa    , ,10
+profb	 , Profb    , Professor , C , , , , , profb    , ,10
+
+####	students
+jdoe	 , Doe	    , Jane	, C , , , , , jdoe     , , 0
+jsmith	 , Smith    , John	, C , , , , , jsmith   , , 0
+
+####	guests (login without a password)
+practice1, Practice1, Al	, C , , , , , practice1, ,-5
+practice2, Practice2, Bee	, C , , , , , practice2, ,-5
+practice3, Practice3, Carl	, C , , , , , practice3, ,-5
+practice4, Practice4, Dafne	, C , , , , , practice4, ,-5

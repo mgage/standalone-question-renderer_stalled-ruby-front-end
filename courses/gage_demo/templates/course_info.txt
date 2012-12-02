@@ -1,0 +1,41 @@
+<h2>MAA WeBWorK DEMO Course</h2>
+
+This is a sample course you can use to experiment with WeBWorK.
+
+<p>
+Your <em>login name</em> is shown at the upper-right of this window.
+
+<p>
+    If you <em>are</em> either <strong>jdoe</strong> or <strong>jsmith</strong>,
+then you are a student and can work as a student.
+    Click on the name of a problem set (e.g., <em>Orientation</em> or
+<em>Calculus_I</em>) to view its problems.
+    Similarly, click on the name of a problem to view your version of it and to
+be able to have your answers checked
+(and <strong>scored</strong> provided the set's due-date is in the future).
+
+<p>
+If you <em>are</em> either <strong>profa</strong> or <strong>profb</strong>,
+then you are an instructor and can work as an instructor for this course.
+An instructor can do more things while viewing a problem, e.g., edit it,
+view answers and solutions before the answer-date.
+The instructor menu of available commands is longer than the student menu, e.g.,
+an instructor can use the <em>Hmwk Sets Editor</em> to open a problem set
+(experiment: Import from either <strong>setVarious.def</strong> or
+<strong>setCalculus_II.def</strong>).
+<OL>
+<LI>  Flash applets from Doug Ensley and Mike Gage
+<Li> Basic problem types arranged by Dick Lane
+<LI> Flash applets created at Cleveland State by Barbara Margolius, et. al.
+<li> A basic student orientation -- developed by Davide Cervone for Union College
+<li> Examples of embedding sage -- created by John Travis
+<li> A collection of examples of embedding things in WeBWorK problems.
+
+
+
+
+
+
+
+
+</OL>

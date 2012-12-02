@@ -1,0 +1,69 @@
+##DESCRIPTION
+##  Algebra problem: true or false for inequality 
+##ENDDESCRIPTION
+
+##KEYWORDS('algebra', 'inequality', 'fraction')
+
+## DBsubject('Algebra')
+## DBchapter('Fundamentals')
+## DBsection('Real Numbers')
+## Date('6/3/2002')
+## Author('')
+## Institution('')
+## TitleText1('Precalculus')
+## EditionText1('3')
+## AuthorText1('Stewart, Redlin, Watson')
+## Section1('1.1')
+## Problem1('22')
+
+########################################################################
+
+DOCUMENT();      
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   "PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+$pi = Real("pi");
+
+##############################################################
+#
+#  Text
+#
+#
+
+TEXT(MODES(HTML=><<EOF, TeX=>"An embedded Google Gadget."));
+$BCENTER
+<h2>Google Gadgets with Pedagogical Value<h2>
+<script src="http://www.gmodules.com/ig/ifr?url=http://www.schulz.dk/pacman.xml&amp;up_LANG=en&amp;synd=open&amp;w=320&amp;h=420&amp;title=PacMan+v2.6&amp;lang=all&amp;country=ALL&amp;border=http%3A%2F%2Fwww.gmodules.com%2Fig%2Fimages%2F&amp;output=js"></script>
+$ECENTER
+EOF
+
+##############################################################
+#
+#  Answers
+#
+#
+
+#ANS($pi->with(tolerance=>.0001)->cmp);
+# relative tolerance --3.1412 is incorrect but 3.1413 is correct
+# default tolerance is .01 or one percent.
+
+
+ENDDOCUMENT();        

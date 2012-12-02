@@ -1,0 +1,91 @@
+##  First Homework Problem File for
+##  Calculus
+##  Partial Derivatives
+##  Unit 1
+## 
+
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"PGchoicemacros.pl",
+"MathObjects.pl",
+);
+
+Context()->strings->add(none=>{});
+
+TEXT(beginproblem());
+
+$x0 = non_zero_random(-2,2,1);  
+$y0 = non_zero_random(-2,2,1);  
+
+#  $f = Formula(x**3-y**3)/(x**2+y**2+1));
+$f0 = ($x0**3-$y0**3)/($x0**2+$y0**2+1);
+
+
+####################################################
+
+TEXT(<<'EOF');
+<div id="singlecell-test"><script type="text/code">
+
+var('x,y,z')
+
+@interact(layout=dict(top=[['x0'],['y0']], 
+bottom=[['N'],['zoom_in']]))
+def _(N=slider(5,100,1,10,label='Number of Contours'),
+        zoom_in=checkbox(false,label='Zoom in'),
+        x0=input_box(0,width=10,label='x coordinate of center'),
+        y0=input_box(0,width=10,label='y coordinate of center')):
+
+
+    f=(x^3-y^3)/(x^2+y^2+1)
+    offset = floor(10*random())/20
+
+    if zoom_in:
+        surface = contour_plot(f,(x,x0-offset-1/10,x0+1/10),(y,y0-1/10,y0+offset+1/10), cmap=True,colorbar=True,fill=False,contours=N)    
+    else:
+        surface = contour_plot(f,(x,-3,3),(y,-3,3),cmap=True,colorbar=True,fill=False,contours=N)    
+    limit_point = point((x0,y0),color='red',size=30)
+
+    html.table([[surface+limit_point]])
+    html('Contour Plot of f(x,y) around $(%s'%str(x0)+',%s'%str(y0)+')$')
+
+</script></div>
+
+   <script type="text/javascript" src="http://sagemath.org:5467/static/jquery-1.5.min.js"></script>
+   <script type="text/javascript" src="http://sagemath.org:5467/embedded_singlecell.js"></script>
+
+   <script type="text/javascript">
+$(function() { // load only when the page is loaded
+  var makecells = function() {
+  singlecell.makeSinglecell({
+      inputLocation: "#singlecell-test",
+      editor: "codemirror",
+      hide: ["editor","computationID","files","messages","sageMode"],
+      evalButtonText: "Start/Restart",
+      replaceOutput: true});
+  }
+
+  singlecell.init(makecells); // load Single Cell libraries and then
+                              // initialize Single Cell instances
+
+  });
+  </script>
+EOF
+
+Context()->texStrings;
+BEGIN_TEXT
+Using the contour plot above, estimate the range value for the illustrated function at \( ($x0,$y0) \).
+$BR $BR
+\( f($x0,$y0) = \)\{ ans_rule(15) \} 
+$PAR
+END_TEXT
+Context()->normalStrings;
+
+
+#  need to add reasonable approximation error of about 0.1 or so.
+ANS( Compute($f0)->cmp() );
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

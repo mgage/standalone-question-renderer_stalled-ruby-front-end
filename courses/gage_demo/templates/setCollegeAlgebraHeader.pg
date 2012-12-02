@@ -1,0 +1,39 @@
+#### header for College Algebra set of sample problems -- draft 0 (17 Jan 2011)
+DOCUMENT();
+
+loadMacros( "PG.pl" , "PGbasicmacros.pl" );
+
+TEXT($BEGIN_ONE_COLUMN);
+
+TEXT(MODES(TeX =>EV3(<<'EOT'),HTML=>"",Latex2HTML=>""));
+\noindent {\large \bf $studentName}
+\hfill
+\noindent {\large \bf College Algebra --- sample problems}
+EOT
+
+BEGIN_TEXT
+$END_ONE_COLUMN
+This College Algebra sampler has items in several categories:
+$BR 1, 2, 3) write an expression to fit a prose description
+$BR 4) model with simple equation, solve and interpret
+$BR 5) simplify product of powers (rules for exponents)
+$BR 6) collection of True/False items about algebraic identities
+$BR 7, 8) distinguish "implies" from "is equivalent to"
+$BR 9, 10) example of instructor responding to student comments
+$BR 11) match: interval with inequality
+$BR 12) arithmetic with fractions
+$BR 13) expand \( (a - b \, x)^2 \)
+$BR 14) convert Fahrenheit temperatures to Celsius
+$BR 15) coordinate plane and distance formula
+$BR 16, 17) lines and slopes
+$BR 18) quadratic polynomial function: evaluate, substitute
+$BR 19) interpret a graph
+$BR 20) composition of functions
+$BR 21) linear model, domain "in context"
+$BR 22, 23, 24, 25) shift (translate) a graph
+$PAR
+	Problems 17, 19, 22-25 create and display a graph.
+END_TEXT
+
+
+ENDDOCUMENT();

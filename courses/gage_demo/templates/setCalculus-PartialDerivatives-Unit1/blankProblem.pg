@@ -1,0 +1,105 @@
+##DESCRIPTION
+##  Algebra problem: true or false for inequality 
+##ENDDESCRIPTION
+
+##KEYWORDS('algebra', 'inequality', 'fraction')
+
+## DBsubject('Algebra')
+## DBchapter('Fundamentals')
+## DBsection('Real Numbers')
+## Date('6/3/2002')
+## Author('')
+## Institution('')
+## TitleText1('Precalculus')
+## EditionText1('3')
+## AuthorText1('Stewart, Redlin, Watson')
+## Section1('1.1')
+## Problem1('22')
+
+########################################################################
+
+DOCUMENT();      
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   #"source.pl",        # allows code to be displayed on certain sites.
+   #"PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+$pi = Real("pi");
+TEXT(<<'EOF');
+<div id="singlecell-test"><script type="text/code">var('x')
+x0 = 0
+f(x) = sin(x)*e^(-x)
+p = plot(f,(x,-1,5), thickness=2)
+dot = point((x0,f(x=x0)),pointsize=80,rgbcolor=(1,0,0))
+@interact
+def _(order=(1..12)):
+   ft = f.taylor(x,x0,order)
+   pt = plot(ft,(x,-1, 5), color='green', thickness=2)
+   show(dot + p + pt, ymin = -.5, ymax = 1)
+</script></div>
+
+   <script type="text/javascript" src="http://sagemath.org:5467/static/jquery-1.5.min.js"></script>
+   <script type="text/javascript" src="http://sagemath.org:5467/embedded_singlecell.js"></script>
+
+   <script type="text/javascript">
+$(function() { // load only when the page is loaded
+  var makecells = function() {
+  singlecell.makeSinglecell({
+      inputLocation: "#singlecell-test",
+      editor: "codemirror",
+      hide: ["editor","computationID","files","messages","sageMode"],
+      evalButtonText: "Explore",
+      replaceOutput: true});
+  }
+
+  singlecell.init(makecells); // load Single Cell libraries and then
+                              // initialize Single Cell instances
+
+  });
+  </script>
+
+EOF
+##############################################################
+#
+#  Text
+#
+#
+
+Context()->texStrings;
+BEGIN_TEXT
+
+
+Enter a value for \(\pi\)
+
+\{$pi->ans_rule\}
+END_TEXT
+Context()->normalStrings;
+
+##############################################################
+#
+#  Answers
+#
+#
+
+ANS($pi->with(tolerance=>.0001)->cmp);
+# relative tolerance --3.1412 is incorrect but 3.1413 is correct
+# default tolerance is .01 or one percent.
+
+
+ENDDOCUMENT();        

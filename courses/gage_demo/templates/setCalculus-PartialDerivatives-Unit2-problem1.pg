@@ -1,0 +1,50 @@
+##  First Homework Problem File for
+##  Calculus
+##  Partial Derivatives
+##  Unit 1
+## 
+
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"PGchoicemacros.pl",
+"MathObjects.pl",
+);
+
+Context()->strings->add(none=>{});
+
+TEXT(beginproblem());
+BEGIN_TEXT
+$BBOLD WeBWorK  Assignment \{ protect_underbar($setNumber) \}  is due :  $formattedDueDate. $EBOLD.
+$BR
+$PAR
+Problems in this homework set address:
+<ul>
+<li>Partial Derivatives using Rules
+<li>The Chain Rule
+<li>Directional Derivatives and the Gradient Vector 
+</ul>
+$BR
+
+First, attempt some problems from the textbook.  As you work those problems, you may use the sage interactive worksheets provided below to visualize any necessary concepts. 
+$PAR
+Look through these worksheets and find where to click on "Print the WebWork answer".  Enter the result in the blank below to get credit for this problem.
+
+\{ ans_rule(15) \}
+
+$PAR
+<iframe  src="http://sagenb.mc.edu/home/pub/29/" width="600" height="500"> Go to http://sagenb.mc.edu/home/pub/29/</iframe>
+$PAR
+
+$PAR
+
+END_TEXT
+
+Context()->normalStrings;
+
+ANS( Compute("94600")->cmp() );
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

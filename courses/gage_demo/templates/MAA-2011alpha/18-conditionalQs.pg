@@ -1,0 +1,124 @@
+####	18-conditionalQs.pg
+# DESCRIPTION
+#	Conditional questions: part 2 shown after part 1 is correct, etc.
+# ENDDESCRIPTION
+
+## DBsubject('WeBWorK')
+## DBchapter('WeBWorK Tutorial')
+## DBsection('MAA Tutorial')
+## KEYWORDS('MathObjects','conditional')
+## Author('Mike Gage, Dick Lane')
+## Institution('U Rochester, U Montana')
+## Date('05/21/2011)
+
+DOCUMENT();
+
+loadMacros(
+	"PGstandard.pl",
+	"parserImplicitPlane.pl",	####	loads MathObjects.pl
+	"AnswerFormatHelp.pl",
+	"PGcourse.pl"
+);
+
+TEXT(beginproblem());
+
+TEXT($BCENTER, $BBOLD,
+	"Conditional questions --- several parts", $EBOLD, $ECENTER);
+####	part 1:	derivative function
+####	part 2: evaluate that derivative at specified spot
+####	part 3: equation for tangent line
+
+
+Context( "Numeric" ) ;
+
+####	disable rewriting  -a+b as b-a  and  -a-b as -(a+b)
+Context() -> reduction -> set( '(-x)+y' => 0 , '(-x)-y' => 0 ) ;
+
+$a  = non_zero_random(-4,4,1) ;
+$b  = non_zero_random(-5,5,1) ;
+$c  = non_zero_random(-9,9,1) ;
+$g  = Formula( "$a x^2 + $b x + $c" ) -> reduce ;
+$gp = $g -> D -> reduce ;
+
+$x0  = non_zero_random(-3,3,1) ;
+$y0  = $g  -> eval( x => $x0 ) -> reduce ;
+$yp0 = $gp -> eval( x => $x0 ) -> reduce ;
+
+Context("ImplicitPlane") -> variables -> are(x => 'Real' , y => 'Real') ;
+$eqn = ImplicitPlane( "y = $y0 + $yp0 (x - $x0)" ) ;
+
+####	This setup of answers and checkers is adapted from
+####		http://webwork.maa.org/wiki/ProvingTrigIdentities1
+####	define the answers  and  configure for their evaluation
+@answers = () ;
+$answers[1] = $gp ;
+$answers[2] = $yp0 ;
+$answers[3] = $eqn ;
+####	that indexing starts at 1 because referencing to student inputs does
+
+foreach  my $j  ( 1 .. 3 )  {
+	$ans_eval[$j] = $answers[$j] -> cmp() ;
+	$ans_hash[$j] =
+		$ans_eval[$j] -> evaluate($inputs_ref->{ANS_NUM_TO_NAME($j)});
+	$scores[$j]   = $ans_hash[$j] -> {score};
+} ;
+
+$showPartialCorrectAnswers = 1;
+
+
+############	part 1	############
+
+Context() -> texStrings ;
+BEGIN_TEXT
+	This problem has several parts.  The second part will be shown
+	only after the first has been answered correctly, etc.
+$BR
+$PAR
+${BBOLD}Part 1 of 3${EBOLD}
+$BR
+	Function \( g(x) = $g \) has derivative
+	\( g^\prime(x) = \)	\{ ans_rule() \}
+	\{ AnswerFormatHelp( "formula" ) \}
+END_TEXT
+Context() -> normalStrings ;
+
+ANS( $ans_eval[1] ) ;	####	remember that Perl indexing starts at 0
+
+
+
+############	part 2	############
+
+if  ( $scores[1] == 1 )  {	####	BEGIN_TEXT/END_TEXT must be flush left
+	Context() -> texStrings ;
+BEGIN_TEXT
+	$PAR
+	${BBOLD}Part 2 of 3${EBOLD}
+	$BR
+		The value at \( x = $x0 \) of that derivative is
+		\( g^\prime( $x0 ) = \)		\{ ans_rule() \}
+		\{ AnswerFormatHelp( "number" ) \}
+END_TEXT
+	Context() -> normalStrings ;
+
+	ANS( $ans_eval[2] ) ;
+}
+
+
+############	part 3	############
+
+if  ( ($scores[1]==1) and ($scores[2]==1) )  {
+	Context() -> texStrings ;
+BEGIN_TEXT
+	$PAR
+	$BBOLD Part 3 of 3 $EBOLD
+	$BR
+		The line tangent to the graph of \( g \) at \( x = $x0 \)
+		has equation	\{ ans_rule(30) \}
+		\{ AnswerFormatHelp( "equation" ) \}
+END_TEXT
+	Context() -> normalStrings ;
+
+	ANS( $ans_eval[3] ) ;
+}
+
+ENDDOCUMENT();

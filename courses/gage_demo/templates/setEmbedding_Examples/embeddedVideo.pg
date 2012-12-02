@@ -1,0 +1,71 @@
+##DESCRIPTION
+##  Algebra problem: true or false for inequality 
+##ENDDESCRIPTION
+
+##KEYWORDS('algebra', 'inequality', 'fraction')
+
+## DBsubject('Algebra')
+## DBchapter('Fundamentals')
+## DBsection('Real Numbers')
+## Date('6/3/2002')
+## Author('')
+## Institution('')
+## TitleText1('Precalculus')
+## EditionText1('3')
+## AuthorText1('Stewart, Redlin, Watson')
+## Section1('1.1')
+## Problem1('22')
+
+########################################################################
+
+DOCUMENT();      
+
+loadMacros(
+   "PGstandard.pl",     # Standard macros for PG language
+   "MathObjects.pl",
+   "source.pl",        # allows code to be displayed on certain sites.
+   #"PGcourse.pl",      # Customization file for the course
+);
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Numeric");
+
+$pi = Real("pi");
+
+##############################################################
+#
+#  Text
+#
+#
+
+TEXT(MODES(HTML=><<EOF, TeX=>"An embedded video."));
+$BCENTER
+<h2>Embedded Video</h2>
+<h3>Video by Tim Falhberg </h3>
+<h3>Embedded from Screencast.com</h3>
+$ECENTER
+<object id="csPlayer" width="727" height="600" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab"> <param name="quality" value="high"></param> <param name="src" value="http://content.screencast.com/?parameters=e913d273-5975-4452-9c6d-35c57ed984df_4f71ac06-b40d-42e4-8ffe-3cbe16ee094c_static_0_application/x-shockwave-flash_Mathcasts - Live Method_controller.swf"></param> <param name="flashVars" value="csPreloader=http://content.screencast.com/?parameters=e913d273-5975-4452-9c6d-35c57ed984df_4f71ac06-b40d-42e4-8ffe-3cbe16ee094c_static_0_application/x-shockwave-flash_Mathcasts - Live Method_preload.swf&csConfigFile=http://content.screencast.com/?parameters=e913d273-5975-4452-9c6d-35c57ed984df_4f71ac06-b40d-42e4-8ffe-3cbe16ee094c_dynamic_4_text/xml_Mathcasts - Live Method_config.xml"></param> <embed id="csPlayer" width="727" height="600" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" src="http://content.screencast.com/?parameters=e913d273-5975-4452-9c6d-35c57ed984df_4f71ac06-b40d-42e4-8ffe-3cbe16ee094c_static_0_application/x-shockwave-flash_Mathcasts - Live Method_controller.swf" flashVars="csPreloader=http://content.screencast.com/?parameters=e913d273-5975-4452-9c6d-35c57ed984df_4f71ac06-b40d-42e4-8ffe-3cbe16ee094c_static_0_application/x-shockwave-flash_Mathcasts - Live Method_preload.swf&csConfigFile=http://content.screencast.com/?parameters=e913d273-5975-4452-9c6d-35c57ed984df_4f71ac06-b40d-42e4-8ffe-3cbe16ee094c_dynamic_4_text/xml_Mathcasts - Live Method_config.xml" type="application/x-shockwave-flash"></embed> </object>
+EOF
+
+##############################################################
+#
+#  Answers
+#
+#
+
+#ANS($pi->with(tolerance=>.0001)->cmp);
+# relative tolerance --3.1412 is incorrect but 3.1413 is correct
+# default tolerance is .01 or one percent.
+
+
+ENDDOCUMENT();        

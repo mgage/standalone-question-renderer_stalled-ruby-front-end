@@ -1,0 +1,170 @@
+####	14-javaScript-2.pg
+# DESCRIPTION
+#	Oracle function: compute values using a spline in JavaScript
+# ENDDESCRIPTION
+
+## DBsubject('WeBWorK')
+## DBchapter('WeBWorK Tutorial')
+## DBsection('MAA Tutorial')
+## KEYWORDS('MathObjects','JavaScript','derivative','spline')
+## Author('Mike Gage, Dick Lane')
+## Institution('U Rochester, U Montana')
+## Date('05/19/2011)
+
+## SeeAlso('http://webwork.maa.org/moodle/mod/forum/discuss.php?d=364')
+
+
+DOCUMENT();	# First executable line in the problem
+
+loadMacros(
+	"PGstandard.pl",
+	"MathObjects.pl",
+	"PGnumericalmacros.pl",	####	needed for the javaScript spline code
+	"PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+####	title for this tutorial example
+TEXT($BBOLD, $BCENTER,
+	"JavaScript example --- obfuscated function",
+	$ECENTER, $EBOLD, $BR );
+
+#	define function to be evaluated
+$a = non_zero_random(-3,3,1);
+$b = random(-4,4,0.1);
+$c = random(-4,4,1);
+$f  = Formula( "$a x^2 + $b x + $c" ) -> reduce ;
+$fp = $f -> D -> reduce ;
+
+$Right =  3 ;
+$Left  = - $Right ;
+$x0  = random( $Left + 1 , $Right - 1 , 1 ) ;
+$ans = $fp -> eval( x => $x0 ) ;
+
+
+####	create a cubic spline approximation for f
+$Num   = 100 ;				####	number of subintervals
+$Dx    = ($Right - $Left) / $Num ;	####	delta x
+
+$fcn = $f -> perlFunction ;		####	use for evaluations in loop
+@xLst = () ;
+@yLst = () ;
+foreach  my $j  (0 .. $Num)  {
+	my  $x = $Left + $Dx * $j ;
+	my  $y = &$fcn( $x ) -> value ;	####	Davide's revision
+	push( @xLst , $x ) ;
+	push( @yLst , $y ) ;
+} ;
+
+
+
+#	This text will be placed in the header section of the HTML page
+#	not in the body where TEXT output is placed.
+HEADER_TEXT( javaScript_cubic_spline( ~~@xLst, ~~@yLst, name => 'func' ) );
+
+TEXT(MODES( TeX => "",
+ Latex2HTML => "\begin{rawhtml}
+	<NOSCRIPT>This problem requires that Java Script be enabled
+		</NOSCRIPT> ~~n\end{rawhtml}",
+ HTML_tth =>
+    "<NOSCRIPT>This problem requires that javaScript be enabled</NOSCRIPT>~~n",
+ HTML =>
+    "<NOSCRIPT>This problem requires that javaScript be enabled</NOSCRIPT> ~~n"
+));
+
+$functionArrow = MODES(
+	TeX => "\(- f \rightarrow\)",
+	Latex2HTML => "\(- f \rightarrow \) ",
+	HTML_tth => "-- f -- &gt; &nbsp; ",
+	HTML => '&nbsp; &ndash; f &rarr; &nbsp;'
+);
+
+
+#	The following string contains a combination of HTML and javaScript
+#	which displays the input table for the javaScript calculator
+####	This Perl construct is a "here-document" which puts several lines
+####	into a named string: "<<" begins it, "ENDOFSCRIPT" marks boundaries.
+$javaScript =<<ENDOFSCRIPT;
+<CENTER>
+<TABLE BORDER=4>
+<tr><th>x</th> <th></th> <th>f(x)</th></tr>
+<TR>
+<TD>
+<INPUT TYPE="text"   NAME="Input1"  Value = "$x0" Size="20">
+</TD>
+<TD>
+<INPUT TYPE="button" VALUE="---f--&gt;"
+            OnClick="this.form.Output1.value=func(this.form.Input1.value)">
+</TD>
+<TD>
+<INPUT TYPE="text"   NAME="Output1"   Size="20">
+</TD>
+</TR>
+<TR>
+<TD>
+<INPUT TYPE="text"   NAME="Input2"  Value = "$x0" Size="20">
+</TD>
+<TD>
+<INPUT TYPE="button" VALUE="---f--&gt;"
+            OnClick="this.form.Output2.value=func(this.form.Input2.value)">
+</TD>
+<TD>
+<INPUT TYPE="text"   NAME="Output2"   Size="20">
+</TD>
+</TR>
+<TR>
+<TD>
+<INPUT TYPE="text"   NAME="Input3"  Value = "$x0" Size="20">
+</TD>
+<TD>
+<INPUT TYPE="button" VALUE="---f--&gt;"
+            OnClick="this.form.Output3.value=func(this.form.Input3.value)">
+</TD>
+<TD>
+<INPUT TYPE="text"   NAME="Output3"   Size="20">
+</TD>
+</TR>
+</TABLE>
+
+</CENTER>
+ENDOFSCRIPT
+####	This second use of "ENDOFSCRIPT" terminates the "here-document".
+
+
+BEGIN_TEXT
+	This problem provides information about \( f(x) \) via an "oracle
+	function" [if you ask, it will tell].
+
+	Enter a numerical value in a lefthand box,
+	press the $functionArrow button, and
+	the corresponding function value is displayed in the righthand box.
+$BCENTER
+END_TEXT
+
+#	Here is where we actually display the javaScript calculator form,
+#	and supply a screenshot for hardcopy output.
+TEXT( MODES(
+	HTML => $javaScript ,
+	TeX  => image( "14-javaScript-2.png" ,
+			width => 363, height => 116, tex_size => 750 ) ,
+	)
+);
+
+BEGIN_TEXT
+$ECENTER
+$PAR
+	Estimate one value for the derivative of this function.
+$BR
+	\(f^\prime( $x0 )  \; \approx \; \)	\{ ans_rule(50) \}
+END_TEXT
+
+BEGIN_HINT
+	You can enter a numerical expression into the answer box and
+	let WeBWorK do the arithmetic.
+END_HINT
+
+#	This answer checking allows upto 1 percent error for the answer.
+ANS( num_cmp( $ans , reltol => 1 ) );
+
+ENDDOCUMENT();

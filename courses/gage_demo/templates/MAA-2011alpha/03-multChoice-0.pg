@@ -1,0 +1,57 @@
+####	03-multChoice-0.pg
+# DESCRIPTION
+#	multiple choice: explicit programming to manage list of answers
+# ENDDESCRIPTION
+
+## DBsubject('WeBWorK')
+## DBchapter('WeBWorK Tutorial')
+## DBsection('MAA Tutorial')
+## KEYWORDS('MathObjects','multiple choice')
+## Author('Mike Gage, Dick Lane')
+## Institution('U Rochester, U Montana')
+## Date('05/17/2011)
+
+DOCUMENT();	# This should be the first executable line in the problem.
+loadMacros(
+	"PGstandard.pl",
+	"PGchoicemacros.pl",
+	"PGcourse.pl",
+);
+
+####	after displaying problem number & points, show a title (centered, bold)
+TEXT(beginproblem(), $BBOLD, $BCENTER,
+	"Multiple Choice --- manage list of answers in Perl/PG",
+	$ECENTER, $EBOLD, $BR);
+
+$question =  "Which of these functions is the derivative of \( \tan(x) \)?";
+
+#	An example of a list or array variable. Its name begins with "@"
+@answer_list = ( "\( \sec^2(x) \)",	####	correct answer at index 0
+		"\( -\cot(x) \)",
+		"\( \tan(x) \)",
+		"\( \cosh(x) \)",
+		"\( \sin(x) \)",
+);
+
+#	These commands permute the order of the answers.
+@permutation = shuffle( scalar( @answer_list ) ) ;
+@permuted_answer_list = @answer_list[ @permutation ];
+
+#	Use macro OL to print Ordered List of answers labeled with Letters
+BEGIN_TEXT
+	$question
+	\{ OL( @permuted_answer_list ) \}
+$PAR
+	The correct answer is \{ ans_rule(10) \} (enter appropriate letter).
+END_TEXT
+
+
+$showPartialCorrectAnswers = 0 ;
+
+####	find letter for shuffled position of correct (originally first) item
+@inverted_alphabet = @ALPHABET[ invert( @permutation ) ];
+
+ANS( str_cmp( $inverted_alphabet[0] )   ) ;	## Perl indexing starts at 0
+  ##  Note: WeBWorK's default checking is case-insensitive, i.e., "E" = "e".
+
+ENDDOCUMENT();	# last executable line of the problem

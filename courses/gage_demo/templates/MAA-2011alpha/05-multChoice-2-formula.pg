@@ -1,0 +1,54 @@
+####	05-multChoice-2-formula.pg
+# DESCRIPTION
+#	multiple choice: use RadioButtons
+#	OOPS: it appears RadioButtons does not handle typeset math
+# ENDDESCRIPTION
+
+## DBsubject('WeBWorK')
+## DBchapter('WeBWorK Tutorial')
+## DBsection('MAA Tutorial')
+## KEYWORDS('MathObjects','multiple choice')
+## Author('Mike Gage, Dick Lane')
+## Institution('U Rochester, U Montana')
+## Date('05/17/2011)
+## SeeAlso('http://webwork.maa.org/wiki/MultipleChoiceRadio1')
+
+DOCUMENT();
+
+loadMacros(
+	"PGstandard.pl",
+	"PGchoicemacros.pl",
+	"parserRadioButtons.pl",
+	"PGcourse.pl",
+);
+
+##  after displaying problem number & points, show a title (centered, bold)
+TEXT(beginproblem(), $BBOLD, $BCENTER,
+	"Multiple Choice example --- RadioButtons parser",
+	$ECENTER, $EBOLD, $BR);
+
+####	assign answers, identify which is correct
+$ans = Formula( "\( \sec^2(x) \)") ;
+$choices = RadioButtons( [
+		$ans ,
+		Formula( "\( -\cot(x) \)" ) ,
+		Formula( "\( \tan(x) \)" )  ,
+		Formula( "\( \cosh(x) \)")  ,
+		Formula( "\( \sin(x) \)" )  ,
+		"none of the others" ] ,
+	$ans ,		####	correct answer
+	last => [ "none of the others" ]
+    ) ;
+
+Context() -> texStrings ;
+BEGIN_TEXT
+	Which of these functions is the derivative of \( \tan(x) \)?
+$BR
+	\{ $choices -> buttons() \}
+END_TEXT
+Context() -> normalStrings ;
+
+$showPartialCorrectAnswers = 0 ;	####	moot since only one question
+ANS( $choices -> cmp() ) ;
+
+ENDDOCUMENT();

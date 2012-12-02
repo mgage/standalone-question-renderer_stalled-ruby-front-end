@@ -1,0 +1,29 @@
+openDate	= 05/22/2011 at 06:00am MDT
+dueDate		= 12/31/2012 at 11:00pm MST
+answerDate	= 12/31/2012 at 11:10pm MST
+
+paperHeaderFile	 = MAA-2011alpha/MAA-2011alpha-Header.pg
+screenHeaderFile = MAA-2011alpha/MAA-2011alpha-Header.pg
+
+problemList	=
+MAA-2011alpha/01-standardExample.pg
+MAA-2011alpha/02-hello.pg
+MAA-2011alpha/03-multChoice-0.pg
+MAA-2011alpha/04-multChoice-text.pg
+MAA-2011alpha/05-multChoice-radio.pg
+MAA-2011alpha/06-trueFalse-text.pg
+MAA-2011alpha/07-trueFalse-popup.pg
+MAA-2011alpha/08-match-text.pg
+MAA-2011alpha/09-match-popup.pg
+MAA-2011alpha/10-staticGraphs/10-staticGraphs.pg
+MAA-2011alpha/11-ontheflyGraphics-static.pg
+MAA-2011alpha/12-ontheflyGraphics-scrambled.pg
+MAA-2011alpha/13-javaScript-1.pg
+MAA-2011alpha/14-javaScript-2.pg
+####	MAA-2011alpha/15a-javaApplet-1a.pg	####	uses mathbeans.jar
+MAA-2011alpha/15-javaApplet-1.pg
+MAA-2011alpha/16-javaApplet-2.pg
+MAA-2011alpha/17-javaApplet-3.pg
+MAA-2011alpha/18-conditionalQs.pg
+MAA-2011alpha/19-slopeFields.pg
+MAA-2011alpha/20-splinePlots.pg

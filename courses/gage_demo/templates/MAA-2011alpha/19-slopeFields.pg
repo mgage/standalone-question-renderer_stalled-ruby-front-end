@@ -1,0 +1,116 @@
+####	19-slopeFields.pg
+# DESCRIPTION
+#	generate slope field graphs for some ODEs: y' = F(x,y) ;  matching task
+# ENDDESCRIPTION
+
+## DBsubject('WeBWorK')
+## DBchapter('WeBWorK Tutorial')
+## DBsection('MAA Tutorial')
+## KEYWORDS('MathObjects','match',dynamic graph','slope field')
+## Author('Mike Gage, Dick Lane')
+## Institution('U Rochester, U Montana')
+## Date('05/21/2011)
+## SeeAlso('http://webwork.maa.org/wiki/MatchingDynamicGraphs')
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+	"PGstandard.pl",
+	"MathObjects.pl",
+	"PGgraphmacros.pl",
+  ##	"PGchoicemacros.pl",
+	"PGunion.pl",		####	loads unionTables.pl
+	"imageChoice.pl",
+	"PGcourse.pl",
+);
+
+TEXT(beginproblem());	# standard preamble to each problem.
+
+####	title for this tutorial example
+TEXT( $BCENTER, $BBOLD, "Slope Fields --- match dynamic graphs with ODEs",
+	$EBOLD, $ECENTER, $BR ) ;
+
+
+Context( "Numeric" ) -> variables -> add( y => 'Real' ) ;
+
+$refreshCachedImages = 1 ;	####	needed if problem is re-randomized !
+
+####	righthand sides for ODE:  y' = F(x,y)
+$F = () ;
+$F[0] = Formula( "y - x" ) -> reduce ;
+$F[1] = Formula( "-2 + x - y" ) -> reduce ;
+$F[2] = Formula( "2 y + x^2 e^(x/4)" ) -> reduce ;
+$F[3] = Formula( "e^(-x) + 2 y" ) -> reduce ;
+$F[4] = Formula( "2 sin(x) + 1 + y" ) -> reduce ;
+$F[5] = Formula( "y + 2 + (0) x" );	####	do not reduce, need F(x,y)
+$F[6] = Formula( "(2 x + y) / (abs(y) + 0.001)" ) -> reduce ;
+
+
+$numberOfQuestions = 4 ;
+@slice = NchooseK( scalar(@F) , $numberOfQuestions ) ;
+
+##  $dx_rule = sub{my ($x,$y) = @_; 1; };	##  not needed for slope field
+@dy_rules = @F[ @slice ] ;
+
+$size = 400 ;	####	pixel width and height for plots
+@QA = () ;
+foreach  my $j  ( 0 .. $numberOfQuestions - 1 ) {
+	$graph[$j] = init_graph( -4,-4,4,4, axes=>[0,0], grid=>[8,8],
+				size => [$size,$size] );
+  ##	$vectorfield[$j] = new VectorField( $dx_rule,
+  ##				$dy_rules[$j] -> perlFunction, $graph[$j] );
+	$vectorfield[$j] = new VectorField( $dy_rules[$j] -> perlFunction ,
+					$graph[$j] );
+	$vectorfield[$j] -> dot_radius(1);
+	$dy = Formula( "$dy_rules[$j]" ) -> reduce -> TeX ;
+	push( @QA , "\( y' = " . $dy . "\)" , $graph[$j] );
+}
+
+####	create the Image Match List --- put stuff into it
+$ML = new_image_match_list(
+	link => 1 ,
+	size => [ $size/2 , $size/2 ] ,
+	tex_size => 300 ,
+	columns => 2 ,
+	separation => 20 ,
+) ;
+
+$ML -> qa( @QA ) ;		####	ODE is question, graph is answer
+$ML -> choose(3) ;		####	random selection of three pairs
+$ML -> choose_extra(1) ;	####	include remaining graph as a distractor
+
+
+####
+Context() -> texStrings ;
+BEGIN_TEXT
+	Match each differential equation with its slope field.  Clicking on
+	each picture will give you an enlarged view.  While you can probably
+	solve this problem by guessing, it is useful to try to predict
+	characteristics of the slopefield and then match them to the picture.
+$PAR
+    	\{ ColumnMatchTable( $ML ) \}
+$PAR
+Here are some handy characteristics to start with --
+you will develop more as you practice.
+$PAR
+
+\{OL(
+  "Set y equal to zero and look at how the derivative behaves along the x axis.",
+  "Do the same for the y axis by setting x equal to 0",
+  "Consider the curve in the plane defined by setting y'=0
+   -- this should correspond to the points in the picture where the
+   slope is zero.",
+ "Setting y' equal to a constant other than zero gives the curve of points
+   where the slope is that
+   constant.  These are called isoclines, and can be used to construct the
+   direction field picture by hand."
+)\}
+
+END_TEXT
+Context() -> normalStrings ;
+
+$showPartialCorrectAnswers = 0;
+
+ANS( str_cmp( $ML -> ra_correct_ans() ) ) ;
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

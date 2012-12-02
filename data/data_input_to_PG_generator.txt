@@ -1,0 +1,164 @@
+$main::rh_input ={
+  answer_form_submitted => q{1} ,
+  command => q{renderProblem} ,
+  course => q{} ,
+  courseID => q{gage_demo} ,
+  courseName => q{gage_demo} ,
+  envir => {
+    CAPA_GraphicsDirectory => q{/ww/webwork/CAPA/CAPA_Graphics/} ,
+    CAPA_Graphics_URL => q{http://webwork-db.math.rochester.edu/capa_graphics/} ,
+    CAPA_MCTools => q{/ww/webwork/CAPA/CAPA_MCTools/} ,
+    CAPA_Tools => q{/ww/webwork/CAPA/CAPA_Tools/} ,
+    PRINT_FILE_NAMES_FOR =>  [ q{gage} ,
+ ] 
+ ,
+    answerDate => q{4014438528} ,
+    cgiDirectory => q{Not defined} ,
+    cgiURL => q{foobarNot defined} ,
+    classDirectory => q{Not defined} ,
+    courseName => q{Not defined} ,
+    courseScriptsDirectory => q{not defined} ,
+    displayMode => q{jsMath} ,
+    dueDate => q{4014438528} ,
+    effectivePermissionLevel => q{10} ,
+    externalGif2EpsPath => q{not defined} ,
+    externalPng2EpsPath => q{not defined} ,
+    externalTTHPath => q{/usr/local/bin/tth} ,
+    fileName => q{input.txt} ,
+    formattedAnswerDate => q{6/19/00} ,
+    formattedDueDate => q{6/19/00} ,
+    formattedOpenDate => q{6/19/00} ,
+    functAbsTolDefault => q{1e-07} ,
+    functLLimitDefault => q{0} ,
+    functMaxConstantOfIntegration => q{1000000000000} ,
+    functNumOfPoints => q{5} ,
+    functRelPercentTolDefault => q{1e-06} ,
+    functULimitDefault => q{1} ,
+    functVarDefault => q{x} ,
+    functZeroLevelDefault => q{1e-06} ,
+    functZeroLevelTolDefault => q{1e-06} ,
+    htmlDirectory => q{not defined} ,
+    htmlURL => q{not defined} ,
+    inputs_ref => {
+      AnSwEr0001 => q{} ,
+      AnSwEr0002 => q{} ,
+      AnSwEr0003 => q{} ,
+
+    }
+ ,
+    macroDirectory => q{not defined} ,
+    numAbsTolDefault => q{1e-07} ,
+    numFormatDefault => q{%0.13g} ,
+    numOfAttempts => q{0} ,
+    numRelPercentTolDefault => q{0.0001} ,
+    numZeroLevelDefault => q{1e-06} ,
+    numZeroLevelTolDefault => q{1e-06} ,
+    openDate => q{3014438528} ,
+    permissionLevel => q{10} ,
+    probFileName => q{input.txt} ,
+    probNum => q{13} ,
+    problemSeed => q{1234} ,
+    problemValue => q{1} ,
+    psvn => q{54321} ,
+    questionNumber => q{1} ,
+    scriptDirectory => q{Not defined} ,
+    sectionName => q{Gage} ,
+    sectionNumber => q{1} ,
+    server_root_url => q{localhost} ,
+    sessionKey => q{Not defined} ,
+    setNumber => q{not defined} ,
+    showHints => q{1} ,
+    showSolutions => q{1} ,
+    studentLogin => q{gage} ,
+    studentName => q{Mike Gage} ,
+    tempDirectory => q{not defined} ,
+    tempURL => q{not defined} ,
+    templateDirectory => q{not defined} ,
+    webworkDocsURL => q{not defined} ,
+
+  }
+ ,
+  extra_packages_to_load =>  [ q{AlgParserWithImplicitExpand} ,q{Expr} ,q{ExprWithImplicitExpand} ,q{AnswerEvaluator} ,q{AnswerEvaluatorMaker} ,
+ ] 
+ ,
+  library_name => q{Library} ,
+  mode => q{images} ,
+  modules_to_evaluate =>  [ q{Exporter} ,q{DynaLoader} ,q{GD} ,q{WWPlot} ,q{Fun} ,q{Circle} ,q{Label} ,q{PGrandom} ,q{Units} ,q{Hermite} ,q{List} ,q{Match} ,q{Multiple} ,q{Select} ,q{AlgParser} ,q{AnswerHash} ,q{Fraction} ,q{VectorField} ,q{Complex1} ,q{Complex} ,q{MatrixReal1} ,q{Matrix} ,q{Distributions} ,q{Regression} ,
+ ] 
+ ,
+  password => q{'foobar'} ,
+  problem_state => {
+    num_of_correct_ans => q{0} ,
+    num_of_incorrect_ans => q{4} ,
+    recorded_score => q{1} ,
+
+  }
+ ,
+  pw => q{} ,
+  session_key => q{} ,
+  site_password => q{} ,
+  source => q{IyNERVNDUklQVElPTgojIyAgQSB2ZXJ5IHNpbXBsZSBmaXJzdCBwcm9ibGVtCiMjRU5EREVTQ1JJ
+UFRJT04KIyNLRVlXT1JEUygnYWxnZWJyYScpCkRPQ1VNRU5UKCk7ICAgICAgICAjIFRoaXMgc2hv
+dWxkIGJlIHRoZSBmaXJzdCBleGVjdXRhYmxlIGxpbmUgaW4gdGhlIHByb2JsZW0uCmxvYWRNYWNy
+b3MoCiJQRy5wbCIsCiJQR2Jhc2ljbWFjcm9zLnBsIiwKIlBHY2hvaWNlbWFjcm9zLnBsIiwKIlBH
+YW5zd2VybWFjcm9zLnBsIiwKIlBHYXV4aWxpYXJ5RnVuY3Rpb25zLnBsIgopOwoKVEVYVChiZWdp
+bnByb2JsZW0oKSk7CiRzaG93UGFydGlhbENvcnJlY3RBbnN3ZXJzID0gMTsKJGEgPSByYW5kb20o
+LTEwLC0xLDEpOwokYiA9IHJhbmRvbSgxLDExLDEpOwokYyA9IHJhbmRvbSgxLDExLDEpOwokZCA9
+IHJhbmRvbSgxLDExLDEpOwoKQkVHSU5fVEVYVAokUEFSCmRpc3BsYXlNb2RlICBpcyAkZGlzcGxh
+eU1vZGUgJEJSCiRQQVIKVGhpcyBwcm9ibGVtIGRlbW9uc3RyYXRlcyBob3cgeW91IGVudGVyIG51
+bWVyaWNhbCBhbnN3ZXJzIGludG8gV2VCV29ySy4gJFBBUgpFdmFsdWF0ZSB0aGUgZXhwcmVzc2lv
+biBcKDMoJGEgKSgkYiAtJGMgLTIoJGQgKSlcKToKCiBceyBhbnNfcnVsZSgxMCkgXH0KCiRCUgpF
+TkRfVEVYVAokYW5zID0gMyooJGEpKigkYi0kYy0yKigkZCkpOwoKJkFOUyhzdHJpY3RfbnVtX2Nt
+cCgkYW5zKSk7CgpCRUdJTl9URVhUCgpJbiB0aGUgY2FzZSBhYm92ZSB5b3UgbmVlZCB0byBlbnRl
+ciBhIG51bWJlciwgc2luY2Ugd2UncmUgdGVzdGluZyB3aGV0aGVyIHlvdSBjYW4gbXVsdGlwbHkK
+b3V0IHRoZXNlIG51bWJlcnMuIChZb3UgY2FuIHVzZSBhIGNhbGN1bGF0b3IgaWYgeW91IHdhbnQu
+KSAKJFBBUgpGb3IgbW9zdCBwcm9ibGVtcywgeW91IHdpbGwgYmUgYWJsZSB0byBnZXQgV2VCV29y
+SyB0bwpkbyBzb21lIG9mIHRoZSB3b3JrIGZvciB5b3UuICBGb3IgZXhhbXBsZQokQlIKQ2FsY3Vs
+YXRlICgkYSkgKiAoJGIpOiBceyBhbnNfcnVsZSgpXH0KJEJSCkVORF9URVhUCiRhbnMgPSAkYSok
+YjsKCiZBTlMoc3RkX251bV9jbXAoJGFucykpOwoKQkVHSU5fVEVYVApUaGUgYXN0ZXJpc2sgaXMg
+d2hhdCBtb3N0IGNvbXB1dGVycyB1c2UgdG8gZGVub3RlIG11bHRpcGxpY2F0aW9uIGFuZCB5b3Ug
+Y2FuIHVzZSB0aGlzIHdpdGggV2VCV29ySy4gCkJ1dCBXZUJXb3JLIHdpbGwgYWxzbyBhbGxvdyB1
+c2UgdG8gdXNlICBhIHNwYWNlIHRvIGRlbm90ZSBtdWx0aXBsaWNhdGlvbi4KWW91IGNhbiBlaXRo
+ZXIgXCgkYSAqICRiXCkgb3IgXHskYSokYlx9IG9yIGV2ZW4gXCgkYSBcICRiXCkuICBBbGwgd2ls
+bCB3b3JrLiBUcnkgdGhlbS4gIAokUEFSCk5vdyB0cnkgY2FsY3VsYXRpbmcgdGhlIHNpbmUgb2Yg
+NDUgZGVncmVlcyAoIHRoYXQncyBzaW5lIG9mIHBpIG92ZXIgNCBpbiByYWRpYW5zCmFuZCBudW1l
+cmljYWxseSBzaW4ocGkvNCkgZXF1YWxzIFx7MS9zcXJ0KDIpXH0gb3IsIG1vcmUgcHJlY2lzZWx5
+LCAgXCgxL1xzcXJ0ezJ9IFwpICkuICAKWW91IGNhbiBlbnRlciB0aGlzIGFzICBzaW4ocGkvNCkg
+LCBhcyAKc2luKDMuMTQxNTkyNi80KSwgYXMgMS9zcXJ0KDIpLCBhcyAyKiooLS41KSwgZXRjLiBU
+aGlzIGlzIGJlY2F1c2UgV2VCV29ySyBrbm93cyBhYm91dCAKZnVuY3Rpb25zIGxpa2Ugc2luICBh
+bmQgc3FydCAoc3F1YXJlIHJvb3QpLiAoTm90ZTogZXhwb25lbnRzCmNhbiBiZSBpbmRpY2F0ZWQg
+YnkgZWl0aGVyIGEgImNhcmV0IiBvciAqKikuIFRyeSBpdC4kQlIgIFwoIFxzaW4oXHBpLzQpID0g
+XCkgXHsgYW5zX3J1bGUoMjApIFx9JFBBUgogSGVyZSdzIHRoZSAKXHsKaHRtbExpbmsocXEhaHR0
+cDovL3dlYndvcmsubWF0aC5yb2NoZXN0ZXIuZWR1L3dlYndvcmtfc3lzdGVtX2h0bWwvZG9jcy9k
+b2NzL3BnbGFuZ3VhZ2UvYXZhaWxhYmxlZnVuY3Rpb25zLmh0bWwhLCJsaXN0IApvZiB0aGUgZnVu
+Y3Rpb25zIikgXH0KIHdoaWNoIFdlQldvcksgdW5kZXJzdGFuZHMuICAgV2VCV29ySyBBTFdBWVMg
+dXNlcyByYWRpYW4gbW9kZSBmb3IgdHJpZyBmdW5jdGlvbnMuIAogJFBBUgpFTkRfVEVYVAoKJkFO
+Uyggc3RkX251bV9jbXAoc2luKDMuMTQxNTkyNi80KSkgKTsKQkVHSU5fVEVYVApZb3UgY2FuIGFs
+c28gdXNlIGp1eHRhcG9zaXRpb24gdG8gZGVub3RlIG11bHRpcGxpY2F0aW9uLiBFLmcuIGVudGVy
+IFwoIDJcc2luKDNccGkvMikgXCkuCllvdSBjYW4gZW50ZXIgdGhpcyBhcyAyKnNpbigzKnBpLzIp
+IG9yIG1vcmUgc2ltcGx5IGFzIDJzaW4oM3BpLzIpLiAgVHJ5IGl0OiAkQlIgClx7IGFuc19ydWxl
+KDIwKSBcfSRQQVIKCkVORF9URVhUCgokcGkgPSA0KmF0YW4oMSk7CiZBTlMoIHN0ZF9udW1fY21w
+KDIqc2luKDMqJHBpLzIpKSApOwoKQkVHSU5fVEVYVApTb21ldGltZXMgeW91IG5lZWQgdG8gdXNl
+ICggKSdzIHRvIG1ha2UgeW91ciBtZWFuaW5nIGNsZWFyLiBFLmcuIDEvMiszIGlzIDMuNSwgYnV0
+ICAxLygyKzMpIGlzIC4yIFdoeT8KVHJ5IGVudGVyaW5nIGJvdGggYW5kIHVzZSB0aGUgJHtMUX1Q
+cmV2aWV3JHtSUX0gYnV0dG9uIGJlbG93IHRvIHNlZSB0aGUgZGlmZmVyZW5jZS4gIEluIGFkZGl0
+aW9uIHRvCiggKSdzLCB5b3UgY2FuIGFsc28gdXNlIFsgXSdzIGFuZCAkTEIgJHtSQn0ncy4gICRC
+UgpceyBhbnNfcnVsZSgyMCkgXH0kUEFSCkVORF9URVhUCgomQU5TKCBzdGRfbnVtX2NtcCguMikp
+OwoKQkVHSU5fVEVYVApZb3UgY2FuIGFsd2F5cyB0cnkgdG8gZW50ZXIgYW5zd2VycyBhbmQgbGV0
+IFdlQldvcksgZG8gdGhlIGNhbGN1bGF0aW5nLiAKV2VCV29ySyB3aWxsIHRlbGwgeW91IGlmIHRo
+ZSBwcm9ibGVtIHJlcXVpcmVzIGEgc3RyaWN0IG51bWVyaWNhbCBhbnN3ZXIuIApUaGUgd2F5IHdl
+IHVzZSBXZUJXb3JLIGluIHRoaXMgY2xhc3MgdGhlcmUgaXMgbm8gcGVuYWx0eSBmb3IgZ2V0dGlu
+ZyBhbiBhbnN3ZXIgd3JvbmcuICBXaGF0IGNvdW50cwppcyB0aGF0IHlvdSBnZXQgdGhlIGFuc3dl
+ciByaWdodCBldmVudHVhbGx5IChiZWZvcmUgdGhlIGR1ZSBkYXRlKS4gIEZvciBjb21wbGljYXRl
+ZCBhbnN3ZXJzLAp5b3Ugc2hvdWxkIHVzZSB0aGUgJHtMUX1QcmV2aWV3JHtSUX0gYnV0dG9uIHRv
+IGNoZWNrIGZvciBzeW50YXggZXJyb3JzIGFuZCBhbHNvIHRvIGNoZWNrIHRoYXQgdGhlIGFuc3dl
+cgp5b3UgZW50ZXIgaXMgcmVhbGx5IHdoYXQgeW91IHRoaW5rIGl0IGlzLgpFTkRfVEVYVAoKRU5E
+RE9DVU1FTlQoKTsgICAgICAgICMgVGhpcyBzaG91bGQgYmUgdGhlIGxhc3QgZXhlY3V0YWJsZSBs
+aW5lIGluIHRoZSBwcm9ibGVtLgo=
+} ,
+  userID => q{gage} ,
+
+};
+
+1
+ 

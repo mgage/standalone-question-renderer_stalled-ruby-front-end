@@ -1,0 +1,86 @@
+####	09-match-2.pg
+# DESCRIPTION
+#	match functions with derivatives, two column format (on screen), popup
+# ENDDESCRIPTION
+
+## DBsubject('WeBWorK')
+## DBchapter('WeBWorK Tutorial')
+## DBsection('MAA Tutorial')
+## KEYWORDS('MathObjects','match','derivatives')
+## Author('Mike Gage, Dick Lane')
+## Institution('U Rochester, U Montana')
+## Date('05/18/2011)
+## SeeAlso1('http://webwork.maa.org/wiki/MatchingProblems')
+## SeeAlso2('http://webwork.maa.org/wiki/Matching1')
+
+
+DOCUMENT();
+
+loadMacros(
+	"PGstandard.pl",
+	"PGchoicemacros.pl",
+	"unionTables.pl",
+	"PGcourse.pl",
+);
+
+TEXT(beginproblem());
+
+####	title for this demo
+TEXT($BBOLD, $BCENTER,
+	"Matching --- two columns on screen, popups" ,
+	$ECENTER, $EBOLD, $BR);
+
+####	random generation of four distinct integers
+$a  = random(2,15,1) ;
+do  {$b = random(2,15,1)}  until  ($b != $a) ;
+do  {$c = random(2,15,1)}  until  ( ($c != $a) and ($c != $b) ) ;
+$d  = random(-15,-2,1) ;
+
+####	create the Match List object
+$mL = new_match_list();
+
+####	use popups for answer entry
+$mL -> rf_print_q( ~~&pop_up_list_print_q ) ;
+$mL -> ra_pop_up_list( [ No_answer => '&nbsp; ? &nbsp; ?' ,
+	'A' => 'A', 'B' => 'B', 'C' => 'C', 'D' => 'D',
+	'E' => 'E', 'F' => 'F', 'G' => 'G' ] ) ;
+
+####	Insert question,answer pairs: use double quotes, separate with comma
+$a1 = $a - 1 ;	####	exponent for third answer
+$mL -> qa (
+	"\( \sin(x) \)" ,	"\( \cos(x) \)" ,
+	"\( $a1 - \cos(x) \)" ,	"\( \sin(x) \)" ,
+	"\( x^{$a} \)" ,	"\( $a x^{$a1} \)" ,
+	"\( \sin($b x) \)" ,	"\( $b \cos($b x) \)" ,
+	"\( \cos($c x) \)" ,	"\( - $c \sin($c x) \)" ,
+	"\( \sin($c x) \)" ,	"\( $c \cos($c x) \)" ,
+	"\( \tan($d x) \)" ,	"\( $d \sec^{2} ($d x) \)" ,
+);
+
+####	use first two questions (labeled 0,1) and choose two more
+$mL -> choose( [0,1] , 2 );
+
+####	Add distractors: answers for one or two unused questions
+$mL -> extra( "\( $c \sin($c x) \)" ) ;    ## include as potential distractor
+$mL -> choose_extra(2) ;
+
+####	Add a "none of the above" choice"
+$mL -> makeLast( "derivative not shown" ) ;
+
+####	Now print the set of questions
+BEGIN_TEXT
+	Match each function with its derivative.
+	\{ ColumnMatchTable( $mL ) \}
+END_TEXT
+
+
+####	suppress feedback about which parts are correct and which are wrong
+$showPartialCorrectAnswers = 0 ;
+
+####	use the all-or-nothing grader, i.e., no partial credit
+####		http://webwork.maa.org/wiki/WeightedGrader
+install_problem_grader( ~~&std_problem_grader ) ;
+
+ANS( str_cmp( $mL -> ra_correct_ans )   ) ;
+
+ENDDOCUMENT();

@@ -1,0 +1,34 @@
+#DESCRIPTION
+#TYPE('word problem')
+# Related rates -- find rate of change of of a given function in x and y
+#  given dy/dt and dx/dt
+#ENDDESCRIPTION
+## Author('Utah ww group')
+## Institution('Univeristy of Utah')
+## DBsubject('Calculus')
+## DBchapter('Differentiation')
+## DBsection('Implicit Differentiation')
+## AuthorText1('Dale Varberg, Edwin J. Purcell, and Steven E. Rigdon')
+## TitleText1('Calculus')
+## EditionText1('9')
+## Section1('The Derivative')
+## Problem1('')
+## KEYWORDS('calculus')
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PGstandard.pl",
+"MathObjects.pl",
+"source.pl",
+);
+
+
+
+TEXT(MODES(TeX=>"Embedded Chart",HTML=><<EOF));
+
+<script src="http://spreadsheets.google.com/gpub?url=http%3A%2F%2Foj0ijfii34kccq3ioto7mdspc7r2s7o9.spreadsheets.gmodules.com%2Fgadgets%2Fifr%3Fup__table_query_url%3Dhttp%253A%252F%252Fspreadsheets.google.com%252Ftq%253Frange%253DA1%25253AG358%2526key%253DpKwvhzK7d80TCJl7wY92oVw%2526gid%253D0%2526pub%253D1%26up_title%3DUS%2520States%2520Metrics%26up_state%3D%26up__table_query_refresh_interval%3D0%26url%3Dhttp%253A%252F%252Fwww.google.com%252Fig%252Fmodules%252Fmotionchart.xml&height=529&width=606"></script>
+EOF
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

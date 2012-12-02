@@ -1,0 +1,210 @@
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PG.pl",
+  "PGbasicmacros.pl",
+  "PGanswermacros.pl",
+  "PGauxiliaryFunctions.pl",
+  "compoundProblem.pl",
+  "MathObjects.pl",
+  "PGinfo.pl",
+);
+
+HEADER_TEXT(<<'END_HEADER_TEXT');
+$PAR
+<style type="text/css">
+
+* {margin:0; padding:0; font:12px Verdana,Arial}
+code {font-family:"Courier New",Courier}
+
+#options {width:457px; margin:20px auto; text-align:right; color:#6600}
+#options a {text-decoration:none; color:#9ac1c9}
+#options a:hover {color:#033}
+
+#acc {width:457px; list-style:none; color:#033; margin:0 auto 40px}
+#acc h3 {width:443px; border:1px solid #9ac1c9; padding:6px 6px 8px; font-weight:bold; margin-top:5px; cursor:pointer; background:url(images/header.gif)}
+#acc h3:hover {background-color:#ff0}
+#acc .acc-section {overflow:hidden; background:#fff}
+#acc .acc-content {width:425px; padding:15px; border:1px solid #9ac1c9; border-top:none; background:#fff}
+
+#nested {width:425px; list-style:none; color:#033; margin-bottom:15px}
+#nested h3 {width:411px; border:1px solid #9ac1c9; padding:6px 6px 8px; font-weight:bold; margin-top:5px; cursor:pointer; background:url(images/header.gif)}
+#nested h3:hover {background:url(images/header_over.gif)}
+#nested .acc-section {overflow:hidden; background:#fff}
+#nested .acc-content {width:393px; padding:15px; border:1px solid #9ac1c9; border-top:none; background:#fff}
+#nested .acc-selected {background:url(images/header_over.gif)}
+.canshow {color:green;}
+</style>
+
+
+<script language="javascript">
+
+var TINY={};
+
+function T$(i){return document.getElementById(i)}
+function T$$(e,p){return p.getElementsByTagName(e)}
+
+TINY.accordion=function(){
+	function slider(n){this.n=n; this.a=[]}
+	slider.prototype.init=function(t,e,m,o,k){
+		var a=T$(t), i=s=0, n=a.childNodes, l=n.length; this.s=k||0; this.m=m||0;
+		for(i;i<l;i++){
+			var v=n[i];
+			if(v.nodeType!=3){
+				this.a[s]={}; this.a[s].h=h=T$$(e,v)[0]; this.a[s].c=c=T$$('div',v)[0]; h.onclick=new Function(this.n+'.pr(0,'+s+')');
+				if(o==s){h.className=this.s; c.style.height='auto'; c.d=1}else{c.style.height=0; c.d=-1} s++
+			}
+		}
+		this.l=s
+	};
+	slider.prototype.pr=function(f,d){
+		for(var i=0;i<this.l;i++){
+			var h=this.a[i].h, c=this.a[i].c, k=c.style.height; k=k=='auto'?1:parseInt(k); clearInterval(c.t);
+			if((k!=1&&c.d==-1)&&(f==1||i==d)){
+				c.style.height=''; c.m=c.offsetHeight; c.style.height=k+'px'; c.d=1; h.className=this.s; su(c,1)
+			}else if(k>0&&(f==-1||this.m||i==d)){
+				c.d=-1; h.className=''; su(c,-1)
+			}
+		}
+	};
+	function su(c){c.t=setInterval(function(){sl(c)},20)};
+	function sl(c){
+		var h=c.offsetHeight, d=c.d==1?c.m-h:h; c.style.height=h+(Math.ceil(d/5)*c.d)+'px';
+		c.style.opacity=h/c.m; c.style.filter='alpha(opacity='+h*100/c.m+')';
+		if((c.d==1&&h>=c.m)||(c.d!=1&&h==1)){if(c.d==1){c.style.height='auto'} clearInterval(c.t)}
+	};
+	return{slider:slider}
+}();
+</script>
+END_HEADER_TEXT
+
+###########################################
+sub beginsection {
+     my $name = shift;
+     my $state  = shift;
+    qq!<li>
+           <h3  class="$state">Part: $name:</h3>
+          <div class="acc-section" style="height: 0px; opacity: 0.004347826086956522;">
+         <div class="acc-content">
+      !;
+}
+
+sub endsection {
+    "</p></div></div></li>";
+}
+
+
+
+#####################################
+TEXT(beginproblem);
+
+##############################################
+#listFormVariables();
+$isProfessor = ($studentLogin eq 'gage');
+
+#
+#  Start a compound problem.  See the compoundProblem.pl
+#  file for more details about the parameters you
+#  can supply.
+#
+$cp = new compoundProblem(
+  parts => 3,                  # the total number of parts in this problem
+  totalAnswers => 4,           # total answers in all parts combined
+  parserValues => 1,           # make parser objects from student answers
+  allowReset => $isProfessor,  # professors get Reset button for testing
+);
+$part = $cp->part;             # look up the current part
+
+TEXT(q!<ul class="acc" id="acc"> !);
+##############################################
+#
+#  Part 1
+#
+
+
+TEXT(beginsection(1,'canshow'));
+BEGIN_TEXT
+$PAR
+Enter two numbers: \{NAMED_ANS_RULE("a",10)\}, \{NAMED_ANS_RULE("b",10)\}
+END_TEXT
+TEXT(endsection());
+
+#
+#  Labelled answers are saved for future parts.
+#  (The checker allows any number to be "correct" for
+#   these blanks.)
+#
+NAMED_ANS(
+  a => Real(1)->cmp(checker=>sub {return 1}, ignoreInfinity=>0),
+  b => Real(2)->cmp(checker=>sub {return 1}, ignoreInfinity=>0),
+);
+$ans_a = $inputs_ref->{a};
+$ans_b = $inputs_ref->{b};
+
+#
+#  the useGrader() method sets the grader for this part.
+#
+$cp->useGrader(~~&std_problem_grader);
+$showPartialCorrectAnswers = 0;
+
+
+
+##############################################
+#
+#  Part 2
+#
+
+$c = Real($ans_a+$ans_b);
+
+#
+#  The values of a and b are obtained from the
+#  first part of the problem.
+#
+TEXT(beginsection(2));
+BEGIN_TEXT
+
+ c is $c  and $ans_a and $ans_b
+$PAR
+\($a + $b\) = \{NAMED_ANS_RULE('c',10)\}
+END_TEXT
+TEXT(endsection());
+
+
+NAMED_ANS('c', $c->cmp);
+
+
+
+##############################################
+#
+#  Part 3
+#
+
+if (defined($ans_a) and defined($ans_b) ) {
+$f = Formula("$ans_a x + $ans_b")->reduce;
+} else {
+$f =Formula(" x ");
+}
+
+TEXT(beginsection(3,));
+BEGIN_TEXT
+$PAR
+Suppose \(f(x) = \{$f->TeX\}\).$BR
+Then \(f(2)\) = \{NAMED_ANS_RULE('f', 10)\}.
+END_TEXT
+TEXT(endsection());
+
+
+NAMED_ANS('f'=>$f->eval(x=>2)->cmp);
+
+TEXT(q!</ul  !);
+TEXT($PAR, q!
+<script language="javascript">
+var parentAccordion=new TINY.accordion.slider("parentAccordion");
+parentAccordion.init("acc","h3",0,-1);
+</script>
+!);
+
+
+##############################################
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

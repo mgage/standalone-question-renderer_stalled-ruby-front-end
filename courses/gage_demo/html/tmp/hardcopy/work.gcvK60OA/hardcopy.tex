@@ -1,0 +1,651 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WeBWorK Online Homework Delivery System
+% Copyright © 2000-2007 The WeBWorK Project, http://openwebwork.sf.net/
+% $CVSHeader: webwork2/conf/snippets/hardcopyPreamble.tex,v 1.3 2005/09/17 20:12:01 gage Exp $
+% 
+% This program is free software; you can redistribute it and/or modify it under
+% the terms of either: (a) the GNU General Public License as published by the
+% Free Software Foundation; either version 2, or (at your option) any later
+% version, or (b) the "Artistic License" which comes with this package.
+% 
+% This program is distributed in the hope that it will be useful, but WITHOUT
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+% FOR A PARTICULAR PURPOSE.  See either the GNU General Public License or the
+% Artistic License for more details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\batchmode
+\documentclass[10pt,dvips]{amsart}
+\usepackage{amsmath,amsfonts,amssymb,multicol}
+\usepackage[pdftex]{graphicx}
+\usepackage{epstopdf}  % allows use of eps files with pdftex
+\usepackage{epsf}
+\usepackage{epsfig}
+\usepackage{pslatex}
+\pagestyle{plain}
+\textheight 9in
+\oddsidemargin = -0.42in
+\evensidemargin = -0.42in
+\textwidth= 7.28in
+\columnsep = .25in
+\columnseprule = .4pt
+\def\endline{\bigskip\hrule width \hsize height 0.8pt }
+\newcommand{\lt}{<}
+\newcommand{\gt}{>}
+\newcommand{\less}{<}
+\newcommand{\grt}{>}
+
+% BEGIN capa tex macros
+
+\newcommand{\capa}{{\sl C\kern-.10em\raise-.00ex\hbox{\rm A}\kern-.22em%
+{\sl P}\kern-.14em\kern-.01em{\rm A}}}
+  
+\newenvironment{choicelist}
+{\begin{list}{}
+	{\setlength{\rightmargin}{0in}\setlength{\leftmargin}{0.13in}
+	\setlength{\topsep}{0.05in}\setlength{\itemsep}{0.022in}
+	\setlength{\parsep}{0in}\setlength{\belowdisplayskip}{0.04in}
+	\setlength{\abovedisplayskip}{0.05in}
+	\setlength{\abovedisplayshortskip}{-0.04in}
+	\setlength{\belowdisplayshortskip}{0.04in}}
+	}
+{\end{list}}
+
+% END capa tex macros 
+
+\begin{document}
+\voffset=-0.8in
+\newpage
+\setcounter{page}{1}
+\begin{multicols}{2}
+\columnwidth=\linewidth
+%% decoded old answers, saved. (keys = 
+ \end{multicols}
+\noindent {\large \bf Michael Gage}
+\hfill
+\noindent {\large \bf MAA Tutorial --- 2011 alpha version}
+\hrule
+
+	Here is a synopsis of the tutorial examples presented in this set.
+	They have been designed for learning the PG language and its
+	MathObjects extension --- they are not necessarily the best questions
+	to use for mathematics instruction.
+\par 
+{\bf  1. Standard example: }
+	    One part asks for a numerical answer and the other requires a
+	functional expression.  Many problems for a precalculus or calculus
+	course are constructed using only these simple tasks
+	(see below for a variety of techniques to use graphs).
+	    {\it MathObjects}  simplify this problem considerably,
+	particularly the second question asking for a derivative.
+\par 
+
+{\bf  2. Hello ... : }
+	Illustrates the basic structure of a PG problem with a text answer.
+	Modifications using MathObjects don't simplify this problem much, but
+	they provide for better student feedback when the word answer is
+	incorrect.
+\par 
+
+{\bf  3. Multiple Choice --- Perl list: }
+	Uses lists (arrays) to implement a multiple choice question. This uses
+	"barebones" Perl and a few basic macros to create the problem.
+	It's the assembly language version of the question.
+\par 
+
+{\bf  4. Multiple Choice --- radio button: }
+	Uses the multiple choice object to implement a multiple choice
+	question --- answer specified by selecting a radio button.
+\par 
+
+{\bf  5. Multiple Choice --- checkbox: }
+	Allows more than one correct answer to be supplied ---
+	answer(s) specified with checkboxes, all-or-nothing grading.
+\par 
+
+{\bf  6. True/False --- text entry:  }
+	Uses the TF context to allow text answer to be single letter
+	(T or F) or full word (True or False).
+\par 
+
+{\bf  7. True/False --- Pop-up choice: }
+	Answers are chosen from pop-up lists.
+\par 
+
+{\bf  8. Matching lists --- text entry: }
+\par 
+
+{\bf  9. Matching lists --- popup choice: }
+	Two column display on screen
+\par 
+
+{\bf  10. Matching lists --- static graphs: }
+	Function given graphically; match formulas for transformations
+	with their graph.  (Example 19 is similar, but with dynamic graphs.)
+\par 
+
+{\bf  11. On-the-fly graphics --- 1: }
+	Figure shows function and its derivatives.  Task: identify each.
+\par 
+
+{\bf  12. On-the-fly-graphics --- 2: }
+	Figure shows function and its derivatives ---
+	colors and labels are scrambled; same task.
+\par 
+
+{\bf  13. JavaScript --- 1: }
+	Estimate value of a derivative using an "oracle" function.
+	Code is written "in clear" into the webpage.
+\par 
+
+{\bf  14. JavaScript --- 2: }
+	A variant of the previous example which obfuscates the example function
+	as a cubic spline so that students can't read the javaScript code to
+	find out the answer.
+\par 
+
+{\bf  15. Java applet --- 1: }
+	Applet presents graph with sliders for 2 parameters.
+	Students can explore a task; first part asks for 3 numerical answers,
+	but last question asks for a functional relationship.
+\par 
+
+{\bf  16. Java applet --- 2: }
+	Use applet to find map coordinates, then do computation of distances.
+	Note: examples of HTML links are included here.
+\par 
+
+{\bf  17. Java applet --- 3: }
+	mild variant of preceding --- cities chosen randomly,
+	help about the applet appears below the questions
+\par 
+
+{\bf  18. Conditional Questions: }
+	Illustrates one method to create a problem which first asks an easy
+	question, and once that has been answered correctly, follows up with a
+	more involved question on the same material.
+\par 
+
+{\bf  19. Slope Field: }
+	Match various differential equations with their slope fields
+	--- dynamically generatated graphs
+	(for ODEs with mildly varying parameters).
+\par 
+
+{\bf  20. Spline fits to data: }
+	Demonstration of some numerical and graphical macros.
+\par\hrulefill\par 
+
+Edited by Dick Lane 2011
+
+ \begin{multicols}{2}
+\columnwidth=\linewidth
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WeBWorK Online Homework Delivery System
+% Copyright © 2000-2007 The WeBWorK Project, http://openwebwork.sf.net/
+% $CVSHeader: webwork2/conf/snippets/hardcopyProblemDivider.tex,v 1.3 2004/06/24 21:10:50 dpvc Exp $
+% 
+% This program is free software; you can redistribute it and/or modify it under
+% the terms of either: (a) the GNU General Public License as published by the
+% Free Software Foundation; either version 2, or (at your option) any later
+% version, or (b) the "Artistic License" which comes with this package.
+% 
+% This program is distributed in the hope that it will be useful, but WITHOUT
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+% FOR A PARTICULAR PURPOSE.  See either the GNU General Public License or the
+% Artistic License for more details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\medskip
+\goodbreak
+\hrule
+\nobreak
+\smallskip
+%% decoded old answers, saved. (keys = 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WeBWorK Online Homework Delivery System
+% Copyright © 2000-2007 The WeBWorK Project, http://openwebwork.sf.net/
+% $CVSHeader: webwork2/conf/snippets/hardcopyProblemDivider.tex,v 1.3 2004/06/24 21:10:50 dpvc Exp $
+% 
+% This program is free software; you can redistribute it and/or modify it under
+% the terms of either: (a) the GNU General Public License as published by the
+% Free Software Foundation; either version 2, or (at your option) any later
+% version, or (b) the "Artistic License" which comes with this package.
+% 
+% This program is distributed in the hope that it will be useful, but WITHOUT
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+% FOR A PARTICULAR PURPOSE.  See either the GNU General Public License or the
+% Artistic License for more details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\medskip
+\goodbreak
+\hrule
+\nobreak
+\smallskip
+%% decoded old answers, saved. (keys = 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WeBWorK Online Homework Delivery System
+% Copyright © 2000-2007 The WeBWorK Project, http://openwebwork.sf.net/
+% $CVSHeader: webwork2/conf/snippets/hardcopyProblemDivider.tex,v 1.3 2004/06/24 21:10:50 dpvc Exp $
+% 
+% This program is free software; you can redistribute it and/or modify it under
+% the terms of either: (a) the GNU General Public License as published by the
+% Free Software Foundation; either version 2, or (at your option) any later
+% version, or (b) the "Artistic License" which comes with this package.
+% 
+% This program is distributed in the hope that it will be useful, but WITHOUT
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+% FOR A PARTICULAR PURPOSE.  See either the GNU General Public License or the
+% Artistic License for more details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\medskip
+\goodbreak
+\hrule
+\nobreak
+\smallskip
+%% decoded old answers, saved. (keys = 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WeBWorK Online Homework Delivery System
+% Copyright © 2000-2007 The WeBWorK Project, http://openwebwork.sf.net/
+% $CVSHeader: webwork2/conf/snippets/hardcopyProblemDivider.tex,v 1.3 2004/06/24 21:10:50 dpvc Exp $
+% 
+% This program is free software; you can redistribute it and/or modify it under
+% the terms of either: (a) the GNU General Public License as published by the
+% Free Software Foundation; either version 2, or (at your option) any later
+% version, or (b) the "Artistic License" which comes with this package.
+% 
+% This program is distributed in the hope that it will be useful, but WITHOUT
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+% FOR A PARTICULAR PURPOSE.  See either the GNU General Public License or the
+% Artistic License for more details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\medskip
+\goodbreak
+\hrule
+\nobreak
+\smallskip
+%% decoded old answers, saved. (keys = 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WeBWorK Online Homework Delivery System
+% Copyright © 2000-2007 The WeBWorK Project, http://openwebwork.sf.net/
+% $CVSHeader: webwork2/conf/snippets/hardcopyProblemDivider.tex,v 1.3 2004/06/24 21:10:50 dpvc Exp $
+% 
+% This program is free software; you can redistribute it and/or modify it under
+% the terms of either: (a) the GNU General Public License as published by the
+% Free Software Foundation; either version 2, or (at your option) any later
+% version, or (b) the "Artistic License" which comes with this package.
+% 
+% This program is distributed in the hope that it will be useful, but WITHOUT
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+% FOR A PARTICULAR PURPOSE.  See either the GNU General Public License or the
+% Artistic License for more details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\medskip
+\goodbreak
+\hrule
+\nobreak
+\smallskip
+%% decoded old answers, saved. (keys = 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WeBWorK Online Homework Delivery System
+% Copyright © 2000-2007 The WeBWorK Project, http://openwebwork.sf.net/
+% $CVSHeader: webwork2/conf/snippets/hardcopyProblemDivider.tex,v 1.3 2004/06/24 21:10:50 dpvc Exp $
+% 
+% This program is free software; you can redistribute it and/or modify it under
+% the terms of either: (a) the GNU General Public License as published by the
+% Free Software Foundation; either version 2, or (at your option) any later
+% version, or (b) the "Artistic License" which comes with this package.
+% 
+% This program is distributed in the hope that it will be useful, but WITHOUT
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+% FOR A PARTICULAR PURPOSE.  See either the GNU General Public License or the
+% Artistic License for more details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\medskip
+\goodbreak
+\hrule
+\nobreak
+\smallskip
+%% decoded old answers, saved. (keys = 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WeBWorK Online Homework Delivery System
+% Copyright © 2000-2007 The WeBWorK Project, http://openwebwork.sf.net/
+% $CVSHeader: webwork2/conf/snippets/hardcopyProblemDivider.tex,v 1.3 2004/06/24 21:10:50 dpvc Exp $
+% 
+% This program is free software; you can redistribute it and/or modify it under
+% the terms of either: (a) the GNU General Public License as published by the
+% Free Software Foundation; either version 2, or (at your option) any later
+% version, or (b) the "Artistic License" which comes with this package.
+% 
+% This program is distributed in the hope that it will be useful, but WITHOUT
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+% FOR A PARTICULAR PURPOSE.  See either the GNU General Public License or the
+% Artistic License for more details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\medskip
+\goodbreak
+\hrule
+\nobreak
+\smallskip
+%% decoded old answers, saved. (keys = 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WeBWorK Online Homework Delivery System
+% Copyright © 2000-2007 The WeBWorK Project, http://openwebwork.sf.net/
+% $CVSHeader: webwork2/conf/snippets/hardcopyProblemDivider.tex,v 1.3 2004/06/24 21:10:50 dpvc Exp $
+% 
+% This program is free software; you can redistribute it and/or modify it under
+% the terms of either: (a) the GNU General Public License as published by the
+% Free Software Foundation; either version 2, or (at your option) any later
+% version, or (b) the "Artistic License" which comes with this package.
+% 
+% This program is distributed in the hope that it will be useful, but WITHOUT
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+% FOR A PARTICULAR PURPOSE.  See either the GNU General Public License or the
+% Artistic License for more details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\medskip
+\goodbreak
+\hrule
+\nobreak
+\smallskip
+%% decoded old answers, saved. (keys = 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WeBWorK Online Homework Delivery System
+% Copyright © 2000-2007 The WeBWorK Project, http://openwebwork.sf.net/
+% $CVSHeader: webwork2/conf/snippets/hardcopyProblemDivider.tex,v 1.3 2004/06/24 21:10:50 dpvc Exp $
+% 
+% This program is free software; you can redistribute it and/or modify it under
+% the terms of either: (a) the GNU General Public License as published by the
+% Free Software Foundation; either version 2, or (at your option) any later
+% version, or (b) the "Artistic License" which comes with this package.
+% 
+% This program is distributed in the hope that it will be useful, but WITHOUT
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+% FOR A PARTICULAR PURPOSE.  See either the GNU General Public License or the
+% Artistic License for more details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\medskip
+\goodbreak
+\hrule
+\nobreak
+\smallskip
+%% decoded old answers, saved. (keys = 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WeBWorK Online Homework Delivery System
+% Copyright © 2000-2007 The WeBWorK Project, http://openwebwork.sf.net/
+% $CVSHeader: webwork2/conf/snippets/hardcopyProblemDivider.tex,v 1.3 2004/06/24 21:10:50 dpvc Exp $
+% 
+% This program is free software; you can redistribute it and/or modify it under
+% the terms of either: (a) the GNU General Public License as published by the
+% Free Software Foundation; either version 2, or (at your option) any later
+% version, or (b) the "Artistic License" which comes with this package.
+% 
+% This program is distributed in the hope that it will be useful, but WITHOUT
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+% FOR A PARTICULAR PURPOSE.  See either the GNU General Public License or the
+% Artistic License for more details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\medskip
+\goodbreak
+\hrule
+\nobreak
+\smallskip
+%% decoded old answers, saved. (keys = 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WeBWorK Online Homework Delivery System
+% Copyright © 2000-2007 The WeBWorK Project, http://openwebwork.sf.net/
+% $CVSHeader: webwork2/conf/snippets/hardcopyProblemDivider.tex,v 1.3 2004/06/24 21:10:50 dpvc Exp $
+% 
+% This program is free software; you can redistribute it and/or modify it under
+% the terms of either: (a) the GNU General Public License as published by the
+% Free Software Foundation; either version 2, or (at your option) any later
+% version, or (b) the "Artistic License" which comes with this package.
+% 
+% This program is distributed in the hope that it will be useful, but WITHOUT
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+% FOR A PARTICULAR PURPOSE.  See either the GNU General Public License or the
+% Artistic License for more details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\medskip
+\goodbreak
+\hrule
+\nobreak
+\smallskip
+%% decoded old answers, saved. (keys = 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WeBWorK Online Homework Delivery System
+% Copyright © 2000-2007 The WeBWorK Project, http://openwebwork.sf.net/
+% $CVSHeader: webwork2/conf/snippets/hardcopyProblemDivider.tex,v 1.3 2004/06/24 21:10:50 dpvc Exp $
+% 
+% This program is free software; you can redistribute it and/or modify it under
+% the terms of either: (a) the GNU General Public License as published by the
+% Free Software Foundation; either version 2, or (at your option) any later
+% version, or (b) the "Artistic License" which comes with this package.
+% 
+% This program is distributed in the hope that it will be useful, but WITHOUT
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+% FOR A PARTICULAR PURPOSE.  See either the GNU General Public License or the
+% Artistic License for more details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\medskip
+\goodbreak
+\hrule
+\nobreak
+\smallskip
+%% decoded old answers, saved. (keys = 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WeBWorK Online Homework Delivery System
+% Copyright © 2000-2007 The WeBWorK Project, http://openwebwork.sf.net/
+% $CVSHeader: webwork2/conf/snippets/hardcopyProblemDivider.tex,v 1.3 2004/06/24 21:10:50 dpvc Exp $
+% 
+% This program is free software; you can redistribute it and/or modify it under
+% the terms of either: (a) the GNU General Public License as published by the
+% Free Software Foundation; either version 2, or (at your option) any later
+% version, or (b) the "Artistic License" which comes with this package.
+% 
+% This program is distributed in the hope that it will be useful, but WITHOUT
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+% FOR A PARTICULAR PURPOSE.  See either the GNU General Public License or the
+% Artistic License for more details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\medskip
+\goodbreak
+\hrule
+\nobreak
+\smallskip
+%% decoded old answers, saved. (keys = 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WeBWorK Online Homework Delivery System
+% Copyright © 2000-2007 The WeBWorK Project, http://openwebwork.sf.net/
+% $CVSHeader: webwork2/conf/snippets/hardcopyProblemDivider.tex,v 1.3 2004/06/24 21:10:50 dpvc Exp $
+% 
+% This program is free software; you can redistribute it and/or modify it under
+% the terms of either: (a) the GNU General Public License as published by the
+% Free Software Foundation; either version 2, or (at your option) any later
+% version, or (b) the "Artistic License" which comes with this package.
+% 
+% This program is distributed in the hope that it will be useful, but WITHOUT
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+% FOR A PARTICULAR PURPOSE.  See either the GNU General Public License or the
+% Artistic License for more details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\medskip
+\goodbreak
+\hrule
+\nobreak
+\smallskip
+%% decoded old answers, saved. (keys = 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WeBWorK Online Homework Delivery System
+% Copyright © 2000-2007 The WeBWorK Project, http://openwebwork.sf.net/
+% $CVSHeader: webwork2/conf/snippets/hardcopyProblemDivider.tex,v 1.3 2004/06/24 21:10:50 dpvc Exp $
+% 
+% This program is free software; you can redistribute it and/or modify it under
+% the terms of either: (a) the GNU General Public License as published by the
+% Free Software Foundation; either version 2, or (at your option) any later
+% version, or (b) the "Artistic License" which comes with this package.
+% 
+% This program is distributed in the hope that it will be useful, but WITHOUT
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+% FOR A PARTICULAR PURPOSE.  See either the GNU General Public License or the
+% Artistic License for more details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\medskip
+\goodbreak
+\hrule
+\nobreak
+\smallskip
+%% decoded old answers, saved. (keys = 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WeBWorK Online Homework Delivery System
+% Copyright © 2000-2007 The WeBWorK Project, http://openwebwork.sf.net/
+% $CVSHeader: webwork2/conf/snippets/hardcopyProblemDivider.tex,v 1.3 2004/06/24 21:10:50 dpvc Exp $
+% 
+% This program is free software; you can redistribute it and/or modify it under
+% the terms of either: (a) the GNU General Public License as published by the
+% Free Software Foundation; either version 2, or (at your option) any later
+% version, or (b) the "Artistic License" which comes with this package.
+% 
+% This program is distributed in the hope that it will be useful, but WITHOUT
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+% FOR A PARTICULAR PURPOSE.  See either the GNU General Public License or the
+% Artistic License for more details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\medskip
+\goodbreak
+\hrule
+\nobreak
+\smallskip
+%% decoded old answers, saved. (keys = 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WeBWorK Online Homework Delivery System
+% Copyright © 2000-2007 The WeBWorK Project, http://openwebwork.sf.net/
+% $CVSHeader: webwork2/conf/snippets/hardcopyProblemDivider.tex,v 1.3 2004/06/24 21:10:50 dpvc Exp $
+% 
+% This program is free software; you can redistribute it and/or modify it under
+% the terms of either: (a) the GNU General Public License as published by the
+% Free Software Foundation; either version 2, or (at your option) any later
+% version, or (b) the "Artistic License" which comes with this package.
+% 
+% This program is distributed in the hope that it will be useful, but WITHOUT
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+% FOR A PARTICULAR PURPOSE.  See either the GNU General Public License or the
+% Artistic License for more details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\medskip
+\goodbreak
+\hrule
+\nobreak
+\smallskip
+%% decoded old answers, saved. (keys = 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WeBWorK Online Homework Delivery System
+% Copyright © 2000-2007 The WeBWorK Project, http://openwebwork.sf.net/
+% $CVSHeader: webwork2/conf/snippets/hardcopyProblemDivider.tex,v 1.3 2004/06/24 21:10:50 dpvc Exp $
+% 
+% This program is free software; you can redistribute it and/or modify it under
+% the terms of either: (a) the GNU General Public License as published by the
+% Free Software Foundation; either version 2, or (at your option) any later
+% version, or (b) the "Artistic License" which comes with this package.
+% 
+% This program is distributed in the hope that it will be useful, but WITHOUT
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+% FOR A PARTICULAR PURPOSE.  See either the GNU General Public License or the
+% Artistic License for more details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\medskip
+\goodbreak
+\hrule
+\nobreak
+\smallskip
+%% decoded old answers, saved. (keys = 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WeBWorK Online Homework Delivery System
+% Copyright © 2000-2007 The WeBWorK Project, http://openwebwork.sf.net/
+% $CVSHeader: webwork2/conf/snippets/hardcopyProblemDivider.tex,v 1.3 2004/06/24 21:10:50 dpvc Exp $
+% 
+% This program is free software; you can redistribute it and/or modify it under
+% the terms of either: (a) the GNU General Public License as published by the
+% Free Software Foundation; either version 2, or (at your option) any later
+% version, or (b) the "Artistic License" which comes with this package.
+% 
+% This program is distributed in the hope that it will be useful, but WITHOUT
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+% FOR A PARTICULAR PURPOSE.  See either the GNU General Public License or the
+% Artistic License for more details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\medskip
+\goodbreak
+\hrule
+\nobreak
+\smallskip
+%% decoded old answers, saved. (keys = 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WeBWorK Online Homework Delivery System
+% Copyright © 2000-2007 The WeBWorK Project, http://openwebwork.sf.net/
+% $CVSHeader: webwork2/conf/snippets/hardcopyProblemDivider.tex,v 1.3 2004/06/24 21:10:50 dpvc Exp $
+% 
+% This program is free software; you can redistribute it and/or modify it under
+% the terms of either: (a) the GNU General Public License as published by the
+% Free Software Foundation; either version 2, or (at your option) any later
+% version, or (b) the "Artistic License" which comes with this package.
+% 
+% This program is distributed in the hope that it will be useful, but WITHOUT
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+% FOR A PARTICULAR PURPOSE.  See either the GNU General Public License or the
+% Artistic License for more details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\medskip
+\goodbreak
+\hrule
+\nobreak
+\smallskip
+%% decoded old answers, saved. (keys = 
+%% decoded old answers, saved. (keys = 
+ \end{multicols}
+
+
+\noindent {\tiny Generated by \copyright WeBWorK, http://webwork.maa.org, Mathematical Association of America}
+
+ \begin{multicols}{2}
+\columnwidth=\linewidth
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% WeBWorK Online Homework Delivery System
+% Copyright © 2000-2007 The WeBWorK Project, http://openwebwork.sf.net/
+% $CVSHeader: webwork2/conf/snippets/hardcopyPostamble.tex,v 1.2 2003/12/09 01:12:29 sh002i Exp $
+% 
+% This program is free software; you can redistribute it and/or modify it under
+% the terms of either: (a) the GNU General Public License as published by the
+% Free Software Foundation; either version 2, or (at your option) any later
+% version, or (b) the "Artistic License" which comes with this package.
+% 
+% This program is distributed in the hope that it will be useful, but WITHOUT
+% ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+% FOR A PARTICULAR PURPOSE.  See either the GNU General Public License or the
+% Artistic License for more details.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{multicols}
+\vfill
+\end{document}

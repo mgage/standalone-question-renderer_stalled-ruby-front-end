@@ -1,0 +1,17 @@
+
+openDate          = 07/01/2010 at 01:31pm EDT
+dueDate           = 08/10/2015 at 11:31am EDT
+answerDate        = 08/10/2015 at 11:31am EDT
+paperHeaderFile   = setapplets3/applets3_setheader.pg
+screenHeaderFile  = setapplets3/applets3_setheader.pg
+problemList       = 
+setapplets3/newpointandgraph.pg, 1, -1 
+setapplets3/pointGraph_quadratic.pg, 1, -1 
+setapplets3/intercept.pg, 1, -1 
+setapplets3/multipointandgraph.pg, 1, -1 
+setapplets3/multipointandgraph_debug.pg, 1, -1 
+setapplets3/geogebra_point_and_graph.pg, 1, -1 
+setapplets3/geogebra_point_and_graph_debug.pg, 1, -1 
+setapplets3/inflection.pg, 1, -1 
+setapplets3/pointGraph_debug.pg, 1, -1 
+

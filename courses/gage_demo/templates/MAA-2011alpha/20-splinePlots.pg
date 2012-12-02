@@ -1,0 +1,144 @@
+####	20-splinePlots.pg
+# DESCRIPTION
+#	linear and spline functions fit to data, then graphed
+# ENDDESCRIPTION
+
+## DBsubject('WeBWorK')
+## DBchapter('WeBWorK Tutorial')
+## DBsection('MAA Tutorial')
+## KEYWORDS('MathObjects','graph',spline')
+## Author('Mike Gage, Dick Lane')
+## Institution('U Rochester, U Montana')
+## Date('05/21/2011)
+
+DOCUMENT();
+loadMacros(
+	"PGstandard.pl",
+	"MathObjects.pl",
+	"PGnumericalmacros.pl",
+	"PGgraphmacros.pl",
+	"unionTables.pl",
+	"PGcourse.pl",
+);
+
+TEXT( beginproblem() ) ;
+
+TEXT($BBOLD, $BCENTER,
+	"Linear and Cubic Spline fits for data", $ECENTER, $EBOLD, $BR ) ;
+
+Context( "Numeric" ) ;
+
+$refreshCachedImages = 1 ;	####	needed if problem is re-randomized
+
+####	create a function to provide data
+$a = list_random( -1 , 1 ) ;
+$b = random(3,5,1) ;
+$c = random(1,9,1) / 10 ;
+$g  = Formula( "e^($a x/2) sin($b x - $c)" ) -> reduce ;
+$gp = $g -> D -> reduce ;
+
+####	get (x, y, y') values for integer x in [-4,4]
+@xL  = () ;
+@yL  = () ;
+@ypL = () ;
+foreach  my $j  (-4 .. 4) {
+	push( @xL  , $j ) ;
+	push( @yL  , $g  -> eval(x => $j) -> value ) ;
+	push( @ypL , $gp -> eval(x => $j) -> value ) ;
+}
+
+####	prepare some graph objects, include dots at (x,y) points (except shift)
+$size = 500 ;
+foreach  my $j  (0 .. 3) {
+    $gr[$j] = init_graph(-4,-4,4,4, axes=>[0,0], grid=>[8,8],
+			size=>[$size,$size] ) ;
+    if ($j != 1 ) {	####	omit dots in shifted version of linear spline
+	foreach  my $k  (0 .. 7) {
+	    $gr[$j] -> stamps( closed_circle( $xL[$k] , $yL[$k] , 'red' ) ) ;
+	    }
+	}
+}
+
+####	connect the dots with straight line segments
+####		Note although http://webwork.maa.org/wiki/Plot_list says
+####	"Plots a piecewise linear ... curve through a sequence of points",
+####	about half of such figures produced here fail (mildly) to do that.
+$f0_rule = plot_list( ~~@xL , ~~@yL ) ;
+$f0 = new Fun( $f0_rule , $gr[0] ) ;
+$f0 -> color( 'blue' ) ;
+
+####	horizontal shift of preceding linear spline
+$shift = Formula( "x + $a" ) -> reduce ;    ##	used for answer, not next cmd
+$f1_rule = sub{ my $x = shift ;  &$f0_rule( $x + $a ) } ;
+$f1 = new Fun( $f1_rule , $gr[1] ) ;
+####	http://webwork.maa.org/wiki/GraphShading1
+$gr[1] -> new_color( 'darkgreen' , 0 , 86 , 34 ) ;
+$f1 -> color( 'darkgreen' ) ;
+
+####	fit a cubic spline using the (x, y, yp) data
+$f2_H = new Hermite( ~~@xL , ~~@yL , ~~@ypL ) ;
+$f2_spline = $f2_H -> rf_f ;
+$f2 = new Fun( $f2_spline , $gr[2] ) ;
+$f2 -> color( 'red' ) ;
+
+####	graph the original function
+add_functions( $gr[3] , "$g for x in <-4,4> using color:black and weight:2" ) ;
+
+####	create figure insertions to use in subsequent tables
+foreach  my $j  (0 .. 3) {
+	$fig[$j] = image( insertGraph( $gr[$j] ) ,
+		width => $size/2, height => $size/2, tex_size => 400 ) ;
+}
+
+
+####	now we are ready to write some text and display some figures
+Context() -> texStrings ;
+BEGIN_TEXT
+	    Function  \( g(x) = $g \)  produced the
+	\( \left( x, y, y^\prime \right) \)  data used in this example.
+	    Some figures show dots for a few points on the graph of \( g \).
+	The upper-left figure has a blue curve consisting of straight line
+	segments which connect those dots.  The upper-right figure has a green
+	curve which is a shifted version of the blue curve.
+$BCENTER
+	\{ BeginTable() . AlignedRow([$fig[0],$fig[1]]) . EndTable() ; \}
+$BR
+	(Click on a graph to enlarge it.)
+$ECENTER
+$BR
+	If the blue function (on the left) is written as \(f(x)\),
+	then the green function (on the right) would be written as
+$BCENTER
+	\(  g(x)  =  f\big(  \)    \{ ans_rule() \}    \(  \big)  \)
+$HR
+	\{ BeginTable() . AlignedRow([$fig[2],$fig[3]]) . EndTable() ; \}
+$ECENTER
+	The lower-left figure has a red curve which graphs a
+	cubic spline that fits the \( (x, y, y^\prime) \) data about \( g \);
+	compare it with the black curve in the lower-right figure
+	which is a graph of the original function \( g \).
+END_TEXT
+Context() -> normalStrings ;
+####	Note: although green and g(x) harmonize, a 'green' curve is too faint
+
+$showPartialAnswers = 1 ;
+ANS( $shift -> cmp() ) ;
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.
+
+
+setMAAtutorial/hermitegraphexample.pg includes the following interesting stuff
+
+# We are also working on a macro which will automatically
+# identify the maximum, minimum and inflection points of an arbitary hermite
+# cubic spline from its specifying values.  This will allow automatic generation
+# of  problems in which the maximum, minimum and inflection points are to be
+# deduced from a graph.
+#
+# Get the internal local maximums
+@critical_points = keys %{$hermite->rh_critical_points};
+@critical_points = num_sort( @critical_points);
+@minimum_points = ();
+foreach my $x (@critical_points) {
+	push(@minimum_points, $x) if &{$hermite->rf_fpp}($x) >0 ;
+}

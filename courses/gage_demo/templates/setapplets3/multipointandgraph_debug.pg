@@ -1,0 +1,226 @@
+##DESCRIPTION
+##  Algebra problem: identify the inflection point of a cubic graph
+##ENDDESCRIPTION
+
+##KEYWORDS('algebra', 'inequality', 'fraction')
+
+## DBsubject('Precalculus')
+## DBchapter('')
+## DBsection('')
+## Date('3/01/2008')
+## Author('Michael Gage')
+## Institution('U. of Rochester')
+## TitleText1('Precalculus')
+## EditionText1('')
+## AuthorText1('')
+## Section1('')
+## Problem1('')
+
+########################################################################
+
+DOCUMENT();
+
+# Load whatever macros you need for the problem
+loadMacros(        "PGstandard.pl",
+		   "MathObjects.pl",
+		   "parserSolutionFor.pl",
+		   "AppletObjects.pl",
+                   "answerHints.pl",
+		   #"source.pl",
+                   "PGcourse.pl",
+		  );
+
+# Print problem number and point value (weight) for the problem
+TEXT(beginproblem());
+
+# Do not show which answers are correct and which ones are incorrect
+$showPartialCorrectAnswers = 1;
+
+##############################################################
+#
+#  Setup
+#
+#
+Context("Point");
+$tolerance =0.15;  # dots with x and y within this tolerance  are correct
+$close_but = .4;    # dots within this distance of the correct answer get "close but no cigar" message
+Context()->flags->set(tolType=>'absolute',tolerance=>$tolerance);
+
+$a = Real( random(-1,2,0.5) );
+$b =  Real(random(-3,-1,1) );
+$function = Formula("(x - $a)^3 + $b * x")->reduce;
+
+$x0 = $a;  # inflection point
+$y0= $function->eval(x=>$x0);
+$x1 = $a-sqrt(-$b/3); # local max
+$x2 = $a+sqrt(-$b/3); # local min
+$y1 = $function->eval(x=>$x1);
+$y2 = $function->eval(x=>$x2);
+# The last coordinate is the color
+$inflection_point_color = Compute("($x0, $y0,65280)"); # green
+$local_max_point_color  = Compute("($x1, $y1, 16711680    )"); #red
+$local_min_point_color  = Compute("($x2, $y2,  16711680   )");
+$answer_list = List($inflection_point_color, $local_max_point_color, $local_min_point_color);
+$inflection_point = Compute("($x0, $y0   )"); 
+$local_max_point  = Compute("($x1, $y1   )"); 
+$local_min_point  = Compute("($x2, $y2   )");
+
+
+
+
+###################################
+# Create  link to applet 
+###################################
+$appletName = "MultiPointGraph";
+$applet =  FlashApplet(
+   codebase                     =>  findAppletCodebase("$appletName.swf"),
+   appletName                 =>  $appletName,
+   appletId                       =>  $appletName,
+   setStateAlias               =>  'setXML',
+   getStateAlias              =>  'getXML',
+   setConfigAlias            =>  'setConfig',
+   answerBoxAlias          =>  'answerBox',
+   debugMode                 => 1,
+   submitActionScript =>qq{ getQE("answerBox").value=getApplet("$appletName").getAnswer() },
+);
+
+###################################
+# Configure applet
+###################################
+
+#data to set up the equation
+$applet->configuration(qq{<XML expr='$function' />});
+# initial points
+$applet->initialState(qq{<XML> <pt xval='0' yval='0' color='65280'/><pt xval='1' yval='1' color='0xFF0000'/><pt xval='2' yval='2' color='0xFF0000'/></XML>});# color=green and red and red
+###################################
+#insert applet into body
+###################################
+
+TEXT( MODES(TeX=>'object code', HTML=>$applet->insertAll(
+ debug=>0,
+includeAnswerBox=>1,
+ reinitialize_button=>1,
+ )));
+
+##########
+# the debug mode allows you to view the contents of the XML
+##########
+#TEXT( MODES(TeX=>'object code', HTML=>$applet->insertAll(debug=>0 reset_button=>1)));##
+##############################################################
+#
+#  Text
+#
+#
+
+BEGIN_TEXT
+
+$PAR
+Drag the green point to the inflection point of the given curve, drag the red dots to local extrema points, then press the submit button.
+$PAR
+$BITALIC You will have to position the points fairly accurately.$EITALIC
+$PAR
+
+END_TEXT
+# $BBOLD Next answer these questions:$EBOLD
+# $PAR
+# The inflection point has the coordinates: \{ans_rule\}$PAR
+# The local maximum has the coordinates:  \{ans_rule\} $PAR
+# The local minimum has the coordinates:  \{ans_rule()\}
+
+
+##############################################################
+#
+#  Answers
+#
+#
+NAMED_ANS('answerBox'=> $answer_list->cmp
+      (checker => sub {
+        my ($correct,$student,$ans) = @_;
+        $student->{isClose} = 1 if Vector($correct-$student)->norm < $close_but;
+        return $correct ==$student;
+      })->withPostFilter(AnswerHints(sub {
+			my ($correct,$student,$ans) = @_;
+			$student = List($student) unless $student->class eq "List";
+			foreach $point ($student->value) {
+				  return 0 unless $point->{isClose}
+			}
+        	return 1;
+        	} => ["You're close.  You need to position at least one dot more precisely",   
+                 replaceMessage=>1]
+         )
+     )
+  );
+#  ANS($anser_list->cmp
+#       (checker => sub {
+#         my ($correct,$student,$ans) = @_;
+#         $student->{isClose} = 1 if Vector($correct-$student)->norm < .3*$tolerance;
+#         return $correct == $student;
+#       })->withPostFilter(AnswerHints(sub {
+#         my ($correct,$student,$ans) = @_;
+#         $student = List($student) unless $student->class eq "List";
+#         foreach $point ($student->value) {return 0 unless $point->{isClose}}
+#         return 1;
+#       } => ["You're close.  You need to position at least one dot more precisely"]
+#     ))); 
+  
+# NAMED_ANS('answerBox'=>$answer_list->cmp(checker=> 
+# 	sub {
+# 		my ($correct, $student, $rh_ans) = @_;
+# 		if (Vector($correct-$student)->norm < $close_but and $correct!=$student ) {
+#                    my $str = $student;
+#                     $str =~ s/,65280//g;
+#                     $str =~ s/,1.67117E~~+07//g;
+# 		   $rh_ans->{no_cigar} .= "The dot at $str needs to be positioned more accurately!$BR " ;
+# 		}
+# 	    return $correct == $student;
+# 	}
+# )->withPostFilter(
+# 	sub { my $rh_ans = shift;
+#                   $rh_ans->{no_cigar}=~s/^[^~~!]*!//; # get rid of first message
+# 		  $rh_ans->{ans_message}=$rh_ans->{no_cigar} unless $rh_ans->{score}==1;
+#                   my $str = $rh_ans->{student_ans}; # remove colors
+#                   $str =~ s/,65280//g;
+#                   $str =~ s/,1.67117E~~+07//g;
+#                   $rh_ans->{student_ans}=$str;
+#                   $rh_ans->{preview_latex_string}="";
+# 		  return $rh_ans;
+# 	}
+# )
+# );
+ 
+# ANS($inflection_point->cmp->withPostFilter(AnswerHints(
+#                       sub {
+#                              my ($correct,$student,$ans) = @_;
+#                              return Vector($correct-$student)->norm 
+#                                            < 3*$tolerance ;
+#                         } => ["You're close.  ", replaceMessage=>1]
+# )),
+#     $local_max_point->cmp->withPostFilter(AnswerHints(
+#                       sub {
+#                              my ($correct,$student,$ans) = @_;
+#                              return Vector($correct-$student)->norm
+#                                           < 3*$tolerance ;
+#                         } => ["You're close. ", replaceMessage=>1]
+# )),
+#     $local_min_point->cmp->withPostFilter(AnswerHints(
+#                       sub {
+#                              my ($correct,$student,$ans) = @_;
+#                              return Vector($correct-$student)->norm
+#                                           < 3*$tolerance ;
+#                         } => ["You're close.  ", replaceMessage=>1]
+# )),
+# 
+# );
+
+
+
+##############################################################
+# This item will list all of the HTML elements in the question
+# which can be addressed using getQE().  It can be useful for 
+# initial design and for debugging
+#
+
+#TEXT(qq!<script> listQuestionElements(); </script>!);
+
+
+ENDDOCUMENT();     

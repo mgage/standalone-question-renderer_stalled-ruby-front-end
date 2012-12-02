@@ -1,0 +1,106 @@
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+  "PG.pl",
+  "PGbasicmacros.pl",
+  "PGanswermacros.pl",
+  "PGauxiliaryFunctions.pl",
+  "compoundProblem.pl",
+  "Parser.pl",
+);
+
+TEXT(beginproblem);
+
+##############################################
+
+$isProfessor = ($studentLogin eq 'gage');
+
+#
+#  Start a compound problem.  See the compoundProblem.pl
+#  file for more details about the parameters you
+#  can supply.
+#
+$cp = new compoundProblem(
+  parts => 3,                  # the total number of parts in this problem
+  totalAnswers => 4,           # total answers in all parts combined
+  parserValues => 1,           # make parser objects from student answers
+  allowReset => $isProfessor,  # professors get Reset button for testing
+);
+$part = $cp->part;             # look up the current part
+
+
+##############################################
+#
+#  Part 1
+#
+
+
+
+BEGIN_TEXT
+Part 1:
+$PAR
+Enter two numbers: \{NAMED_ANS_RULE("a",10)\}, \{NAMED_ANS_RULE("b",10)\}
+END_TEXT
+
+#
+#  Labelled answers are saved for future parts.
+#  (The checker allows any number to be "correct" for
+#   these blanks.)
+#
+NAMED_ANS(
+  a => Real(1)->cmp(checker=>sub {return 1}, ignoreInfinity=>0),
+  b => Real(2)->cmp(checker=>sub {return 1}, ignoreInfinity=>0),
+);
+
+#
+#  the useGrader() method sets the grader for this part.
+#
+$cp->useGrader(~~&std_problem_grader);
+$showPartialCorrectAnswers = 0;
+
+
+
+##############################################
+#
+#  Part 2
+#
+
+
+
+#
+#  The values of a and b are obtained from the
+#  first part of the problem.
+#
+BEGIN_TEXT
+Part 2:
+$PAR
+\($a + $b\) = \{ans_rule(10)\}
+END_TEXT
+
+ANS(num_cmp($a+$b,mode=>"strict"));
+
+
+
+##############################################
+#
+#  Part 3
+#
+
+
+
+$f = Formula("$a x + $b")->reduce;
+
+BEGIN_TEXT
+Part: 3:
+$PAR
+Suppose \(f(x) = \{$f->TeX\}\).$BR
+Then \(f(2)\) = \{ans_rule(10)\}.
+END_TEXT
+
+ANS($f->eval(x=>2)->cmp);
+
+
+
+##############################################
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

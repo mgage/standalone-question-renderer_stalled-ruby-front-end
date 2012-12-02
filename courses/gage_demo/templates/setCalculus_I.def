@@ -1,0 +1,28 @@
+
+openDate          = 07/01/2010 at 01:31pm EDT
+dueDate           = 08/02/2015 at 11:31am EDT
+answerDate        = 08/02/2015 at 11:31am EDT
+paperHeaderFile   = setCalculus_I_Header.pg
+screenHeaderFile  = setCalculus_I_Header.pg
+problemList       = 
+Library/Rochester/setAlgebra01RealNumbers/lhp1_31-34_mo.pg, 1, -1 
+Library/Rochester/setLimitsRates1_5Graphs/ur_lr_1-5_1_mo.pg, 1, -1 
+Library/Rochester/setDerivatives1_5Tangents/ur_dr_1_5_16_mo.pg, 1, -1 
+Library/Rochester/setDerivatives1_5Tangents/ur_dr_1_5_2a_mo.pg, 1, -1 
+Library/Rochester/setDerivatives1/s2_1_23_mo.pg, 1, -1 
+Library/Rochester/setDerivatives1/nsc2s10p2_mo.pg, 1, 2 
+Library/Rochester/setDerivatives4Trig/s2_4_7_mo.pg, 1, -1 
+Library/Michigan/Chap4Sec7/Q15.pg, 1, -1 
+Library/Utah/Calculus_I/set5_The_Derivative/1210s5p17/1210s5p17.pg, 1, -1 
+Library/Rochester/setDerivatives2_5Implicit/s2_6_25a_mo.pg, 1, -1 
+Library/maCalcDB/setDerivatives6InverseTrig/sc3_6_25_mo.pg, 1, -1 
+Library/Rochester/setDerivatives7Log/sc3_7_4_mo.pg, 1, -1 
+Library/Rochester/setDerivatives10MaxMin/c3s3p1_mo.pg, 1, -1 
+Library/ma122DB/set7/s4_2_1_mo.pg, 1, -1 
+Library/ma122DB/set8/s4_4_55_mo.pg, 1, -1 
+Library/Rochester/setIntegrals14Substitution/sc5_5_25_mo.pg, 1, -1 
+Library/Rochester/setDerivatives10_5Optim/s3_8_26_mo.pg, 1, -1 
+Library/Rochester/setDerivatives20Antideriv/c3s10p1_mo.pg, 1, -1 
+Library/maCalcDB/setIntegrals4FTC/sc5_4_19_mo.pg, 1, -1 
+Library/Rochester/setIntegrals0Theory/ur_in_0_13_mo.pg, 1, -1 
+

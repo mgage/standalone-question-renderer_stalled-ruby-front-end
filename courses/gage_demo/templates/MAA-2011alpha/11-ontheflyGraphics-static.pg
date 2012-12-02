@@ -1,0 +1,110 @@
+####	11-ontheflyGraphics-static.pg
+# DESCRIPTION
+#	f(x) = sin(a + b cos(x)) graphed together with f' and f''
+# ENDDESCRIPTION
+
+## DBsubject('WeBWorK')
+## DBchapter('WeBWorK Tutorial')
+## DBsection('MAA Tutorial')
+## KEYWORDS('MathObjects','graph','function')
+## Author('Mike Gage, Dick Lane')
+## Institution('U Rochester, U Montana')
+## Date('05/19/2011)
+
+## SeeAlso('http://webwork.maa.org/wiki/SampleProblem3')
+
+DOCUMENT();	# This should be the first executable line in the problem.
+
+loadMacros(
+	"PGstandard.pl",
+	"MathObjects.pl",
+	"PGchoicemacros.pl",
+	"PGgraphmacros.pl",
+	"PGcourse.pl",
+);
+
+Context( "Numeric" ) ;
+
+
+########    Setup    ########
+
+#	create a graph object (more technically, a pointer to a graph object)
+#	    init_graph( xmin, ymin, xmax, ymax )	with options
+#		axes => [a,b]	to have axes go through the point [a,b]
+#		grid => [xgrid,ygrid]	number of evenly-spaced gridlines
+#		size => [xpixels,ypixels]	size of graph (in pixels)
+$dom = 4;
+$graph = init_graph( -$dom, -$dom, $dom, $dom,
+		'axes' => [0,0] , 'grid' => [8,8] , size => [200,200] );
+
+#	specify colors and labels --- next example will scramble them
+@colors = ( "black" , "blue" , "red" ) ;	####	green, orange
+@labels = ( 'A' , 'B' , 'C' );
+
+#	create a function and its derivatives
+$a = random( 0   , 6.3 , 0.1 );
+$b = random( 1.1 , 1.5 , 0.1 );
+$f  = Formula( "sin( $a + $b cos(x) )" ) -> reduce ;
+$f1 = $f  -> D -> reduce ;	####	first derivative of  $f
+$f2 = $f1 -> D -> reduce ;	####	second derivative
+
+#	Install plots of the functions into the graph object.
+plot_functions( $graph ,
+	"$f  for x in <-$dom,$dom> using color:$colors[0] and weight:2" ,
+	"$f1 for x in <-$dom,$dom> using color:$colors[1] and weight:2" ,
+	"$f2 for x in <-$dom,$dom> using color:$colors[2] and weight:2"
+);
+
+#	Insert the labels into the graph
+$xL = -1.5 ;	####	x-coordinate for each label
+$graph -> lb(new Label($xL, $f ->eval(x=>$xL), $labels[0],$colors[0],'left'));
+$graph -> lb(new Label($xL, $f1->eval(x=>$xL), $labels[1],$colors[1],'left'));
+$graph -> lb(new Label($xL, $f2->eval(x=>$xL), $labels[2],$colors[2],'left'));
+
+
+########    Presentation    ########
+
+####	display the problem number and its point value (standard stuff)
+TEXT(beginproblem());
+
+####	show a title for this example (not standard for homework)
+TEXT($BBOLD, $BCENTER,
+	"On-the-fly Graphics --- static colors and labels",
+	$ECENTER, $EBOLD, $BR );
+
+$refreshCachedImages = 1 ;	####	ensure browser avoids superseded stuff
+
+BEGIN_TEXT
+$BCENTER
+\{ image( insertGraph($graph), width=>200, height=>200, tex_size=>500) \}
+$ECENTER
+	Identify the graphs A (black), B (blue) and C (red) as the graphs of a
+	function and its derivatives.
+$PAR
+	\{ans_rule(4)\} is the graph of the function.
+$PAR
+	\{ans_rule(4)\} is the graph of the function's first derivative.
+$PAR
+	\{ans_rule(4)\} is the graph of the function's second derivative.
+END_TEXT
+
+####	suppress feedback about which parts are correct and which are wrong
+$showPartialCorrectAnswers = 0 ;
+
+####	use the all-or-nothing grader, i.e., no partial credit
+####		http://webwork.maa.org/wiki/WeightedGrader
+install_problem_grader( ~~&std_problem_grader ) ;
+
+ANS( str_cmp( [@labels] ) );
+
+
+Context() -> texStrings;
+BEGIN_SOLUTION
+$SOLUTION
+The function is \( f(x) = $f \) and its graph is $colors[0] ($labels[0]),
+its first derivative is the $colors[1] curve ($labels[1]),
+and its second derivative is the $colors[2] curve ($labels[2]).
+END_SOLUTION
+Context() -> normalStrings;
+
+ENDDOCUMENT();

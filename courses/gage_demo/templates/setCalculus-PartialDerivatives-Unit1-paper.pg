@@ -1,0 +1,32 @@
+##  Readings Problem File for
+##  Calculus
+##  Partial Derivatives
+##  Unit 1
+## 
+
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+);
+
+TEXT(beginproblem());
+BEGIN_TEXT
+$BBOLD WeBWorK  Assignment \{ protect_underbar($setNumber) \}  is due :  $formattedDueDate. $EBOLD.
+$BR
+$PAR
+Read the exciting article found at [LINK TO ABSTRACT].  Prepare a short review of the article which includes:
+$PAR
+- Your Name
+$BR
+- Title and Location of the article
+$BR
+- A few sentences describing its major mathematical points.
+$BR
+- A summary indicating anything you liked or disliked.
+$PAR
+$BR
+
+END_TEXT
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

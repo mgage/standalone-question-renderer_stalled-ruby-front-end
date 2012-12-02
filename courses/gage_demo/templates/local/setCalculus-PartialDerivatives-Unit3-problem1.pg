@@ -1,0 +1,48 @@
+##  First Homework Problem File for
+##  Calculus
+##  Partial Derivatives
+##  Unit 3
+## 
+
+DOCUMENT();
+
+loadMacros(
+"PGstandard.pl",
+"PGchoicemacros.pl",
+"MathObjects.pl",
+);
+
+Context()->strings->add(none=>{});
+
+TEXT(beginproblem());
+
+####################################################
+#
+# The items below are printed out only when set is displayed on screen
+# 
+####################################################
+TEXT(MODES(TeX =>"",HTML=>EV3(<<'EOT')));
+
+
+$BBOLD WeBWorK  Assignment \{ protect_underbar($setNumber) \}  is due :  $formattedDueDate. $EBOLD.
+$BR
+$PAR
+This worksheet found on the sage wiki but it really only displays data solved separately by the student.  Data also must be entered in a wierd format.  Needs to be improved with a sheet that focuses on concepts and that finds this stuff automatically.
+
+
+\{ ans_rule(15) \}
+This needs to be updated...
+$PAR
+<iframe  src="http://sagenb.mc.edu/home/pub/31/" width="600" height="500"> Go to http://sagenb.mc.edu/home/pub/31/</iframe>
+$PAR
+
+$PAR
+EOT
+
+Context()->normalStrings;
+
+ANS( Compute("94600")->cmp() );
+
+
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

@@ -1,0 +1,82 @@
+#DESCRIPTION
+#TYPE('word problem')
+# Related rates -- find rate of change of of a given function in x and y
+#  given dy/dt and dx/dt
+#ENDDESCRIPTION
+## Author('Utah ww group')
+## Institution('Univeristy of Utah')
+## DBsubject('Calculus')
+## DBchapter('Differentiation')
+## DBsection('Implicit Differentiation')
+## AuthorText1('Dale Varberg, Edwin J. Purcell, and Steven E. Rigdon')
+## TitleText1('Calculus')
+## EditionText1('9')
+## Section1('The Derivative')
+## Problem1('')
+## KEYWORDS('calculus')
+
+DOCUMENT();        # This should be the first executable line in the problem.
+
+loadMacros(
+"PG.pl",
+"PGbasicmacros.pl",
+"PGchoicemacros.pl",
+"PGanswermacros.pl",
+"PGauxiliaryFunctions.pl",
+"source.pl",
+);
+
+TEXT(&beginproblem);
+$showPartialCorrectAnswers = 0;
+
+$a1 = random(1,5,1);
+$b1 = random(1,5,1);
+$c1 = random(1,5,1);
+
+$deriv1 = -$c1*$c1*$b1/$a1;
+
+TEXT(EV2(<<EOT));
+Let \[ xy = $a1 \]
+ and let \[ \frac { dy }{ dt } = $b1 \]
+Find \( \frac { dx }{ dt }  \) when  \( x = $c1 \). $BR
+\{ans_rule(20) \}
+EOT
+
+HINT(MODES(TeX=>"Hardcopies are so old-school.", HTML=><<EOF));
+$BR
+$BCENTER
+<h3>Here's a hint:</h3>
+<object width="485" height="384"> <param name="movie" value="http://content.screencast.com/users/aubreyja/folders/Jing/media/125ae1dd-4f7b-44d1-aab4-a7d06a16c518/jingswfplayer.swf"></param> <param name="quality" value="high"></param> <param name="bgcolor" value="#FFFFFF"></param> <param name="flashVars" value="thumb=http://content.screencast.com/users/aubreyja/folders/Jing/media/125ae1dd-4f7b-44d1-aab4-a7d06a16c518/FirstFrame.jpg&width=485&height=384&content=http://content.screencast.com/users/aubreyja/folders/Jing/media/125ae1dd-4f7b-44d1-aab4-a7d06a16c518/hint_implicit_diff.flv.swf"></param> <param name="allowFullScreen" value="true"></param> <param name="scale" value="showall"></param> <param name="allowScriptAccess" value="always"></param> <param name="base" value="http://content.screencast.com/users/aubreyja/folders/Jing/media/125ae1dd-4f7b-44d1-aab4-a7d06a16c518/"></param>  <embed src="http://content.screencast.com/users/aubreyja/folders/Jing/media/125ae1dd-4f7b-44d1-aab4-a7d06a16c518/jingswfplayer.swf" quality="high" bgcolor="#FFFFFF" width="485" height="384" type="application/x-shockwave-flash" allowScriptAccess="always" flashVars="thumb=http://content.screencast.com/users/aubreyja/folders/Jing/media/125ae1dd-4f7b-44d1-aab4-a7d06a16c518/FirstFrame.jpg&width=485&height=384&content=http://content.screencast.com/users/aubreyja/folders/Jing/media/125ae1dd-4f7b-44d1-aab4-a7d06a16c518/hint_implicit_diff.flv.swf" allowFullScreen="true" base="http://content.screencast.com/users/aubreyja/folders/Jing/media/125ae1dd-4f7b-44d1-aab4-a7d06a16c518/" scale="showall"></embed> </object>
+$ECENTER
+EOF
+
+SOLUTION(MODES(TeX=>"A video solution", HTML=><<EOF));
+$BR
+$BCENTER
+<h3>A video solution to a similar problem</h3>
+<object width="421" height="417"> <param name="movie" value="http://content.screencast.com/users/aubreyja/folders/Jing/media/36ba3b63-5190-48a8-a3dc-86b43b36b079/jingswfplayer.swf"></param> <param name="quality" value="high"></param> <param name="bgcolor" value="#FFFFFF"></param> <param name="flashVars" value="thumb=http://content.screencast.com/users/aubreyja/folders/Jing/media/36ba3b63-5190-48a8-a3dc-86b43b36b079/FirstFrame.jpg&width=421&height=417&content=http://content.screencast.com/users/aubreyja/folders/Jing/media/36ba3b63-5190-48a8-a3dc-86b43b36b079/solution_implicit.swf"></param> <param name="allowFullScreen" value="true"></param> <param name="scale" value="showall"></param> <param name="allowScriptAccess" value="always"></param> <param name="base" value="http://content.screencast.com/users/aubreyja/folders/Jing/media/36ba3b63-5190-48a8-a3dc-86b43b36b079/"></param>  <embed src="http://content.screencast.com/users/aubreyja/folders/Jing/media/36ba3b63-5190-48a8-a3dc-86b43b36b079/jingswfplayer.swf" quality="high" bgcolor="#FFFFFF" width="421" height="417" type="application/x-shockwave-flash" allowScriptAccess="always" flashVars="thumb=http://content.screencast.com/users/aubreyja/folders/Jing/media/36ba3b63-5190-48a8-a3dc-86b43b36b079/FirstFrame.jpg&width=421&height=417&content=http://content.screencast.com/users/aubreyja/folders/Jing/media/36ba3b63-5190-48a8-a3dc-86b43b36b079/solution_implicit.swf" allowFullScreen="true" base="http://content.screencast.com/users/aubreyja/folders/Jing/media/36ba3b63-5190-48a8-a3dc-86b43b36b079/" scale="showall"></embed> </object>
+$ECENTER
+EOF
+BEGIN_SOLUTION
+$BR $BCENTER $BBOLD The solution to your specific problem $EBOLD $ECENTER $BR
+First we differentiate both sides with respect to \(t\).  Since \( x\) and \(y\) are both functions of \(t\) we use the product rule on the left hand side:
+\[
+ \frac{d}{dt}(xy) = \frac{d}{dt}($a1) 
+\]
+$BR
+\[
+ y\frac{dx}{dt} + x\frac{dy}{dt} = 0 
+\]
+$ECENTER
+Since \(xy = $a1\) and \( x = $c1 \) we have \($c1 y = $a1 \) so that \(y = $a1/$c1 \).  Substituting we obtain
+\[ \left(\frac{$a1}{$c1}\right)\frac{dx}{dt} + ($c1)($b1) = 0 \) \]
+
+Solving we obtain
+
+\[ \frac{dx}{dt} = $deriv1 \]
+END_SOLUTION
+
+$ans = $deriv1;
+&ANS(std_num_cmp($ans));
+
+ENDDOCUMENT();        # This should be the last executable line in the problem.

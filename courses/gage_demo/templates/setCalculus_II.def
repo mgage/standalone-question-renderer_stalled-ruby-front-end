@@ -1,0 +1,33 @@
+
+openDate          = 07/01/2010 at 01:31pm EDT
+dueDate           = 08/03/2015 at 11:31am EDT
+answerDate        = 08/03/2015 at 11:31am EDT
+paperHeaderFile   = setCalculus_II_Header.pg
+screenHeaderFile  = setCalculus_II_Header.pg
+problemList       = 
+Library/Union/setIntSubstitution/an6_3_07.pg, 1, -1 
+Library/Union/setIntSubstitution/sc5_5_33a.pg, 1, -1 
+Library/Utah/Calculus_II/set15_Practice/osu_in_14_7.pg, 1, -1 
+Library/maCalcDB/setIntegrals19Area/osu_in_19_14.pg, 1, -1 
+Library/ma123DB/set1/s6_2_14.pg, 1, -1 
+Library/Rochester/setIntegrals23Work/S06.04.Work.PTP09.pg, 1, -1 
+Library/Union/setIntByParts/bennyparts1.pg, 1, -1 
+Library/Union/setIntByParts/sc5_6_04.pg, 1, -1 
+Library/Union/setIntByParts/sc5_6_26.pg, 1, -1 
+Library/Rochester/setIntegrals25RationalFunctions/osu_in_25_7.pg, 1, -1 
+Library/Union/setIntPartialFractions/ur_in_25_16.pg, 1, -1 
+Library/maCalcDB/setIntegrals18Improper/ur_in_18_3.pg, 1, -1 
+Library/Union/setIntInverseTrigSub/an8_4_01.pg, 1, -1 
+Library/Utah/Calculus_II/set7_Infinite_Series/set7_pr7.pg, 1, 4 
+Library/maCalcDB/setSeries4Geometric/ur_sr_4_1.pg, 1, -1 
+Library/Rochester/setSeries7AbsolutelyConvergent/eva8_3_2.pg, 1, 3 
+Library/maCalcDB/setSeries6CompTests/ur_sr_6_17.pg, 1, 8 
+Library/Rochester/setSeries8Power/eva8_5a_6.pg, 1, -1 
+Library/ma123DB/set12/s11_8_13.pg, 1, -1 
+Library/ma123DB/set12/s11_9_5.pg, 1, -1 
+Library/ma123DB/set13/s11_10_12.pg, 1, -1 
+Library/Union/setSeriesTaylor/benny_taylor2.pg, 1, -1 
+Library/Rochester/setSeries9Taylor/S11.10.TaylorPolynomials.PTP01.pg, 1, -1 
+Library/maCalcDB/setParametric1Curves/ur_pa_1_13/ur_pa_1_13.pg, 1, 4 
+Library/Utah/Calculus_II/set12_Conics_and_Polar_Coordinates/set12_pr6.pg, 1, -1 
+

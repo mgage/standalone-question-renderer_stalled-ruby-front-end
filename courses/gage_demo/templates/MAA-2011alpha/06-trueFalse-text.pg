@@ -1,0 +1,69 @@
+####	06-trueFalse-text.pg
+# DESCRIPTION
+#	collection of True/False items --- answers entered as text
+# ENDDESCRIPTION
+
+## DBsubject('WeBWorK')
+## DBchapter('WeBWorK Tutorial')
+## DBsection('MAA Tutorial')
+## KEYWORDS('MathObjects','true','false')
+## Author('Mike Gage, Dick Lane')
+## Institution('U Rochester, U Montana')
+## Date('05/18/2011)
+
+DOCUMENT();
+loadMacros(
+	"PGstandard.pl",
+	"contextTF.pl",		####	loads MathObjects.pl
+	"PGchoicemacros.pl",
+	"PGcourse.pl",
+);
+
+TEXT(beginproblem(), $BBOLD, $BCENTER,
+	"True/False items --- text entry of answers" ,
+	$ECENTER, $EBOLD, $BR);
+
+Context("TF");  #### context strings are "T","F" with "True","False" as aliases
+
+####	True/False questions are a special case of a "select list"
+$tf = new_select_list();
+
+####	Insert question,answer pairs: quote each part, separate with comma
+$tf -> qa (
+	"All continuous functions are differentiable.",	'F',
+	"All differentiable functions are continuous.",	'T',
+	"All polynomials are differentiable.",	'T',
+	"All functions with positive derivatives are increasing.",	'T',
+	"All compact sets are closed",	'T',
+	"All closed sets are compact",	'F',
+	"All increasing functions have positive deriviatives",	'F',
+	"All differentiable strictly increasing functions
+		have non-negative derivatives at every point",	'T',
+);
+
+####	Random choice of four items
+$tf -> choose(4);
+
+####	Display this set of questions (with remark about entry of answers).
+BEGIN_TEXT
+	Enter T or F depending on whether the statement is True or False.
+
+	\{ $tf -> print_q \}
+$BR
+	Note: enter single letters
+	(${BITALIC}T${EITALIC} or ${BITALIC}F${EITALIC})
+	or full words
+	(${BITALIC}True${EITALIC} or ${BITALIC}False${EITALIC})
+	for each item.
+END_TEXT
+
+####	suppress feedback about which parts are correct and which are wrong
+$showPartialCorrectAnswers = 0 ;
+
+####	use the all-or-nothing grader, i.e., no partial credit
+####		http://webwork.maa.org/wiki/WeightedGrader
+install_problem_grader( ~~&std_problem_grader ) ;
+
+ANS( string_cmp( $tf -> ra_correct_ans )   ) ;
+
+ENDDOCUMENT();
