@@ -6,4 +6,8 @@ Iterator\n Iterator::Util
 JSON
 String::ShellQuote
 UUID::Tiny
-GD
+GD   - required force -- one of the tests didn't pass
+DateTime  -- is this really needed??? -- had a hard time installing .78  version .70 worked
+DateTime::Local  -- was unable to install this -- segmentation fault
+Math::Round
+
