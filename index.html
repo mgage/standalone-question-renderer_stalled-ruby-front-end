@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Standalone-question-renderer : This isolates the features of webwork which simply render a problem, independent of any connection with a database or with a webserver" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Standalone-question-renderer</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/mgage/standalone-question-renderer">View on GitHub</a>
+
+          <h1 id="project_title">Standalone-question-renderer</h1>
+          <h2 id="project_tagline">This isolates the features of webwork which simply render a problem, independent of any connection with a database or with a webserver</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/mgage/standalone-question-renderer/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/mgage/standalone-question-renderer/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>standalone-question-renderer</h1>
+
+<p>This isolates the features of webwork which simply render a problem, independent of any connection with a database or with a webserver.</p>
+
+<h2>Required</h2>
+
+<ol>
+<li><p>This application uses some extra modules from CPAN which may not be available in your local perl installation. 
+The script   <code>bin/check_modules.pl</code> will tell you 
+which ones you are missing (for the full WW installation).  The file <code>bin/extras</code> lists the ones I needed to add to get this to work.  YMMV</p></li>
+<li><p>This example uses jsMath to display equations so you may need to have that installed to see the equations typeset.</p></li>
+</ol><h2>To use</h2>
+
+<p>(1) To see the generator in operation use these commands in the top directory:</p>
+
+<pre><code>run_problem_generator.pl 1&gt;tmp.html 2&gt;warnings
+open tmp.html
+</code></pre>
+
+<p>A lot of extraneous warnings are created.  I'll try to clean those up soon.</p>
+
+<p>(2) To generate data for input to the question-render</p>
+
+<pre><code>cd clients
+./renderProblem2.pl input.txt
+ls
+</code></pre>
+
+<p>you will see</p>
+
+<pre><code>data_server_to_client.txt   input.txt renderProblem2.pl     renderProblemOutput1.html
+</code></pre>
+
+<p>The <code>data_server_to_client.txt</code> file contains the 
+code needed for input to the question renderer. Place it in the <code>data</code> directory.  The other files there show sample outputs created while building this application.
+The <code>renderProblemOutput1.html</code> file is produced and fed
+to a browser.</p>
+
+<h2>Variations</h2>
+
+<p>There are several different pretty print output formats
+that can be chosen in <code>RenderProblem.pm</code>.  </p>
+
+<p>The input and output files are currently hardwired in <code>renderProblem2.pl</code> and <code>RenderProblem.pm</code></p>
+
+<h2>To Do</h2>
+
+<ol>
+<li><p>Track down the warnings and fix them. Many are warnings from PG macros.</p></li>
+<li><p>Continue to rework the configuration used in defineProblemEnvir  so that it is modular and can be adapted for both this stand alone generator and for a full fledged WeBWorK site.</p></li>
+<li><p>Make it easier to switch output formats and input files.</p></li>
+<li><p>Rename the client <code>renderProblem2.pl</code> to something less confusing.</p></li>
+<li><p>Look at the various "2" versions in particular <code>Local2.pm</code> and see if its possible to adapt them to use the standard <code>Local.pm</code> file -- possibly modifying the latter.</p></li>
+<li><p>Add the ability to handle images mode by adding a small database of some kind.</p></li>
+</ol><h2>Project</h2>
+
+<p>Put a Ruby webserver front end on this so that the client
+send a .pg file, have it rendered and returned to the client which pushes it through a browser.  The problem in the browser is active in the sense that if the submit button is pressed the entered answers are checked and a new version of the question with answers checked is returned to the browser.</p>
+
+<p>You can use <code>https://hosted2.webwork.rochester.edu/</code> as a webserver for testing if you don't have a local host installed.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Standalone-question-renderer maintained by <a href="https://github.com/mgage">mgage</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
