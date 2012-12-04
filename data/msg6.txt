@@ -1,0 +1,770 @@
+input to renderProblem(HASH(0x10352c658)) HASH(0x10352c658) 
+
+ decoded version 
+
+HASH(0x10352c658)
+
+ decoded version
+
+ type = HASH; {
+  AnSwEr0001 => 84 
+  AnSwEr0002 => -8 
+  AnSwEr0003 => 45 
+  AnSwEr0004 =>  type = scalar;  
+  AnSwEr0005 =>  type = scalar;  
+  answer_form_submitted => 1 
+  answersSubmitted => 1 
+  command =>  type = scalar; renderProblem 
+  course =>  type = scalar;  
+  courseID =>  type = scalar; gage_course 
+  courseName =>  type = scalar; gage_course 
+  envir =>  type = HASH; {
+    CAPA_GraphicsDirectory =>  type = scalar; /ww/webwork/CAPA/CAPA_Graphics/ 
+    CAPA_Graphics_URL =>  type = scalar; http://webwork-db.math.rochester.edu/capa_graphics/ 
+    CAPA_MCTools =>  type = scalar; /ww/webwork/CAPA/CAPA_MCTools/ 
+    CAPA_Tools =>  type = scalar; /ww/webwork/CAPA/CAPA_Tools/ 
+    PRINT_FILE_NAMES_FOR =>  type = ARRAY;  (  type = scalar; gage  ) 
+ 
+    answerDate => 4014438528 
+    cgiDirectory =>  type = scalar; Not defined 
+    cgiURL =>  type = scalar; foobarNot defined 
+    classDirectory =>  type = scalar; Not defined 
+    courseName =>  type = scalar; Not defined 
+    courseScriptsDirectory =>  type = scalar; not defined 
+    displayMode =>  type = scalar; images 
+    dueDate => 4014438528 
+    effectivePermissionLevel => 10 
+    externalGif2EpsPath =>  type = scalar; not defined 
+    externalPng2EpsPath =>  type = scalar; not defined 
+    externalTTHPath =>  type = scalar; /usr/local/bin/tth 
+    fileName =>  type = scalar; WebworkClient.pm:: define fileName in environment 
+    formattedAnswerDate => 6/19/00 
+    formattedDueDate => 6/19/00 
+    formattedOpenDate => 6/19/00 
+    functAbsTolDefault => 1e-07 
+    functLLimitDefault =>  type = scalar; 0 
+    functMaxConstantOfIntegration => 1000000000000 
+    functNumOfPoints => 5 
+    functRelPercentTolDefault => 1e-06 
+    functULimitDefault => 1 
+    functVarDefault =>  type = scalar; x 
+    functZeroLevelDefault => 1e-06 
+    functZeroLevelTolDefault => 1e-06 
+    htmlDirectory =>  type = scalar; not defined 
+    htmlURL =>  type = scalar; not defined 
+    inputs_ref =>  type = HASH; {
+      AnSwEr0001 => 84 
+      AnSwEr0002 => -8 
+      AnSwEr0003 => 45 
+      AnSwEr0004 =>  type = scalar;  
+      AnSwEr0005 =>  type = scalar;  
+      answersSubmitted => 1 
+      courseID =>  type = scalar; gage_course 
+      courseName =>  type = scalar; gage_course 
+      pathToProblemFile =>  type = scalar; Can't find file name 
+      previous_AnSwEr0001 => 84 
+      previous_AnSwEr0002 => -8 
+      previous_AnSwEr0003 => 45 
+      previous_AnSwEr0004 =>  type = scalar;  
+      previous_AnSwEr0005 =>  type = scalar;  
+      problemAddress =>  type = scalar; probSource 
+      problemSeed => 1234 
+      problemSource =>  type = scalar; IyNERVNDUklQVElPTgojIyAgQSB2ZXJ5IHNpbXBsZSBmaXJzdCBwcm9ibGVtCiMjRU5EREVTQ1JJ
+
+UFRJT04KIyNLRVlXT1JEUygnYWxnZWJyYScpCkRPQ1VNRU5UKCk7ICAgICAgICAjIFRoaXMgc2hv
+
+dWxkIGJlIHRoZSBmaXJzdCBleGVjdXRhYmxlIGxpbmUgaW4gdGhlIHByb2JsZW0uCmxvYWRNYWNy
+
+b3MoCiJQRy5wbCIsCiJQR2Jhc2ljbWFjcm9zLnBsIiwKIlBHY2hvaWNlbWFjcm9zLnBsIiwKIlBH
+
+YW5zd2VybWFjcm9zLnBsIiwKIlBHYXV4aWxpYXJ5RnVuY3Rpb25zLnBsIgopOwoKVEVYVChiZWdp
+
+bnByb2JsZW0oKSk7CiRzaG93UGFydGlhbENvcnJlY3RBbnN3ZXJzID0gMTsKJGEgPSByYW5kb20o
+
+LTEwLC0xLDEpOwokYiA9IHJhbmRvbSgxLDExLDEpOwokYyA9IHJhbmRvbSgxLDExLDEpOwokZCA9
+
+IHJhbmRvbSgxLDExLDEpOwoKQkVHSU5fVEVYVAokUEFSCmRpc3BsYXlNb2RlICBpcyAkZGlzcGxh
+
+eU1vZGUgJEJSCiRQQVIKVGhpcyBwcm9ibGVtIGRlbW9uc3RyYXRlcyBob3cgeW91IGVudGVyIG51
+
+bWVyaWNhbCBhbnN3ZXJzIGludG8gV2VCV29ySy4gJFBBUgpFdmFsdWF0ZSB0aGUgZXhwcmVzc2lv
+
+biBcKDMoJGEgKSgkYiAtJGMgLTIoJGQgKSlcKToKCiBceyBhbnNfcnVsZSgxMCkgXH0KCiRCUgpF
+
+TkRfVEVYVAokYW5zID0gMyooJGEpKigkYi0kYy0yKigkZCkpOwoKJkFOUyhzdHJpY3RfbnVtX2Nt
+
+cCgkYW5zKSk7CgpCRUdJTl9URVhUCgpJbiB0aGUgY2FzZSBhYm92ZSB5b3UgbmVlZCB0byBlbnRl
+
+ciBhIG51bWJlciwgc2luY2Ugd2UncmUgdGVzdGluZyB3aGV0aGVyIHlvdSBjYW4gbXVsdGlwbHkK
+
+b3V0IHRoZXNlIG51bWJlcnMuIChZb3UgY2FuIHVzZSBhIGNhbGN1bGF0b3IgaWYgeW91IHdhbnQu
+
+KSAKJFBBUgpGb3IgbW9zdCBwcm9ibGVtcywgeW91IHdpbGwgYmUgYWJsZSB0byBnZXQgV2VCV29y
+
+SyB0bwpkbyBzb21lIG9mIHRoZSB3b3JrIGZvciB5b3UuICBGb3IgZXhhbXBsZQokQlIKQ2FsY3Vs
+
+YXRlICgkYSkgKiAoJGIpOiBceyBhbnNfcnVsZSgpXH0KJEJSCkVORF9URVhUCiRhbnMgPSAkYSok
+
+YjsKCiZBTlMoc3RkX251bV9jbXAoJGFucykpOwoKQkVHSU5fVEVYVApUaGUgYXN0ZXJpc2sgaXMg
+
+d2hhdCBtb3N0IGNvbXB1dGVycyB1c2UgdG8gZGVub3RlIG11bHRpcGxpY2F0aW9uIGFuZCB5b3Ug
+
+Y2FuIHVzZSB0aGlzIHdpdGggV2VCV29ySy4gCkJ1dCBXZUJXb3JLIHdpbGwgYWxzbyBhbGxvdyB1
+
+c2UgdG8gdXNlICBhIHNwYWNlIHRvIGRlbm90ZSBtdWx0aXBsaWNhdGlvbi4KWW91IGNhbiBlaXRo
+
+ZXIgXCgkYSAqICRiXCkgb3IgXHskYSokYlx9IG9yIGV2ZW4gXCgkYSBcICRiXCkuICBBbGwgd2ls
+
+bCB3b3JrLiBUcnkgdGhlbS4gIAokUEFSCk5vdyB0cnkgY2FsY3VsYXRpbmcgdGhlIHNpbmUgb2Yg
+
+NDUgZGVncmVlcyAoIHRoYXQncyBzaW5lIG9mIHBpIG92ZXIgNCBpbiByYWRpYW5zCmFuZCBudW1l
+
+cmljYWxseSBzaW4ocGkvNCkgZXF1YWxzIFx7MS9zcXJ0KDIpXH0gb3IsIG1vcmUgcHJlY2lzZWx5
+
+LCAgXCgxL1xzcXJ0ezJ9IFwpICkuICAKWW91IGNhbiBlbnRlciB0aGlzIGFzICBzaW4ocGkvNCkg
+
+LCBhcyAKc2luKDMuMTQxNTkyNi80KSwgYXMgMS9zcXJ0KDIpLCBhcyAyKiooLS41KSwgZXRjLiBU
+
+aGlzIGlzIGJlY2F1c2UgV2VCV29ySyBrbm93cyBhYm91dCAKZnVuY3Rpb25zIGxpa2Ugc2luICBh
+
+bmQgc3FydCAoc3F1YXJlIHJvb3QpLiAoTm90ZTogZXhwb25lbnRzCmNhbiBiZSBpbmRpY2F0ZWQg
+
+YnkgZWl0aGVyIGEgImNhcmV0IiBvciAqKikuIFRyeSBpdC4kQlIgIFwoIFxzaW4oXHBpLzQpID0g
+
+XCkgXHsgYW5zX3J1bGUoMjApIFx9JFBBUgogSGVyZSdzIHRoZSAKXHsKaHRtbExpbmsocXEhaHR0
+
+cDovL3dlYndvcmsubWF0aC5yb2NoZXN0ZXIuZWR1L3dlYndvcmtfc3lzdGVtX2h0bWwvZG9jcy9k
+
+b2NzL3BnbGFuZ3VhZ2UvYXZhaWxhYmxlZnVuY3Rpb25zLmh0bWwhLCJsaXN0IApvZiB0aGUgZnVu
+
+Y3Rpb25zIikgXH0KIHdoaWNoIFdlQldvcksgdW5kZXJzdGFuZHMuICAgV2VCV29ySyBBTFdBWVMg
+
+dXNlcyByYWRpYW4gbW9kZSBmb3IgdHJpZyBmdW5jdGlvbnMuIAogJFBBUgpFTkRfVEVYVAoKJkFO
+
+Uyggc3RkX251bV9jbXAoc2luKDMuMTQxNTkyNi80KSkgKTsKQkVHSU5fVEVYVApZb3UgY2FuIGFs
+
+c28gdXNlIGp1eHRhcG9zaXRpb24gdG8gZGVub3RlIG11bHRpcGxpY2F0aW9uLiBFLmcuIGVudGVy
+
+IFwoIDJcc2luKDNccGkvMikgXCkuCllvdSBjYW4gZW50ZXIgdGhpcyBhcyAyKnNpbigzKnBpLzIp
+
+IG9yIG1vcmUgc2ltcGx5IGFzIDJzaW4oM3BpLzIpLiAgVHJ5IGl0OiAkQlIgClx7IGFuc19ydWxl
+
+KDIwKSBcfSRQQVIKCkVORF9URVhUCgokcGkgPSA0KmF0YW4oMSk7CiZBTlMoIHN0ZF9udW1fY21w
+
+KDIqc2luKDMqJHBpLzIpKSApOwoKQkVHSU5fVEVYVApTb21ldGltZXMgeW91IG5lZWQgdG8gdXNl
+
+ICggKSdzIHRvIG1ha2UgeW91ciBtZWFuaW5nIGNsZWFyLiBFLmcuIDEvMiszIGlzIDMuNSwgYnV0
+
+ICAxLygyKzMpIGlzIC4yIFdoeT8KVHJ5IGVudGVyaW5nIGJvdGggYW5kIHVzZSB0aGUgJHtMUX1Q
+
+cmV2aWV3JHtSUX0gYnV0dG9uIGJlbG93IHRvIHNlZSB0aGUgZGlmZmVyZW5jZS4gIEluIGFkZGl0
+
+aW9uIHRvCiggKSdzLCB5b3UgY2FuIGFsc28gdXNlIFsgXSdzIGFuZCAkTEIgJHtSQn0ncy4gICRC
+
+UgpceyBhbnNfcnVsZSgyMCkgXH0kUEFSCkVORF9URVhUCgomQU5TKCBzdGRfbnVtX2NtcCguMikp
+
+OwoKQkVHSU5fVEVYVApZb3UgY2FuIGFsd2F5cyB0cnkgdG8gZW50ZXIgYW5zd2VycyBhbmQgbGV0
+
+IFdlQldvcksgZG8gdGhlIGNhbGN1bGF0aW5nLiAKV2VCV29ySyB3aWxsIHRlbGwgeW91IGlmIHRo
+
+ZSBwcm9ibGVtIHJlcXVpcmVzIGEgc3RyaWN0IG51bWVyaWNhbCBhbnN3ZXIuIApUaGUgd2F5IHdl
+
+IHVzZSBXZUJXb3JLIGluIHRoaXMgY2xhc3MgdGhlcmUgaXMgbm8gcGVuYWx0eSBmb3IgZ2V0dGlu
+
+ZyBhbiBhbnN3ZXIgd3JvbmcuICBXaGF0IGNvdW50cwppcyB0aGF0IHlvdSBnZXQgdGhlIGFuc3dl
+
+ciByaWdodCBldmVudHVhbGx5IChiZWZvcmUgdGhlIGR1ZSBkYXRlKS4gIEZvciBjb21wbGljYXRl
+
+ZCBhbnN3ZXJzLAp5b3Ugc2hvdWxkIHVzZSB0aGUgJHtMUX1QcmV2aWV3JHtSUX0gYnV0dG9uIHRv
+
+IGNoZWNrIGZvciBzeW50YXggZXJyb3JzIGFuZCBhbHNvIHRvIGNoZWNrIHRoYXQgdGhlIGFuc3dl
+
+cgp5b3UgZW50ZXIgaXMgcmVhbGx5IHdoYXQgeW91IHRoaW5rIGl0IGlzLgpFTkRfVEVYVAoKRU5E
+
+RE9DVU1FTlQoKTsgICAgICAgICMgVGhpcyBzaG91bGQgYmUgdGhlIGxhc3QgZXhlY3V0YWJsZSBs
+
+aW5lIGluIHRoZSBwcm9ibGVtLgo=
+
+ 
+      session_key =>  type = scalar; BGkh6eD0W3XKkIr7O9hYSuHlcj1EcDdP 
+      submit =>  type = scalar; submit answers 
+      userID =>  type = scalar; gage 
+
+    }
+ 
+    macroDirectory =>  type = scalar; not defined 
+    numAbsTolDefault => 1e-07 
+    numFormatDefault =>  type = scalar; %0.13g 
+    numOfAttempts =>  type = scalar; 0 
+    numRelPercentTolDefault => 0.0001 
+    numZeroLevelDefault => 1e-06 
+    numZeroLevelTolDefault => 1e-06 
+    openDate => 3014438528 
+    permissionLevel => 10 
+    probFileName =>  type = scalar; WebworkClient.pm:: define probFileName in environment 
+    probNum => 13 
+    problemSeed => 1234 
+    problemValue => 1 
+    psvn => 54321 
+    questionNumber => 1 
+    scriptDirectory =>  type = scalar; Not defined 
+    sectionName =>  type = scalar; Gage 
+    sectionNumber => 1 
+    server_root_url =>  type = scalar; foobarfoobar 
+    sessionKey =>  type = scalar; Not defined 
+    setNumber =>  type = scalar; not defined 
+    showHints => 1 
+    showSolutions => 1 
+    studentLogin =>  type = scalar; gage 
+    studentName =>  type = scalar; Mike Gage 
+    tempDirectory =>  type = scalar; not defined 
+    tempURL =>  type = scalar; not defined 
+    templateDirectory =>  type = scalar; not defined 
+    webworkDocsURL =>  type = scalar; not defined 
+
+  }
+ 
+  extra_packages_to_load =>  type = ARRAY;  (  type = scalar; AlgParserWithImplicitExpand  type = scalar; Expr  type = scalar; ExprWithImplicitExpand  type = scalar; AnswerEvaluator  type = scalar; AnswerEvaluatorMaker  ) 
+ 
+  library_name =>  type = scalar; Library 
+  mode =>  type = scalar; images 
+  modules_to_evaluate =>  type = ARRAY;  (  type = scalar; Exporter  type = scalar; DynaLoader  type = scalar; GD  type = scalar; WWPlot  type = scalar; Fun  type = scalar; Circle  type = scalar; Label  type = scalar; PGrandom  type = scalar; Units  type = scalar; Hermite  type = scalar; List  type = scalar; Match  type = scalar; Multiple  type = scalar; Select  type = scalar; AlgParser  type = scalar; AnswerHash  type = scalar; Fraction  type = scalar; VectorField  type = scalar; Complex1  type = scalar; Complex  type = scalar; MatrixReal1  type = scalar; Matrix  type = scalar; Distributions  type = scalar; Regression  ) 
+ 
+  pathToProblemFile =>  type = scalar; Can't find file name 
+  previous_AnSwEr0001 => 84 
+  previous_AnSwEr0002 => -8 
+  previous_AnSwEr0003 => 45 
+  previous_AnSwEr0004 =>  type = scalar;  
+  previous_AnSwEr0005 =>  type = scalar;  
+  problemAddress =>  type = scalar; probSource 
+  problemSeed => 1234 
+  problemSource =>  type = scalar; IyNERVNDUklQVElPTgojIyAgQSB2ZXJ5IHNpbXBsZSBmaXJzdCBwcm9ibGVtCiMjRU5EREVTQ1JJ
+
+UFRJT04KIyNLRVlXT1JEUygnYWxnZWJyYScpCkRPQ1VNRU5UKCk7ICAgICAgICAjIFRoaXMgc2hv
+
+dWxkIGJlIHRoZSBmaXJzdCBleGVjdXRhYmxlIGxpbmUgaW4gdGhlIHByb2JsZW0uCmxvYWRNYWNy
+
+b3MoCiJQRy5wbCIsCiJQR2Jhc2ljbWFjcm9zLnBsIiwKIlBHY2hvaWNlbWFjcm9zLnBsIiwKIlBH
+
+YW5zd2VybWFjcm9zLnBsIiwKIlBHYXV4aWxpYXJ5RnVuY3Rpb25zLnBsIgopOwoKVEVYVChiZWdp
+
+bnByb2JsZW0oKSk7CiRzaG93UGFydGlhbENvcnJlY3RBbnN3ZXJzID0gMTsKJGEgPSByYW5kb20o
+
+LTEwLC0xLDEpOwokYiA9IHJhbmRvbSgxLDExLDEpOwokYyA9IHJhbmRvbSgxLDExLDEpOwokZCA9
+
+IHJhbmRvbSgxLDExLDEpOwoKQkVHSU5fVEVYVAokUEFSCmRpc3BsYXlNb2RlICBpcyAkZGlzcGxh
+
+eU1vZGUgJEJSCiRQQVIKVGhpcyBwcm9ibGVtIGRlbW9uc3RyYXRlcyBob3cgeW91IGVudGVyIG51
+
+bWVyaWNhbCBhbnN3ZXJzIGludG8gV2VCV29ySy4gJFBBUgpFdmFsdWF0ZSB0aGUgZXhwcmVzc2lv
+
+biBcKDMoJGEgKSgkYiAtJGMgLTIoJGQgKSlcKToKCiBceyBhbnNfcnVsZSgxMCkgXH0KCiRCUgpF
+
+TkRfVEVYVAokYW5zID0gMyooJGEpKigkYi0kYy0yKigkZCkpOwoKJkFOUyhzdHJpY3RfbnVtX2Nt
+
+cCgkYW5zKSk7CgpCRUdJTl9URVhUCgpJbiB0aGUgY2FzZSBhYm92ZSB5b3UgbmVlZCB0byBlbnRl
+
+ciBhIG51bWJlciwgc2luY2Ugd2UncmUgdGVzdGluZyB3aGV0aGVyIHlvdSBjYW4gbXVsdGlwbHkK
+
+b3V0IHRoZXNlIG51bWJlcnMuIChZb3UgY2FuIHVzZSBhIGNhbGN1bGF0b3IgaWYgeW91IHdhbnQu
+
+KSAKJFBBUgpGb3IgbW9zdCBwcm9ibGVtcywgeW91IHdpbGwgYmUgYWJsZSB0byBnZXQgV2VCV29y
+
+SyB0bwpkbyBzb21lIG9mIHRoZSB3b3JrIGZvciB5b3UuICBGb3IgZXhhbXBsZQokQlIKQ2FsY3Vs
+
+YXRlICgkYSkgKiAoJGIpOiBceyBhbnNfcnVsZSgpXH0KJEJSCkVORF9URVhUCiRhbnMgPSAkYSok
+
+YjsKCiZBTlMoc3RkX251bV9jbXAoJGFucykpOwoKQkVHSU5fVEVYVApUaGUgYXN0ZXJpc2sgaXMg
+
+d2hhdCBtb3N0IGNvbXB1dGVycyB1c2UgdG8gZGVub3RlIG11bHRpcGxpY2F0aW9uIGFuZCB5b3Ug
+
+Y2FuIHVzZSB0aGlzIHdpdGggV2VCV29ySy4gCkJ1dCBXZUJXb3JLIHdpbGwgYWxzbyBhbGxvdyB1
+
+c2UgdG8gdXNlICBhIHNwYWNlIHRvIGRlbm90ZSBtdWx0aXBsaWNhdGlvbi4KWW91IGNhbiBlaXRo
+
+ZXIgXCgkYSAqICRiXCkgb3IgXHskYSokYlx9IG9yIGV2ZW4gXCgkYSBcICRiXCkuICBBbGwgd2ls
+
+bCB3b3JrLiBUcnkgdGhlbS4gIAokUEFSCk5vdyB0cnkgY2FsY3VsYXRpbmcgdGhlIHNpbmUgb2Yg
+
+NDUgZGVncmVlcyAoIHRoYXQncyBzaW5lIG9mIHBpIG92ZXIgNCBpbiByYWRpYW5zCmFuZCBudW1l
+
+cmljYWxseSBzaW4ocGkvNCkgZXF1YWxzIFx7MS9zcXJ0KDIpXH0gb3IsIG1vcmUgcHJlY2lzZWx5
+
+LCAgXCgxL1xzcXJ0ezJ9IFwpICkuICAKWW91IGNhbiBlbnRlciB0aGlzIGFzICBzaW4ocGkvNCkg
+
+LCBhcyAKc2luKDMuMTQxNTkyNi80KSwgYXMgMS9zcXJ0KDIpLCBhcyAyKiooLS41KSwgZXRjLiBU
+
+aGlzIGlzIGJlY2F1c2UgV2VCV29ySyBrbm93cyBhYm91dCAKZnVuY3Rpb25zIGxpa2Ugc2luICBh
+
+bmQgc3FydCAoc3F1YXJlIHJvb3QpLiAoTm90ZTogZXhwb25lbnRzCmNhbiBiZSBpbmRpY2F0ZWQg
+
+YnkgZWl0aGVyIGEgImNhcmV0IiBvciAqKikuIFRyeSBpdC4kQlIgIFwoIFxzaW4oXHBpLzQpID0g
+
+XCkgXHsgYW5zX3J1bGUoMjApIFx9JFBBUgogSGVyZSdzIHRoZSAKXHsKaHRtbExpbmsocXEhaHR0
+
+cDovL3dlYndvcmsubWF0aC5yb2NoZXN0ZXIuZWR1L3dlYndvcmtfc3lzdGVtX2h0bWwvZG9jcy9k
+
+b2NzL3BnbGFuZ3VhZ2UvYXZhaWxhYmxlZnVuY3Rpb25zLmh0bWwhLCJsaXN0IApvZiB0aGUgZnVu
+
+Y3Rpb25zIikgXH0KIHdoaWNoIFdlQldvcksgdW5kZXJzdGFuZHMuICAgV2VCV29ySyBBTFdBWVMg
+
+dXNlcyByYWRpYW4gbW9kZSBmb3IgdHJpZyBmdW5jdGlvbnMuIAogJFBBUgpFTkRfVEVYVAoKJkFO
+
+Uyggc3RkX251bV9jbXAoc2luKDMuMTQxNTkyNi80KSkgKTsKQkVHSU5fVEVYVApZb3UgY2FuIGFs
+
+c28gdXNlIGp1eHRhcG9zaXRpb24gdG8gZGVub3RlIG11bHRpcGxpY2F0aW9uLiBFLmcuIGVudGVy
+
+IFwoIDJcc2luKDNccGkvMikgXCkuCllvdSBjYW4gZW50ZXIgdGhpcyBhcyAyKnNpbigzKnBpLzIp
+
+IG9yIG1vcmUgc2ltcGx5IGFzIDJzaW4oM3BpLzIpLiAgVHJ5IGl0OiAkQlIgClx7IGFuc19ydWxl
+
+KDIwKSBcfSRQQVIKCkVORF9URVhUCgokcGkgPSA0KmF0YW4oMSk7CiZBTlMoIHN0ZF9udW1fY21w
+
+KDIqc2luKDMqJHBpLzIpKSApOwoKQkVHSU5fVEVYVApTb21ldGltZXMgeW91IG5lZWQgdG8gdXNl
+
+ICggKSdzIHRvIG1ha2UgeW91ciBtZWFuaW5nIGNsZWFyLiBFLmcuIDEvMiszIGlzIDMuNSwgYnV0
+
+ICAxLygyKzMpIGlzIC4yIFdoeT8KVHJ5IGVudGVyaW5nIGJvdGggYW5kIHVzZSB0aGUgJHtMUX1Q
+
+cmV2aWV3JHtSUX0gYnV0dG9uIGJlbG93IHRvIHNlZSB0aGUgZGlmZmVyZW5jZS4gIEluIGFkZGl0
+
+aW9uIHRvCiggKSdzLCB5b3UgY2FuIGFsc28gdXNlIFsgXSdzIGFuZCAkTEIgJHtSQn0ncy4gICRC
+
+UgpceyBhbnNfcnVsZSgyMCkgXH0kUEFSCkVORF9URVhUCgomQU5TKCBzdGRfbnVtX2NtcCguMikp
+
+OwoKQkVHSU5fVEVYVApZb3UgY2FuIGFsd2F5cyB0cnkgdG8gZW50ZXIgYW5zd2VycyBhbmQgbGV0
+
+IFdlQldvcksgZG8gdGhlIGNhbGN1bGF0aW5nLiAKV2VCV29ySyB3aWxsIHRlbGwgeW91IGlmIHRo
+
+ZSBwcm9ibGVtIHJlcXVpcmVzIGEgc3RyaWN0IG51bWVyaWNhbCBhbnN3ZXIuIApUaGUgd2F5IHdl
+
+IHVzZSBXZUJXb3JLIGluIHRoaXMgY2xhc3MgdGhlcmUgaXMgbm8gcGVuYWx0eSBmb3IgZ2V0dGlu
+
+ZyBhbiBhbnN3ZXIgd3JvbmcuICBXaGF0IGNvdW50cwppcyB0aGF0IHlvdSBnZXQgdGhlIGFuc3dl
+
+ciByaWdodCBldmVudHVhbGx5IChiZWZvcmUgdGhlIGR1ZSBkYXRlKS4gIEZvciBjb21wbGljYXRl
+
+ZCBhbnN3ZXJzLAp5b3Ugc2hvdWxkIHVzZSB0aGUgJHtMUX1QcmV2aWV3JHtSUX0gYnV0dG9uIHRv
+
+IGNoZWNrIGZvciBzeW50YXggZXJyb3JzIGFuZCBhbHNvIHRvIGNoZWNrIHRoYXQgdGhlIGFuc3dl
+
+cgp5b3UgZW50ZXIgaXMgcmVhbGx5IHdoYXQgeW91IHRoaW5rIGl0IGlzLgpFTkRfVEVYVAoKRU5E
+
+RE9DVU1FTlQoKTsgICAgICAgICMgVGhpcyBzaG91bGQgYmUgdGhlIGxhc3QgZXhlY3V0YWJsZSBs
+
+aW5lIGluIHRoZSBwcm9ibGVtLgo=
+
+ 
+  problem_state =>  type = HASH; {
+    num_of_correct_ans =>  type = scalar; 0 
+    num_of_incorrect_ans => 4 
+    recorded_score => 1 
+
+  }
+ 
+  pw =>  type = scalar;  
+  session_key =>  type = scalar; BGkh6eD0W3XKkIr7O9hYSuHlcj1EcDdP 
+  source =>  type = scalar; IyNERVNDUklQVElPTgojIyAgQSB2ZXJ5IHNpbXBsZSBmaXJzdCBwcm9ibGVtCiMjRU5EREVTQ1JJ
+
+UFRJT04KIyNLRVlXT1JEUygnYWxnZWJyYScpCkRPQ1VNRU5UKCk7ICAgICAgICAjIFRoaXMgc2hv
+
+dWxkIGJlIHRoZSBmaXJzdCBleGVjdXRhYmxlIGxpbmUgaW4gdGhlIHByb2JsZW0uCmxvYWRNYWNy
+
+b3MoCiJQRy5wbCIsCiJQR2Jhc2ljbWFjcm9zLnBsIiwKIlBHY2hvaWNlbWFjcm9zLnBsIiwKIlBH
+
+YW5zd2VybWFjcm9zLnBsIiwKIlBHYXV4aWxpYXJ5RnVuY3Rpb25zLnBsIgopOwoKVEVYVChiZWdp
+
+bnByb2JsZW0oKSk7CiRzaG93UGFydGlhbENvcnJlY3RBbnN3ZXJzID0gMTsKJGEgPSByYW5kb20o
+
+LTEwLC0xLDEpOwokYiA9IHJhbmRvbSgxLDExLDEpOwokYyA9IHJhbmRvbSgxLDExLDEpOwokZCA9
+
+IHJhbmRvbSgxLDExLDEpOwoKQkVHSU5fVEVYVAokUEFSCmRpc3BsYXlNb2RlICBpcyAkZGlzcGxh
+
+eU1vZGUgJEJSCiRQQVIKVGhpcyBwcm9ibGVtIGRlbW9uc3RyYXRlcyBob3cgeW91IGVudGVyIG51
+
+bWVyaWNhbCBhbnN3ZXJzIGludG8gV2VCV29ySy4gJFBBUgpFdmFsdWF0ZSB0aGUgZXhwcmVzc2lv
+
+biBcKDMoJGEgKSgkYiAtJGMgLTIoJGQgKSlcKToKCiBceyBhbnNfcnVsZSgxMCkgXH0KCiRCUgpF
+
+TkRfVEVYVAokYW5zID0gMyooJGEpKigkYi0kYy0yKigkZCkpOwoKJkFOUyhzdHJpY3RfbnVtX2Nt
+
+cCgkYW5zKSk7CgpCRUdJTl9URVhUCgpJbiB0aGUgY2FzZSBhYm92ZSB5b3UgbmVlZCB0byBlbnRl
+
+ciBhIG51bWJlciwgc2luY2Ugd2UncmUgdGVzdGluZyB3aGV0aGVyIHlvdSBjYW4gbXVsdGlwbHkK
+
+b3V0IHRoZXNlIG51bWJlcnMuIChZb3UgY2FuIHVzZSBhIGNhbGN1bGF0b3IgaWYgeW91IHdhbnQu
+
+KSAKJFBBUgpGb3IgbW9zdCBwcm9ibGVtcywgeW91IHdpbGwgYmUgYWJsZSB0byBnZXQgV2VCV29y
+
+SyB0bwpkbyBzb21lIG9mIHRoZSB3b3JrIGZvciB5b3UuICBGb3IgZXhhbXBsZQokQlIKQ2FsY3Vs
+
+YXRlICgkYSkgKiAoJGIpOiBceyBhbnNfcnVsZSgpXH0KJEJSCkVORF9URVhUCiRhbnMgPSAkYSok
+
+YjsKCiZBTlMoc3RkX251bV9jbXAoJGFucykpOwoKQkVHSU5fVEVYVApUaGUgYXN0ZXJpc2sgaXMg
+
+d2hhdCBtb3N0IGNvbXB1dGVycyB1c2UgdG8gZGVub3RlIG11bHRpcGxpY2F0aW9uIGFuZCB5b3Ug
+
+Y2FuIHVzZSB0aGlzIHdpdGggV2VCV29ySy4gCkJ1dCBXZUJXb3JLIHdpbGwgYWxzbyBhbGxvdyB1
+
+c2UgdG8gdXNlICBhIHNwYWNlIHRvIGRlbm90ZSBtdWx0aXBsaWNhdGlvbi4KWW91IGNhbiBlaXRo
+
+ZXIgXCgkYSAqICRiXCkgb3IgXHskYSokYlx9IG9yIGV2ZW4gXCgkYSBcICRiXCkuICBBbGwgd2ls
+
+bCB3b3JrLiBUcnkgdGhlbS4gIAokUEFSCk5vdyB0cnkgY2FsY3VsYXRpbmcgdGhlIHNpbmUgb2Yg
+
+NDUgZGVncmVlcyAoIHRoYXQncyBzaW5lIG9mIHBpIG92ZXIgNCBpbiByYWRpYW5zCmFuZCBudW1l
+
+cmljYWxseSBzaW4ocGkvNCkgZXF1YWxzIFx7MS9zcXJ0KDIpXH0gb3IsIG1vcmUgcHJlY2lzZWx5
+
+LCAgXCgxL1xzcXJ0ezJ9IFwpICkuICAKWW91IGNhbiBlbnRlciB0aGlzIGFzICBzaW4ocGkvNCkg
+
+LCBhcyAKc2luKDMuMTQxNTkyNi80KSwgYXMgMS9zcXJ0KDIpLCBhcyAyKiooLS41KSwgZXRjLiBU
+
+aGlzIGlzIGJlY2F1c2UgV2VCV29ySyBrbm93cyBhYm91dCAKZnVuY3Rpb25zIGxpa2Ugc2luICBh
+
+bmQgc3FydCAoc3F1YXJlIHJvb3QpLiAoTm90ZTogZXhwb25lbnRzCmNhbiBiZSBpbmRpY2F0ZWQg
+
+YnkgZWl0aGVyIGEgImNhcmV0IiBvciAqKikuIFRyeSBpdC4kQlIgIFwoIFxzaW4oXHBpLzQpID0g
+
+XCkgXHsgYW5zX3J1bGUoMjApIFx9JFBBUgogSGVyZSdzIHRoZSAKXHsKaHRtbExpbmsocXEhaHR0
+
+cDovL3dlYndvcmsubWF0aC5yb2NoZXN0ZXIuZWR1L3dlYndvcmtfc3lzdGVtX2h0bWwvZG9jcy9k
+
+b2NzL3BnbGFuZ3VhZ2UvYXZhaWxhYmxlZnVuY3Rpb25zLmh0bWwhLCJsaXN0IApvZiB0aGUgZnVu
+
+Y3Rpb25zIikgXH0KIHdoaWNoIFdlQldvcksgdW5kZXJzdGFuZHMuICAgV2VCV29ySyBBTFdBWVMg
+
+dXNlcyByYWRpYW4gbW9kZSBmb3IgdHJpZyBmdW5jdGlvbnMuIAogJFBBUgpFTkRfVEVYVAoKJkFO
+
+Uyggc3RkX251bV9jbXAoc2luKDMuMTQxNTkyNi80KSkgKTsKQkVHSU5fVEVYVApZb3UgY2FuIGFs
+
+c28gdXNlIGp1eHRhcG9zaXRpb24gdG8gZGVub3RlIG11bHRpcGxpY2F0aW9uLiBFLmcuIGVudGVy
+
+IFwoIDJcc2luKDNccGkvMikgXCkuCllvdSBjYW4gZW50ZXIgdGhpcyBhcyAyKnNpbigzKnBpLzIp
+
+IG9yIG1vcmUgc2ltcGx5IGFzIDJzaW4oM3BpLzIpLiAgVHJ5IGl0OiAkQlIgClx7IGFuc19ydWxl
+
+KDIwKSBcfSRQQVIKCkVORF9URVhUCgokcGkgPSA0KmF0YW4oMSk7CiZBTlMoIHN0ZF9udW1fY21w
+
+KDIqc2luKDMqJHBpLzIpKSApOwoKQkVHSU5fVEVYVApTb21ldGltZXMgeW91IG5lZWQgdG8gdXNl
+
+ICggKSdzIHRvIG1ha2UgeW91ciBtZWFuaW5nIGNsZWFyLiBFLmcuIDEvMiszIGlzIDMuNSwgYnV0
+
+ICAxLygyKzMpIGlzIC4yIFdoeT8KVHJ5IGVudGVyaW5nIGJvdGggYW5kIHVzZSB0aGUgJHtMUX1Q
+
+cmV2aWV3JHtSUX0gYnV0dG9uIGJlbG93IHRvIHNlZSB0aGUgZGlmZmVyZW5jZS4gIEluIGFkZGl0
+
+aW9uIHRvCiggKSdzLCB5b3UgY2FuIGFsc28gdXNlIFsgXSdzIGFuZCAkTEIgJHtSQn0ncy4gICRC
+
+UgpceyBhbnNfcnVsZSgyMCkgXH0kUEFSCkVORF9URVhUCgomQU5TKCBzdGRfbnVtX2NtcCguMikp
+
+OwoKQkVHSU5fVEVYVApZb3UgY2FuIGFsd2F5cyB0cnkgdG8gZW50ZXIgYW5zd2VycyBhbmQgbGV0
+
+IFdlQldvcksgZG8gdGhlIGNhbGN1bGF0aW5nLiAKV2VCV29ySyB3aWxsIHRlbGwgeW91IGlmIHRo
+
+ZSBwcm9ibGVtIHJlcXVpcmVzIGEgc3RyaWN0IG51bWVyaWNhbCBhbnN3ZXIuIApUaGUgd2F5IHdl
+
+IHVzZSBXZUJXb3JLIGluIHRoaXMgY2xhc3MgdGhlcmUgaXMgbm8gcGVuYWx0eSBmb3IgZ2V0dGlu
+
+ZyBhbiBhbnN3ZXIgd3JvbmcuICBXaGF0IGNvdW50cwppcyB0aGF0IHlvdSBnZXQgdGhlIGFuc3dl
+
+ciByaWdodCBldmVudHVhbGx5IChiZWZvcmUgdGhlIGR1ZSBkYXRlKS4gIEZvciBjb21wbGljYXRl
+
+ZCBhbnN3ZXJzLAp5b3Ugc2hvdWxkIHVzZSB0aGUgJHtMUX1QcmV2aWV3JHtSUX0gYnV0dG9uIHRv
+
+IGNoZWNrIGZvciBzeW50YXggZXJyb3JzIGFuZCBhbHNvIHRvIGNoZWNrIHRoYXQgdGhlIGFuc3dl
+
+cgp5b3UgZW50ZXIgaXMgcmVhbGx5IHdoYXQgeW91IHRoaW5rIGl0IGlzLgpFTkRfVEVYVAoKRU5E
+
+RE9DVU1FTlQoKTsgICAgICAgICMgVGhpcyBzaG91bGQgYmUgdGhlIGxhc3QgZXhlY3V0YWJsZSBs
+
+aW5lIGluIHRoZSBwcm9ibGVtLgo=
+
+ 
+  submit =>  type = scalar; submit answers 
+  userID =>  type = scalar; gage 
+
+}
+ 
+
+ output from renderProblem
+
+ HASH(0x108a5a830) 
+
+ decoded output 
+ type = HASH; {
+  WARNINGS =>  type = scalar; V0FSTklOR1MKCjxici8+TW9yZTxici8+Cg==
+ 
+  answers =>  type = HASH; {
+    AnSwEr0001 =>  type = AnswerHash; {
+      _filter_name =>  type = scalar; dereference_array_ans 
+      ans_label =>  type = scalar; AnSwEr0001 
+      ans_message =>  type = scalar;  
+      ans_name =>  type = scalar; AnSwEr0001 
+      cmp_class =>  type = scalar; a Number 
+      correct_ans => 84 
+      correct_ans_latex_string => 84 
+      correct_value =>  type = scalar; Value::Real reference 
+      debug =>  type = scalar; 0 
+      done =>  type = scalar;  
+      error_flag =>  type = scalar;  
+      error_message =>  type = scalar;  
+      ignoreInfinity => 1 
+      ignoreStrings => 1 
+      isPreview =>  type = scalar;  
+      original_correct_ans => 84 
+      original_student_ans => 84 
+      preview_latex_string => 84 
+      preview_text_string => 84 
+      score => 1 
+      showEqualErrors => 1 
+      showTypeWarnings => 1 
+      showUnionReduceWarnings => 1 
+      student_ans => 84 
+      student_formula =>  type = scalar; Value::Formula reference 
+      student_value =>  type = scalar; Value::Real reference 
+      studentsMustReduceUnions => 1 
+      type =>  type = scalar; Value (Real) 
+
+    }
+ 
+    AnSwEr0002 =>  type = AnswerHash; {
+      _filter_name =>  type = scalar; dereference_array_ans 
+      ans_label =>  type = scalar; AnSwEr0002 
+      ans_message =>  type = scalar;  
+      ans_name =>  type = scalar; AnSwEr0002 
+      cmp_class =>  type = scalar; a Number 
+      correct_ans => -8 
+      correct_ans_latex_string => -8 
+      correct_value =>  type = scalar; Value::Real reference 
+      debug =>  type = scalar; 0 
+      done =>  type = scalar;  
+      error_flag =>  type = scalar;  
+      error_message =>  type = scalar;  
+      ignoreInfinity => 1 
+      ignoreStrings => 1 
+      isPreview =>  type = scalar;  
+      original_correct_ans => -8 
+      original_student_ans => -8 
+      preview_latex_string => -8 
+      preview_text_string => -8 
+      score => 1 
+      showEqualErrors => 1 
+      showTypeWarnings => 1 
+      showUnionReduceWarnings => 1 
+      student_ans => -8 
+      student_formula =>  type = scalar; Value::Formula reference 
+      student_value =>  type = scalar; Value::Real reference 
+      studentsMustReduceUnions => 1 
+      type =>  type = scalar; Value (Real) 
+
+    }
+ 
+    AnSwEr0003 =>  type = AnswerHash; {
+      _filter_name =>  type = scalar; dereference_array_ans 
+      ans_label =>  type = scalar; AnSwEr0003 
+      ans_message =>  type = scalar;  
+      ans_name =>  type = scalar; AnSwEr0003 
+      cmp_class =>  type = scalar; a Number 
+      correct_ans => 0.707106771713121 
+      correct_ans_latex_string => 0.707106771713121 
+      correct_value =>  type = scalar; Value::Real reference 
+      debug =>  type = scalar; 0 
+      done =>  type = scalar;  
+      error_flag =>  type = scalar;  
+      error_message =>  type = scalar;  
+      ignoreInfinity => 1 
+      ignoreStrings => 1 
+      isPreview =>  type = scalar;  
+      original_correct_ans => 0.707106771713121 
+      original_student_ans => 45 
+      preview_latex_string => 45 
+      preview_text_string => 45 
+      score =>  type = scalar; 0 
+      showEqualErrors => 1 
+      showTypeWarnings => 1 
+      showUnionReduceWarnings => 1 
+      student_ans => 45 
+      student_formula =>  type = scalar; Value::Formula reference 
+      student_value =>  type = scalar; Value::Real reference 
+      studentsMustReduceUnions => 1 
+      type =>  type = scalar; Value (Real) 
+
+    }
+ 
+    AnSwEr0004 =>  type = AnswerHash; {
+      _filter_name =>  type = scalar; dereference_array_ans 
+      ans_label =>  type = scalar; AnSwEr0004 
+      ans_message =>  type = scalar;  
+      ans_name =>  type = scalar; AnSwEr0004 
+      correct_ans => -2 
+      correct_value =>  type = scalar; Value::Real reference 
+      debug =>  type = scalar; 0 
+      done => 1 
+      error_flag =>  type = scalar;  
+      error_message =>  type = scalar;  
+      ignoreInfinity => 1 
+      ignoreStrings => 1 
+      original_student_ans =>  type = scalar;  
+      preview_latex_string =>  type = scalar;  
+      preview_text_string =>  type = scalar;  
+      score =>  type = scalar; 0 
+      showEqualErrors => 1 
+      showTypeWarnings => 1 
+      showUnionReduceWarnings => 1 
+      student_ans =>  type = scalar;  
+      studentsMustReduceUnions => 1 
+      type =>  type = scalar; Value (Real) 
+
+    }
+ 
+    AnSwEr0005 =>  type = AnswerHash; {
+      _filter_name =>  type = scalar; dereference_array_ans 
+      ans_label =>  type = scalar; AnSwEr0005 
+      ans_message =>  type = scalar;  
+      ans_name =>  type = scalar; AnSwEr0005 
+      correct_ans => 0.2 
+      correct_value =>  type = scalar; Value::Real reference 
+      debug =>  type = scalar; 0 
+      done => 1 
+      error_flag =>  type = scalar;  
+      error_message =>  type = scalar;  
+      ignoreInfinity => 1 
+      ignoreStrings => 1 
+      original_student_ans =>  type = scalar;  
+      preview_latex_string =>  type = scalar;  
+      preview_text_string =>  type = scalar;  
+      score =>  type = scalar; 0 
+      showEqualErrors => 1 
+      showTypeWarnings => 1 
+      showUnionReduceWarnings => 1 
+      student_ans =>  type = scalar;  
+      studentsMustReduceUnions => 1 
+      type =>  type = scalar; Value (Real) 
+
+    }
+ 
+
+  }
+ 
+  compute_time =>  type = scalar;  0 wallclock secs ( 0.08 usr +  0.00 sys =  0.08 CPU) 
+  courseID =>  type = scalar; gage_course 
+  debug_messages =>  type = ARRAY;  (  ) 
+ 
+  errors =>  type = scalar;  
+  flags =>  type = HASH; {
+    ANSWER_ENTRY_ORDER =>  type = ARRAY;  (  type = scalar; AnSwEr0001  type = scalar; AnSwEr0002  type = scalar; AnSwEr0003  type = scalar; AnSwEr0004  type = scalar; AnSwEr0005  ) 
+ 
+    KEPT_EXTRA_ANSWERS =>  type = ARRAY;  (  ) 
+ 
+    PROBLEM_GRADER_TO_USE =>  type = scalar;  
+    comment =>  type = scalar;  
+    hintExists =>  type = scalar; 0 
+    recordSubmittedAnswers => 1 
+    refreshCachedImages =>  type = scalar; 0 
+    showHint => 1 
+    showHintLimit => 1 
+    showPartialCorrectAnswers => 1 
+    showpartialCorrectAnswers => 1 
+    solutionExists =>  type = scalar; 0 
+
+  }
+ 
+  header_text =>  type = scalar;  
+  internal_debug_messages =>  type = ARRAY;  (  ) 
+ 
+  problem_result =>  type = HASH; {
+    errors =>  type = scalar;  
+    msg =>  type = scalar; You	can	earn partial credit	on this	problem. 
+    score => 0.4 
+    type =>  type = scalar; avg_problem_grader 
+
+  }
+ 
+  problem_state =>  type = HASH; {
+    num_of_correct_ans =>  type = scalar; 0 
+    num_of_incorrect_ans => 1 
+    recorded_score => 1 
+    state_summary_msg =>  type = scalar;  
+    sub_recorded_score => 1 
+
+  }
+ 
+  session_key =>  type = scalar; BGkh6eD0W3XKkIr7O9hYSuHlcj1EcDdP 
+  text =>  type = scalar; KDEgcHQpIDxCPldlYndvcmtDbGllbnQucG06OiBkZWZpbmUgZmlsZU5hbWUgaW4gZW52aXJvbm1l
+bnQ8L0I+PEJSPjxCTE9DS1FVT1RFPgogICAgIDxUQUJMRSBCT1JERVI9MSBDRUxMU1BBQ0lORz0x
+IENFTExQQURESU5HPTE1IEJHQ09MT1I9I0U4RThFOD48VFI+PFREPjxQPgpkaXNwbGF5TW9kZSAg
+aXMgSFRNTF9kcG5nIDxCUi8+CjxQPgpUaGlzIHByb2JsZW0gZGVtb25zdHJhdGVzIGhvdyB5b3Ug
+ZW50ZXIgbnVtZXJpY2FsIGFuc3dlcnMgaW50byBXZUJXb3JLLiA8UD4KRXZhbHVhdGUgdGhlIGV4
+cHJlc3Npb24gPGltZyBzcmM9Ii93ZWJ3b3JrMl9maWxlcy90bXAvZXF1YXRpb25zLzE0LzBiYmNj
+YjA3ZjJkZTAzY2NiZGIxZmI1YzMwMjlkYjEucG5nIiBzdHlsZT0idmVydGljYWwtYWxpZ246LTVw
+eCIgYWx0PSIzKC00ICkoMiAtMyAtMigzICkpIj46CgogPGlucHV0IHR5cGU9dGV4dCBjbGFzcz0i
+Y29kZXNoYXJkIiBzaXplPTEwIG5hbWU9IkFuU3dFcjAwMDEiIGlkPSJBblN3RXIwMDAxIiB2YWx1
+ZT0iODQiLz4KPGlucHV0IHR5cGU9aGlkZGVuICBuYW1lPSJwcmV2aW91c19BblN3RXIwMDAxIiB2
+YWx1ZT0iODQiLz4KCgo8QlIvPgoKSW4gdGhlIGNhc2UgYWJvdmUgeW91IG5lZWQgdG8gZW50ZXIg
+YSBudW1iZXIsIHNpbmNlIHdlJ3JlIHRlc3Rpbmcgd2hldGhlciB5b3UgY2FuIG11bHRpcGx5Cm91
+dCB0aGVzZSBudW1iZXJzLiAoWW91IGNhbiB1c2UgYSBjYWxjdWxhdG9yIGlmIHlvdSB3YW50Likg
+CjxQPgpGb3IgbW9zdCBwcm9ibGVtcywgeW91IHdpbGwgYmUgYWJsZSB0byBnZXQgV2VCV29ySyB0
+bwpkbyBzb21lIG9mIHRoZSB3b3JrIGZvciB5b3UuICBGb3IgZXhhbXBsZQo8QlIvPgpDYWxjdWxh
+dGUgKC00KSAqICgyKTogPGlucHV0IHR5cGU9dGV4dCBjbGFzcz0iY29kZXNoYXJkIiBzaXplPTIw
+IG5hbWU9IkFuU3dFcjAwMDIiIGlkPSJBblN3RXIwMDAyIiB2YWx1ZT0iLTgiLz4KPGlucHV0IHR5
+cGU9aGlkZGVuICBuYW1lPSJwcmV2aW91c19BblN3RXIwMDAyIiB2YWx1ZT0iLTgiLz4KCjxCUi8+
+CgpUaGUgYXN0ZXJpc2sgaXMgd2hhdCBtb3N0IGNvbXB1dGVycyB1c2UgdG8gZGVub3RlIG11bHRp
+cGxpY2F0aW9uIGFuZCB5b3UgY2FuIHVzZSB0aGlzIHdpdGggV2VCV29ySy4gCkJ1dCBXZUJXb3JL
+IHdpbGwgYWxzbyBhbGxvdyB1c2UgdG8gdXNlICBhIHNwYWNlIHRvIGRlbm90ZSBtdWx0aXBsaWNh
+dGlvbi4KWW91IGNhbiBlaXRoZXIgPGltZyBzcmM9Ii93ZWJ3b3JrMl9maWxlcy90bXAvZXF1YXRp
+b25zLzk1L2NlM2I2YmMwMGY5YmU1NjM4NzgxMjJmOTdhNjcwNTEucG5nIiBzdHlsZT0idmVydGlj
+YWwtYWxpZ246LTFweCIgYWx0PSItNCAqIDIiPiBvciAtOCBvciBldmVuIDxpbWcgc3JjPSIvd2Vi
+d29yazJfZmlsZXMvdG1wL2VxdWF0aW9ucy9mOS8yOWI4MzBhYjllNmY1MDk4ZDlhZWE0Y2EyZGM0
+YjExLnBuZyIgc3R5bGU9InZlcnRpY2FsLWFsaWduOi0xcHgiIGFsdD0iLTQgXCAyIj4uICBBbGwg
+d2lsbCB3b3JrLiBUcnkgdGhlbS4gIAo8UD4KTm93IHRyeSBjYWxjdWxhdGluZyB0aGUgc2luZSBv
+ZiA0NSBkZWdyZWVzICggdGhhdCdzIHNpbmUgb2YgcGkgb3ZlciA0IGluIHJhZGlhbnMKYW5kIG51
+bWVyaWNhbGx5IHNpbihwaS80KSBlcXVhbHMgMC43MDcxMDY3ODExODY1NDcgb3IsIG1vcmUgcHJl
+Y2lzZWx5LCAgPGltZyBzcmM9Ii93ZWJ3b3JrMl9maWxlcy90bXAvZXF1YXRpb25zLzc0L2Q5MTBm
+NzI0OGY5MzlhNzU2NjYwMzNjZmNiMzA2MTEucG5nIiBzdHlsZT0idmVydGljYWwtYWxpZ246LTVw
+eCIgYWx0PSIxL1xzcXJ0ezJ9Ij4gKS4gIApZb3UgY2FuIGVudGVyIHRoaXMgYXMgIHNpbihwaS80
+KSAsIGFzIApzaW4oMy4xNDE1OTI2LzQpLCBhcyAxL3NxcnQoMiksIGFzIDIqKigtLjUpLCBldGMu
+IFRoaXMgaXMgYmVjYXVzZSBXZUJXb3JLIGtub3dzIGFib3V0IApmdW5jdGlvbnMgbGlrZSBzaW4g
+IGFuZCBzcXJ0IChzcXVhcmUgcm9vdCkuIChOb3RlOiBleHBvbmVudHMKY2FuIGJlIGluZGljYXRl
+ZCBieSBlaXRoZXIgYSAiY2FyZXQiIG9yICoqKS4gVHJ5IGl0LjxCUi8+ICA8aW1nIHNyYz0iL3dl
+YndvcmsyX2ZpbGVzL3RtcC9lcXVhdGlvbnMvMzgvNDU2OTE1OGM1M2MyYjcyMzhiOWIxZWJjOWVi
+ZDk3MS5wbmciIHN0eWxlPSJ2ZXJ0aWNhbC1hbGlnbjotNXB4IiBhbHQ9IlxzaW4oXHBpLzQpID0i
+PiA8aW5wdXQgdHlwZT10ZXh0IGNsYXNzPSJjb2Rlc2hhcmQiIHNpemU9MjAgbmFtZT0iQW5Td0Vy
+MDAwMyIgaWQ9IkFuU3dFcjAwMDMiIHZhbHVlPSI0NSIvPgo8aW5wdXQgdHlwZT1oaWRkZW4gIG5h
+bWU9InByZXZpb3VzX0FuU3dFcjAwMDMiIHZhbHVlPSI0NSIvPgo8UD4KIEhlcmUncyB0aGUgCjxB
+IEhSRUY9Imh0dHA6Ly93ZWJ3b3JrLm1hdGgucm9jaGVzdGVyLmVkdS93ZWJ3b3JrX3N5c3RlbV9o
+dG1sL2RvY3MvZG9jcy9wZ2xhbmd1YWdlL2F2YWlsYWJsZWZ1bmN0aW9ucy5odG1sIiA+bGlzdCAK
+b2YgdGhlIGZ1bmN0aW9uczwvQT4KIHdoaWNoIFdlQldvcksgdW5kZXJzdGFuZHMuICAgV2VCV29y
+SyBBTFdBWVMgdXNlcyByYWRpYW4gbW9kZSBmb3IgdHJpZyBmdW5jdGlvbnMuIAogPFA+CgpZb3Ug
+Y2FuIGFsc28gdXNlIGp1eHRhcG9zaXRpb24gdG8gZGVub3RlIG11bHRpcGxpY2F0aW9uLiBFLmcu
+IGVudGVyIDxpbWcgc3JjPSIvd2Vid29yazJfZmlsZXMvdG1wL2VxdWF0aW9ucy8yMy9jNmUyMzZk
+NDdlMjYyYTQ5ZjJhNDY1MmNkNDIzMzgxLnBuZyIgc3R5bGU9InZlcnRpY2FsLWFsaWduOi01cHgi
+IGFsdD0iMlxzaW4oM1xwaS8yKSI+LgpZb3UgY2FuIGVudGVyIHRoaXMgYXMgMipzaW4oMypwaS8y
+KSBvciBtb3JlIHNpbXBseSBhcyAyc2luKDNwaS8yKS4gIFRyeSBpdDogPEJSLz4gCjxpbnB1dCB0
+eXBlPXRleHQgY2xhc3M9ImNvZGVzaGFyZCIgc2l6ZT0yMCBuYW1lPSJBblN3RXIwMDA0IiBpZD0i
+QW5Td0VyMDAwNCIgdmFsdWU9IiIvPgo8aW5wdXQgdHlwZT1oaWRkZW4gIG5hbWU9InByZXZpb3Vz
+X0FuU3dFcjAwMDQiIHZhbHVlPSIiLz4KPFA+CgpTb21ldGltZXMgeW91IG5lZWQgdG8gdXNlICgg
+KSdzIHRvIG1ha2UgeW91ciBtZWFuaW5nIGNsZWFyLiBFLmcuIDEvMiszIGlzIDMuNSwgYnV0ICAx
+LygyKzMpIGlzIC4yIFdoeT8KVHJ5IGVudGVyaW5nIGJvdGggYW5kIHVzZSB0aGUgJnF1b3Q7UHJl
+dmlldyZxdW90OyBidXR0b24gYmVsb3cgdG8gc2VlIHRoZSBkaWZmZXJlbmNlLiAgSW4gYWRkaXRp
+b24gdG8KKCApJ3MsIHlvdSBjYW4gYWxzbyB1c2UgWyBdJ3MgYW5kIFxsYnJhY2UgXHJicmFjZSdz
+LiAgPEJSLz4KPGlucHV0IHR5cGU9dGV4dCBjbGFzcz0iY29kZXNoYXJkIiBzaXplPTIwIG5hbWU9
+IkFuU3dFcjAwMDUiIGlkPSJBblN3RXIwMDA1IiB2YWx1ZT0iIi8+CjxpbnB1dCB0eXBlPWhpZGRl
+biAgbmFtZT0icHJldmlvdXNfQW5Td0VyMDAwNSIgdmFsdWU9IiIvPgo8UD4KCllvdSBjYW4gYWx3
+YXlzIHRyeSB0byBlbnRlciBhbnN3ZXJzIGFuZCBsZXQgV2VCV29ySyBkbyB0aGUgY2FsY3VsYXRp
+bmcuIApXZUJXb3JLIHdpbGwgdGVsbCB5b3UgaWYgdGhlIHByb2JsZW0gcmVxdWlyZXMgYSBzdHJp
+Y3QgbnVtZXJpY2FsIGFuc3dlci4gClRoZSB3YXkgd2UgdXNlIFdlQldvcksgaW4gdGhpcyBjbGFz
+cyB0aGVyZSBpcyBubyBwZW5hbHR5IGZvciBnZXR0aW5nIGFuIGFuc3dlciB3cm9uZy4gIFdoYXQg
+Y291bnRzCmlzIHRoYXQgeW91IGdldCB0aGUgYW5zd2VyIHJpZ2h0IGV2ZW50dWFsbHkgKGJlZm9y
+ZSB0aGUgZHVlIGRhdGUpLiAgRm9yIGNvbXBsaWNhdGVkIGFuc3dlcnMsCnlvdSBzaG91bGQgdXNl
+IHRoZSAmcXVvdDtQcmV2aWV3JnF1b3Q7IGJ1dHRvbiB0byBjaGVjayBmb3Igc3ludGF4IGVycm9y
+cyBhbmQgYWxzbyB0byBjaGVjayB0aGF0IHRoZSBhbnN3ZXIKeW91IGVudGVyIGlzIHJlYWxseSB3
+aGF0IHlvdSB0aGluayBpdCBpcy4KCjwvVEQ+PC9UUj48L1RBQkxFPgogICAgIDwvQkxPQ0tRVU9U
+RT4=
+ 
+  userID =>  type = scalar; gage 
+  warning_messages =>  type = ARRAY;  (  ) 
+ 
+
+}
+ 

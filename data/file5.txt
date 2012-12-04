@@ -1,0 +1,441 @@
+
+webwork_directory set to webwork2
+
+
+<html>
+<head>
+<base href="">
+<title> WeBWorK Editor using host </title>
+</head>
+<body>
+
+<h2> WeBWorK Editor using host </h2>
+		    <hr>ANSWERS <table border="3" align="center">
+		<tr>
+		    <td>
+				Prob: 1
+			</td>
+			<td>
+				&nbsp;
+			</td>
+			<td>
+			    Incorrect
+			</td>
+			<td>
+				Correct answer is 84
+			</td>
+			<td>
+				<i></i>
+			</td>
+		</tr>
+
+	
+		<tr>
+		    <td>
+				Prob: 2
+			</td>
+			<td>
+				&nbsp;
+			</td>
+			<td>
+			    Incorrect
+			</td>
+			<td>
+				Correct answer is -8
+			</td>
+			<td>
+				<i></i>
+			</td>
+		</tr>
+
+	
+		<tr>
+		    <td>
+				Prob: 3
+			</td>
+			<td>
+				&nbsp;
+			</td>
+			<td>
+			    Incorrect
+			</td>
+			<td>
+				Correct answer is 0.707106771713121
+			</td>
+			<td>
+				<i></i>
+			</td>
+		</tr>
+
+	
+		<tr>
+		    <td>
+				Prob: 4
+			</td>
+			<td>
+				&nbsp;
+			</td>
+			<td>
+			    Incorrect
+			</td>
+			<td>
+				Correct answer is -2
+			</td>
+			<td>
+				<i></i>
+			</td>
+		</tr>
+
+	
+		<tr>
+		    <td>
+				Prob: 5
+			</td>
+			<td>
+				&nbsp;
+			</td>
+			<td>
+			    Incorrect
+			</td>
+			<td>
+				Correct answer is 0.2
+			</td>
+			<td>
+				<i></i>
+			</td>
+		</tr>
+
+	</table> <hr>
+		    <form action="" method="post">
+			<script>noFontMessage = 1</script>
+<script>processDoubleClicks = 1</script>
+<script src="/webwork2_files/jsMath/jsMath-ww.js"></script>
+<noscript><center><font color="#CC0000">Warning: the mathematics on this page requires JavaScript.If your browser supports it, be sure it is enabled.</font></center><p>
+		  </noscript>(1 pt) <BLOCKQUOTE>
+     <TABLE BORDER=1 CELLSPACING=1 CELLPADDING=15 BGCOLOR=#E8E8E8><TR><TD><P>
+displayMode  is HTML_jsMath <BR/>
+<P>
+This problem demonstrates how you enter numerical answers into WeBWorK. <P>
+Evaluate the expression <SPAN CLASS="math">3(-4 )(2 -3 -2(3 ))</SPAN>:
+
+ <input type=text class="codeshard" size=10 name="AnSwEr0001" id="AnSwEr0001" value=""/>
+<input type=hidden  name="previous_AnSwEr0001" value=""/>
+
+
+<BR/>
+
+In the case above you need to enter a number, since we're testing whether you can multiply
+out these numbers. (You can use a calculator if you want.) 
+<P>
+For most problems, you will be able to get WeBWorK to
+do some of the work for you.  For example
+<BR/>
+Calculate (-4) * (2): <input type=text class="codeshard" size=20 name="AnSwEr0002" id="AnSwEr0002" value=""/>
+<input type=hidden  name="previous_AnSwEr0002" value=""/>
+
+<BR/>
+
+The asterisk is what most computers use to denote multiplication and you can use this with WeBWorK. 
+But WeBWorK will also allow use to use  a space to denote multiplication.
+You can either <SPAN CLASS="math">-4 * 2</SPAN> or -8 or even <SPAN CLASS="math">-4 \ 2</SPAN>.  All will work. Try them.  
+<P>
+Now try calculating the sine of 45 degrees ( that's sine of pi over 4 in radians
+and numerically sin(pi/4) equals 0.707106781186547 or, more precisely,  <SPAN CLASS="math">1/\sqrt{2}</SPAN> ).  
+You can enter this as  sin(pi/4) , as 
+sin(3.1415926/4), as 1/sqrt(2), as 2**(-.5), etc. This is because WeBWorK knows about 
+functions like sin  and sqrt (square root). (Note: exponents
+can be indicated by either a "caret" or **). Try it.<BR/>  <SPAN CLASS="math">\sin(\pi/4) =</SPAN> <input type=text class="codeshard" size=20 name="AnSwEr0003" id="AnSwEr0003" value=""/>
+<input type=hidden  name="previous_AnSwEr0003" value=""/>
+<P>
+ Here's the 
+<A HREF="http://webwork.math.rochester.edu/webwork_system_html/docs/docs/pglanguage/availablefunctions.html" >list 
+of the functions</A>
+ which WeBWorK understands.   WeBWorK ALWAYS uses radian mode for trig functions. 
+ <P>
+
+You can also use juxtaposition to denote multiplication. E.g. enter <SPAN CLASS="math">2\sin(3\pi/2)</SPAN>.
+You can enter this as 2*sin(3*pi/2) or more simply as 2sin(3pi/2).  Try it: <BR/> 
+<input type=text class="codeshard" size=20 name="AnSwEr0004" id="AnSwEr0004" value=""/>
+<input type=hidden  name="previous_AnSwEr0004" value=""/>
+<P>
+
+Sometimes you need to use ( )'s to make your meaning clear. E.g. 1/2+3 is 3.5, but  1/(2+3) is .2 Why?
+Try entering both and use the &quot;Preview&quot; button below to see the difference.  In addition to
+( )'s, you can also use [ ]'s and \lbrace \rbrace's.  <BR/>
+<input type=text class="codeshard" size=20 name="AnSwEr0005" id="AnSwEr0005" value=""/>
+<input type=hidden  name="previous_AnSwEr0005" value=""/>
+<P>
+
+You can always try to enter answers and let WeBWorK do the calculating. 
+WeBWorK will tell you if the problem requires a strict numerical answer. 
+The way we use WeBWorK in this class there is no penalty for getting an answer wrong.  What counts
+is that you get the answer right eventually (before the due date).  For complicated answers,
+you should use the &quot;Preview&quot; button to check for syntax errors and also to check that the answer
+you enter is really what you think it is.
+
+<script> jsMath.wwProcess() </script></TD></TR></TABLE>
+     </BLOCKQUOTE>
+	       <input type="hidden" name="answersSubmitted" value="1"> 
+	       <input type="hidden" name="problemAddress" value="probSource"> 
+	       <input type="hidden" name="problemSource" value="encodedSourceIsMissing"> 
+	       <input type="hidden" name="problemSeed" value="1234"> 
+	       <input type="hidden" name="pathToProblemFile" value="Can't find file name">
+	       <input type="hidden" name=courseName value="">
+	       <input type="hidden" name=courseID value="">
+	       <input type="hidden" name="userID" value="">
+	       <input type="hidden" name="session_key" value="">
+	       <p><input type="submit" name="submit" value="submit answers"></p>
+	     </form>
+<HR>
+<h3> Perl warning section </h3>
+<div style="background-color:pink">
+		             <p >WARNINGS</p><p>WARNINGS
+Subroutine decode_base64 redefined at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/PGcore.pm line 673.
+Subroutine encode_base64 redefined at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/PGcore.pm line 679.
+Subroutine ymin redefined at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/WWPlot.pm line 661.
+Use of uninitialized value in list assignment at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/WWPlot.pm line 181.
+Use of uninitialized value in list assignment at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/WWPlot.pm line 181.
+Subroutine numerator redefined at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Fraction.pm line 385.
+Subroutine denominator redefined at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Fraction.pm line 390.
+Use of uninitialized value in list assignment at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Multiple.pm line 189.
+Use of uninitialized value in list assignment at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Multiple.pm line 189.
+Ambiguous call resolved as CORE::abs(), qualify as such or use & at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value/Real.pm line 182.
+\1 better written as $1 at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value/Complex.pm line 350.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Ambiguous call resolved as CORE::abs(), qualify as such or use & at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value/Formula.pm line 202.
+Ambiguous call resolved as CORE::abs(), qualify as such or use & at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value/Formula.pm line 203.
+Ambiguous call resolved as CORE::abs(), qualify as such or use & at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value/Formula.pm line 205.
+Ambiguous call resolved as CORE::abs(), qualify as such or use & at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value/Formula.pm line 413.
+Ambiguous call resolved as CORE::abs(), qualify as such or use & at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value/Formula.pm line 481.
+Ambiguous call resolved as CORE::abs(), qualify as such or use & at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value/Formula.pm line 489.
+Unquoted string "break" may clash with future reserved word at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value/AnswerChecker.pm line 1703.
+Useless use of a constant (break) in void context at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value/AnswerChecker.pm line 1703.
+Ambiguous call resolved as CORE::abs(), qualify as such or use & at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value/AnswerChecker.pm line 1808.
+Ambiguous call resolved as CORE::abs(), qualify as such or use & at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value/AnswerChecker.pm line 1813.
+Ambiguous call resolved as CORE::abs(), qualify as such or use & at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value/AnswerChecker.pm line 1869.
+Ambiguous call resolved as CORE::abs(), qualify as such or use & at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value/AnswerChecker.pm line 1888.
+Ambiguous call resolved as CORE::abs(), qualify as such or use & at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value/AnswerChecker.pm line 1888.
+Ambiguous call resolved as CORE::abs(), qualify as such or use & at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value/AnswerChecker.pm line 1889.
+Ambiguous call resolved as CORE::abs(), qualify as such or use & at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value/AnswerChecker.pm line 1890.
+Ambiguous call resolved as CORE::abs(), qualify as such or use & at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value/AnswerChecker.pm line 1978.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value $class in substitution (s///) at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 670.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 297.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Use of uninitialized value in string eq at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value.pm line 281.
+Odd number of elements in hash assignment at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/Value/Context/Data.pm line 149.
+Subroutine log redefined at /Users/mgage1/webwork/cs253_webwork_project2/pg/macros/PG.pl line 512.
+Use of uninitialized value in substitution (s///) at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/PGalias.pm line 109
+Use of uninitialized value in join or string at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/PGalias.pm line 113
+The path to the current problem file template is not defined. at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/PGalias.pm line 141
+The current studentLogin is not defined  at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/PGalias.pm line 142
+Use of uninitialized value $pwd in substitution (s///) at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/PGloadfiles.pm line 108
+Use of uninitialized value $pwd in substr at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/PGloadfiles.pm line 109
+Use of uninitialized value $pwd in concatenation (.) or string at /Users/mgage1/webwork/cs253_webwork_project2/pg/lib/PGloadfiles.pm line 109
+Use of uninitialized value $BBOLD in string at [PG]/macros/PG.pl line 82
+Use of uninitialized value $EBOLD in string at [PG]/macros/PG.pl line 82
+Use of uninitialized value $studentLogin in hash element at line 1979 of (eval 1467)
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string ne at [PG]/lib/Value.pm line 272
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value $class in substitution (s///) at [PG]/lib/Value.pm line 670
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 297
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value $class in substitution (s///) at [PG]/lib/Value.pm line 670
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 297
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in concatenation (.) or string at [PG]/lib/PGcore.pm line 545
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string ne at [PG]/lib/Value.pm line 272
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value $class in substitution (s///) at [PG]/lib/Value.pm line 670
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 297
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value $class in substitution (s///) at [PG]/lib/Value.pm line 670
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 297
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value $class in substitution (s///) at [PG]/lib/Value.pm line 670
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 297
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in concatenation (.) or string at [PG]/lib/PGcore.pm line 545
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string ne at [PG]/lib/Value.pm line 272
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value $class in substitution (s///) at [PG]/lib/Value.pm line 670
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 297
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value $class in substitution (s///) at [PG]/lib/Value.pm line 670
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 297
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in concatenation (.) or string at [PG]/lib/PGcore.pm line 545
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string ne at [PG]/lib/Value.pm line 272
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value $class in substitution (s///) at [PG]/lib/Value.pm line 670
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 297
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value $class in substitution (s///) at [PG]/lib/Value.pm line 670
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 297
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value $class in substitution (s///) at [PG]/lib/Value.pm line 670
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 297
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in concatenation (.) or string at [PG]/lib/PGcore.pm line 545
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string ne at [PG]/lib/Value.pm line 272
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value $class in substitution (s///) at [PG]/lib/Value.pm line 670
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 297
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value $class in substitution (s///) at [PG]/lib/Value.pm line 670
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 297
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in string eq at [PG]/lib/Value.pm line 281
+Use of uninitialized value in concatenation (.) or string at [PG]/lib/PGcore.pm line 545
+
+<br/>More<br/>
+</p></div>
+<h3> PG Warning section </h3>
+;
+<h3> Debug message section </h3>
+
+<h3> internal errors </h3>
+
+
+</body>
+</html>
+
