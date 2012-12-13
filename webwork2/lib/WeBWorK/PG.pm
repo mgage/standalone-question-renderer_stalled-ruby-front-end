@@ -83,8 +83,8 @@ sub defineProblemEnvir {
 	$envir{psvnNumber}          = "psvnNumber-is-deprecated-Please-use-psvn-Instead"; #FIXME
 	$envir{probNum}             = $problem->problem_id;
 	$envir{questionNumber}      = $envir{probNum};
-	$envir{fileName}            = $problem->source_file;	 
-	$envir{probFileName}        = $envir{fileName};		 
+#	$envir{fileName}            = $problem->source_file;	 
+	$envir{probFileName}        = $problem->source_file;		 
 	$envir{problemSeed}         = $problem->problem_seed;
 	$envir{displayMode}         = translateDisplayModeNames($options->{displayMode});
 	$envir{languageMode}        = $envir{displayMode};	 
