@@ -178,7 +178,7 @@ package WWPlot;
 #use DynaLoader;
 #use GD;
 
-@WWPlot::ISA=undef;
+#@WWPlot::ISA=undef;
 $WWPlot::AUTOLOAD = undef;
 @WWPlot::ISA = qw(GD PGcore);
 
