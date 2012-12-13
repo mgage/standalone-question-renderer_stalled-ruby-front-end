@@ -104,7 +104,7 @@ sub new {
 sub initialize {
 	my $self = shift;
 	my $templateDirectory = $self->{envir}->{templateDirectory};
-	my $pwd = $self->{envir}->{fileName};
+	my $pwd = $self->{envir}->{probFileName};
 	$pwd =~ s!/[^/]*$!!;
     $pwd = $templateDirectory.$pwd unless substr($pwd,0,1) eq '/';
     $pwd =~ s!/tmpEdit/!/!;

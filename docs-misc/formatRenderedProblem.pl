@@ -44,7 +44,7 @@ sub formatRenderedProblem {
     my $internal_debug_messages = $rh_result->{internal_debug_messages} || [];
     $internal_debug_messages = join("<br/>\n", @{ $internal_debug_messages  } );
     
-    my $fileName = $self->{input}->{envir}->{fileName} || "Can't find file name";
+    my $fileName = $self->{input}->{envir}->{probFileName} || "Can't find file name";
 	# collect answers
 	my $answerTemplate    = q{<hr>ANSWERS <table border="3" align="center">};
 	my $problemNumber     = 1;
