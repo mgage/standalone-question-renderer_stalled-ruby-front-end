@@ -1,0 +1,254 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>xmlrpc/client.rb</title>
+<link href="rubyStyle.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<h1><a name="label-0" id="label-0">xmlrpc/client.rb</a></h1><!-- RDLabel: "xmlrpc/client.rb" -->
+<p>Copyright (C) 2001, 2002, 2003 by Michael Neumann (mneumann@ntecs.de)</p>
+<p>Released under the same term of license as Ruby.</p>
+<h1><a name="label-1" id="label-1">Classes</a></h1><!-- RDLabel: "Classes" -->
+<ul>
+<li><a href="#label-2">XMLRPC::Client</a></li>
+<li><a href="#label-33">XMLRPC::Client::Proxy</a></li>
+</ul>
+<h1><a name="label-2" id="label-2">XMLRPC::Client</a></h1><!-- RDLabel: "XMLRPC::Client" -->
+<h2><a name="label-3" id="label-3">Synopsis</a></h2><!-- RDLabel: "Synopsis" -->
+<pre>require "xmlrpc/client"
+
+server = XMLRPC::Client.new("www.ruby-lang.org", "/RPC2", 80)
+begin
+  param = server.call("michael.add", 4, 5)
+  puts "4 + 5 = #{param}"
+rescue XMLRPC::FaultException =&gt; e
+  puts "Error:"
+  puts e.faultCode
+  puts e.faultString
+end</pre>
+<p>or</p>
+<pre>require "xmlrpc/client"
+
+server = XMLRPC::Client.new("www.ruby-lang.org", "/RPC2", 80)
+ok, param = server.call2("michael.add", 4, 5)
+if ok then
+  puts "4 + 5 = #{param}"
+else
+  puts "Error:"
+  puts param.faultCode
+  puts param.faultString
+end</pre>
+<h2><a name="label-4" id="label-4">Description</a></h2><!-- RDLabel: "Description" -->
+<p>Class <code>XMLRPC::Client</code> provides remote procedure calls to a XML-RPC server.
+After setting the connection-parameters with <a href="#label-6">XMLRPC::Client.new</a> which
+creates a new <code>XMLRPC::Client</code> instance, you can execute a remote procedure 
+by sending the <a href="#label-13">call</a> or <a href="#label-14">call2</a>
+message to this new instance. The given parameters indicate which method to 
+call on the remote-side and of course the parameters for the remote procedure.</p>
+<h2><a name="label-5" id="label-5">Class Methods</a></h2><!-- RDLabel: "Class Methods" -->
+<dl>
+<dt><a name="label-6" id="label-6"><code>XMLRPC::Client.new( <var>host</var>=<var>nil</var>, <var>path</var>=<var>nil</var>, <var>port</var>=<var>nil</var>, <var>proxy_host</var>=<var>nil</var>, <var>proxy_port</var>=<var>nil</var>, <var>user</var>=<var>nil</var>, <var>password</var>=<var>nil</var>, <var>use_ssl</var>=<var>false</var>, <var>timeout</var> =<var>nil</var>)</code></a></dt><!-- RDLabel: "XMLRPC::Client.new" -->
+<dd>
+<p>Creates an object which represents the remote XML-RPC server on the 
+given host <var>host</var>. If the server is CGI-based, <var>path</var> is the
+path to the CGI-script, which will be called, otherwise (in the
+case of a standalone server) <var>path</var> should be <code>"/RPC2"</code>.
+<var>port</var> is the port on which the XML-RPC server listens.
+If <var>proxy_host</var> is given, then a proxy server listening at
+<var>proxy_host</var> is used. <var>proxy_port</var> is the port of the
+proxy server.</p>
+<p>Default values for <var>host</var>, <var>path</var> and <var>port</var> are 'localhost', '/RPC2' and
+'80' respectively using SSL '443'.</p>
+<p>If <var>user</var> and <var>password</var> are given, each time a request is send, 
+a Authorization header is send. Currently only Basic Authentification is 
+implemented no Digest.</p>
+<p>If <var>use_ssl</var> is set to <code>true</code>, comunication over SSL is enabled.
+Note, that you need the SSL package from RAA installed.</p>
+<p>Parameter <var>timeout</var> is the time to wait for a XML-RPC response, defaults to 30.</p></dd>
+<dt><a name="label-7" id="label-7"><code>XMLRPC::Client.new2( <var>uri</var>, <var>proxy</var>=<var>nil</var>, <var>timeout</var>=<var>nil</var>)</code></a></dt><!-- RDLabel: "XMLRPC::Client.new2" -->
+</dl>
+<dl>
+<dt><a name="label-8" id="label-8">uri</a></dt><!-- RDLabel: "uri" -->
+<dd>
+URI specifying protocol (http or https), host, port, path, user and password.
+Example: https://user:password@host:port/path
+</dd>
+<dt><a name="label-9" id="label-9">proxy</a></dt><!-- RDLabel: "proxy" -->
+<dd>
+Is of the form "host:port".
+</dd>
+<dt><a name="label-10" id="label-10">timeout</a></dt><!-- RDLabel: "timeout" -->
+<dd>
+Defaults to 30. 
+</dd>
+</dl>
+<dl>
+<dt><a name="label-11" id="label-11"><code>XMLRPC::Client.new3( <var>hash</var>={} )</code></a></dt><!-- RDLabel: "XMLRPC::Client.new3" -->
+<dd>
+<p>Parameter <var>hash</var> has following case-insensitive keys:</p>
+<ul>
+<li>host</li>
+<li>path</li>
+<li>port</li>
+<li>proxy_host</li>
+<li>proxy_port</li>
+<li>user</li>
+<li>password</li>
+<li>use_ssl</li>
+<li>timeout</li>
+</ul>
+<p>Calls <a href="#label-6">XMLRPC::Client.new</a> with the corresponding values.</p></dd>
+</dl>
+<h2><a name="label-12" id="label-12">Instance Methods</a></h2><!-- RDLabel: "Instance Methods" -->
+<dl>
+<dt><a name="label-13" id="label-13"><code>XMLRPC::Client#call( <var>method</var>, *<var>args</var> )</code></a></dt><!-- RDLabel: "XMLRPC::Client#call" -->
+<dd>
+<p>Invokes the method named <var>method</var> with the parameters given by 
+<var>args</var> on the XML-RPC server.
+The parameter <var>method</var> is converted into a <code>String</code> and should 
+be a valid XML-RPC method-name.  
+Each parameter of <var>args</var> must be of one of the following types,
+where <code>Hash</code>, <code>Struct</code> and <code>Array</code> can contain any of these listed <a name="index-0" id="index-0">types</a>:</p>
+<ul>
+<li><code>Fixnum</code>, <code>Bignum</code></li>
+<li><code>TrueClass</code>, <code>FalseClass</code> (<code>true</code>, <code>false</code>)</li>
+<li><code>String</code>, <code>Symbol</code></li>
+<li><code>Float</code></li>
+<li><code>Hash</code>, <code>Struct</code></li>
+<li><code>Array</code></li>
+<li><code>Date</code>, <code>Time</code>, <code>XMLRPC::DateTime</code></li>
+<li><code>XMLRPC::Base64</code> </li>
+<li>A Ruby object which class includes XMLRPC::Marshallable (only if Config::ENABLE_MARSHALLABLE is <code>true</code>). 
+      That object is converted into a hash, with one additional key/value pair "___class___" which contains the class name
+      for restoring later that object.</li>
+</ul>
+<p>The method returns the return-value from the RPC 
+<a name="footmark-1" id="footmark-1" href="#foottext-1"><sup><small>*1</small></sup></a>. 
+The type of the return-value is one of the above shown,
+only that a <code>Bignum</code> is only allowed when it fits in 32-bit and
+that a XML-RPC dateTime.iso8601 type is always returned as
+a <a href="datetime.html"><code>XMLRPC::DateTime</code></a> object and 
+a <code>Struct</code> is never returned, only a <code>Hash</code>, the same for a <code>Symbol</code>, where
+always a <code>String</code> is returned. 
+A <code>XMLRPC::Base64</code> is returned as a <code>String</code> from xmlrpc4r version 1.6.1 on.</p>
+<p>If the remote procedure returned a fault-structure, then a 
+<code>XMLRPC::FaultException</code> exception is raised, which has two accessor-methods
+<code>faultCode</code> and <code>faultString</code> of type <code>Integer</code> and <code>String</code>.</p></dd>
+<dt><a name="label-14" id="label-14"><code>XMLRPC::Client#call2( <var>method</var>, *<var>args</var> )</code></a></dt><!-- RDLabel: "XMLRPC::Client#call2" -->
+<dd>
+The difference between this method and <a href="#label-13">call</a> is, that
+this method do <em>not</em> raise a <code>XMLRPC::FaultException</code> exception.
+The method returns an array of two values. The first value indicates if 
+the second value is a return-value (<code>true</code>) or an object of type
+<code>XMLRPC::FaultException</code>. 
+Both are explained in <a href="#label-13">call</a>.</dd>
+<dt><a name="label-15" id="label-15"><code>XMLRPC::Client#multicall( *<var>methods</var> )</code></a></dt><!-- RDLabel: "XMLRPC::Client#multicall" -->
+<dd>
+<p>You can use this method to execute several methods on a XMLRPC server which supports
+the multi-call extension.
+Example:</p>
+<pre>s.multicall(
+  ['michael.add', 3, 4],
+  ['michael.sub', 4, 5]
+)
+# =&gt; [7, -1]</pre></dd>
+<dt><a name="label-16" id="label-16"><code>XMLRPC::Client#multicall2( *<var>methods</var> )</code></a></dt><!-- RDLabel: "XMLRPC::Client#multicall2" -->
+<dd>
+Same as <a href="#label-15">XMLRPC::Client#multicall</a>, but returns like <a href="#label-14">XMLRPC::Client#call2</a> two parameters 
+instead of raising an <code>XMLRPC::FaultException</code>.</dd>
+<dt><a name="label-17" id="label-17"><code>XMLRPC::Client#proxy( <var>prefix</var>, *<var>args</var> )</code></a></dt><!-- RDLabel: "XMLRPC::Client#proxy" -->
+<dd>
+Returns an object of class <code>XMLRPC::Client::Proxy</code>, initialized with
+<var>prefix</var> and <var>args</var>. A proxy object returned by this method behaves
+like <a href="#label-13">XMLRPC::Client#call</a>, i.e. a call on that object will raise a
+<code>XMLRPC::FaultException</code> when a fault-structure is returned by that call. </dd>
+<dt><a name="label-18" id="label-18"><code>XMLRPC::Client#proxy2( <var>prefix</var>, *<var>args</var> )</code></a></dt><!-- RDLabel: "XMLRPC::Client#proxy2" -->
+<dd>
+Almost the same like <a href="#label-17">XMLRPC::Client#proxy</a> only that a call on the returned
+<code>XMLRPC::Client::Proxy</code> object behaves like <a href="#label-14">XMLRPC::Client#call2</a>, i.e.
+a call on that object will return two parameters. </dd>
+<dt><a name="label-19" id="label-19"><code>XMLRPC::Client#call_async(...)</code></a></dt><!-- RDLabel: "XMLRPC::Client#call_async" -->
+<dt><a name="label-20" id="label-20"><code>XMLRPC::Client#call2_async(...)</code></a></dt><!-- RDLabel: "XMLRPC::Client#call2_async" -->
+<dt><a name="label-21" id="label-21"><code>XMLRPC::Client#multicall_async(...)</code></a></dt><!-- RDLabel: "XMLRPC::Client#multicall_async" -->
+<dt><a name="label-22" id="label-22"><code>XMLRPC::Client#multicall2_async(...)</code></a></dt><!-- RDLabel: "XMLRPC::Client#multicall2_async" -->
+<dt><a name="label-23" id="label-23"><code>XMLRPC::Client#proxy_async(...)</code></a></dt><!-- RDLabel: "XMLRPC::Client#proxy_async" -->
+<dt><a name="label-24" id="label-24"><code>XMLRPC::Client#proxy2_async(...)</code></a></dt><!-- RDLabel: "XMLRPC::Client#proxy2_async" -->
+<dd>
+<p>In contrast to corresponding methods without "_async", these can be
+called concurrently and use for each request a new connection, where the 
+non-asynchronous counterparts use connection-alive (one connection for all requests)
+if possible. </p>
+<p>Note, that you have to use Threads to call these methods concurrently. 
+The following example calls two methods concurrently:</p>
+<pre>Thread.new {
+  p client.call_async("michael.add", 4, 5)
+}
+
+Thread.new {
+  p client.call_async("michael.div", 7, 9)
+}</pre></dd>
+<dt><a name="label-25" id="label-25"><code>XMLRPC::Client#timeout</code></a></dt><!-- RDLabel: "XMLRPC::Client#timeout" -->
+<dt><a name="label-26" id="label-26"><code>XMLRPC::Client#user</code></a></dt><!-- RDLabel: "XMLRPC::Client#user" -->
+<dt><a name="label-27" id="label-27"><code>XMLRPC::Client#password</code></a></dt><!-- RDLabel: "XMLRPC::Client#password" -->
+<dd>
+Return the corresponding attributes.</dd>
+<dt><a name="label-28" id="label-28"><code>XMLRPC::Client#timeout= (<var>new_timeout</var>)</code></a></dt><!-- RDLabel: "XMLRPC::Client#timeout=" -->
+<dt><a name="label-29" id="label-29"><code>XMLRPC::Client#user= (<var>new_user</var>)</code></a></dt><!-- RDLabel: "XMLRPC::Client#user=" -->
+<dt><a name="label-30" id="label-30"><code>XMLRPC::Client#password= (<var>new_password</var>)</code></a></dt><!-- RDLabel: "XMLRPC::Client#password=" -->
+<dd>
+Set the corresponding attributes.</dd>
+<dt><a name="label-31" id="label-31"><code>XMLRPC::Client#set_writer( <var>writer</var> )</code></a></dt><!-- RDLabel: "XMLRPC::Client#set_writer" -->
+<dd>
+Sets the XML writer to use for generating XML output.
+Should be an instance of a class from module <code>XMLRPC::XMLWriter</code>.
+If this method is not called, then <code>XMLRPC::Config::DEFAULT_WRITER</code> is used. </dd>
+<dt><a name="label-32" id="label-32"><code>XMLRPC::Client#set_parser( <var>parser</var> )</code></a></dt><!-- RDLabel: "XMLRPC::Client#set_parser" -->
+<dd>
+Sets the XML parser to use for parsing XML documents.
+Should be an instance of a class from module <code>XMLRPC::XMLParser</code>.
+If this method is not called, then <code>XMLRPC::Config::DEFAULT_PARSER</code> is used.</dd>
+</dl>
+<h1><a name="label-33" id="label-33">XMLRPC::Client::Proxy</a></h1><!-- RDLabel: "XMLRPC::Client::Proxy" -->
+<h2><a name="label-34" id="label-34">Synopsis</a></h2><!-- RDLabel: "Synopsis" -->
+<pre>require "xmlrpc/client"
+
+server = XMLRPC::Client.new("www.ruby-lang.org", "/RPC2", 80)
+
+michael  = server.proxy("michael")
+michael2 = server.proxy("michael", 4)
+
+# both calls should return the same value '9'.
+p michael.add(4,5)
+p michael2.add(5)</pre>
+<h2><a name="label-35" id="label-35">Description</a></h2><!-- RDLabel: "Description" -->
+<p>Class <code>XMLRPC::Client::Proxy</code> makes XML-RPC calls look nicer!
+You can call any method onto objects of that class - the object handles 
+<code>method_missing</code> and will forward the method call to a XML-RPC server.
+Don't use this class directly, but use instead method <a href="#label-17">XMLRPC::Client#proxy</a> or
+<a href="#label-18">XMLRPC::Client#proxy2</a>.</p>
+<h2><a name="label-36" id="label-36">Class Methods</a></h2><!-- RDLabel: "Class Methods" -->
+<dl>
+<dt><a name="label-37" id="label-37"><code>XMLRPC::Client::Proxy.new( <var>server</var>, <var>prefix</var>, <var>args</var>=[], <var>meth</var>=:<var>call</var>, <var>delim</var>="." )</code></a></dt><!-- RDLabel: "XMLRPC::Client::Proxy.new" -->
+<dd>
+<p>Creates an object which provides <code>method_missing</code>.</p>
+<p><var>server</var> must be of type <code>XMLRPC::Client</code>, which is the XML-RPC server to be used
+for a XML-RPC call. <var>prefix</var> and <var>delim</var> will be prepended to the methodname
+called onto this object. </p>
+<p>Parameter <var>meth</var> is the method (call, call2, call_async, call2_async) to use for
+a RPC.</p>
+<p><var>args</var> are arguments which are automatically given
+to every XML-RPC call before the arguments provides through <code>method_missing</code>.</p></dd>
+</dl>
+<h2><a name="label-38" id="label-38">Instance Methods</a></h2><!-- RDLabel: "Instance Methods" -->
+<p>Every method call is forwarded to the XML-RPC server defined in <!-- Reference, RDLabel "XMLRPC::Client::Proxy#new" doesn't exist --><em class="label-not-found">new</em><!-- Reference end -->.</p>
+<p>Note: Inherited methods from class <code>Object</code> cannot be used as XML-RPC names, because they get around
+<code>method_missing</code>. </p>
+<hr />
+<p class="foottext">
+<a name="foottext-1" id="foottext-1" href="#footmark-1"><sup><small>*1</small></sup></a><small>stands for Remote Procedure Call</small><br />
+</p>
+</body>
+</html>

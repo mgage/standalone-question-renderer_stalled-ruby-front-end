@@ -1,0 +1,217 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>xmlrpc4r - HOWTO</title>
+<link href="rubyStyle.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<h1><a name="label-0" id="label-0">xmlrpc4r - HOWTO</a></h1><!-- RDLabel: "xmlrpc4r - HOWTO" -->
+<p>Copyright (C) 2001, 2002, 2003 by Michael Neumann (mneumann@ntecs.de)</p>
+<p>Released under the same term of license as Ruby.</p>
+<h1><a name="label-1" id="label-1">Install</a></h1><!-- RDLabel: "Install" -->
+<p>You can currently use xmlrpc4r with two parsers, XMLParser and/or NQXML.
+Both are available at RAA (Ruby Application Archive - <a href="http://raa.ruby-lang.org/">&lt;URL:http://raa.ruby-lang.org/&gt;</a>).</p>
+<p>If you want to use XMLParser (Expat Module for Ruby), you have to install  
+James Clark's XML Parser Toolkit "expat". I recommend using XMLParser, 
+because xmlrpc4r is better tested with it and XMLParser is much faster than NQXML.
+The advantage of using NQXML is that it is written in pure Ruby.</p>
+<p>Then you'll need "xmlrpc4r" of course, which is available at
+<a href="http://www.ntecs.de/projects/xmlrpc4r">&lt;URL:http://www.ntecs.de/projects/xmlrpc4r&gt;</a>.</p>
+<p>To install xmlrpc4r:</p>
+<pre>tar -xvzf xmlrpc4r-1_7_12.tar.gz
+cd xmlrpc4r-1_7_12
+su root -c "ruby install.rb"</pre>
+<h1><a name="label-2" id="label-2">Samples</a></h1><!-- RDLabel: "Samples" -->
+<h2><a name="label-3" id="label-3">Client</a></h2><!-- RDLabel: "Client" -->
+<pre>require "xmlrpc/client"
+
+# Make an object to represent the XML-RPC server.
+server = XMLRPC::Client.new( "xmlrpc-c.sourceforge.net", "/api/sample.php")
+
+# Call the remote server and get our result
+result = server.call("sample.sumAndDifference", 5, 3)
+
+sum = result["sum"]
+difference = result["difference"]
+
+puts "Sum: #{sum}, Difference: #{difference}"</pre>
+<h2><a name="label-4" id="label-4">Client with XML-RPC fault-structure handling</a></h2><!-- RDLabel: "Client with XML-RPC fault-structure handling" -->
+<p>There are two possible ways, of handling a fault-structure:</p>
+<h3><a name="label-5" id="label-5">by catching a XMLRPC::FaultException exception</a></h3><!-- RDLabel: "by catching a XMLRPC::FaultException exception" -->
+<pre>require "xmlrpc/client"
+
+# Make an object to represent the XML-RPC server.
+server = XMLRPC::Client.new( "xmlrpc-c.sourceforge.net", "/api/sample.php")
+
+begin
+  # Call the remote server and get our result
+  result = server.call("sample.sumAndDifference", 5, 3)
+
+  sum = result["sum"]
+  difference = result["difference"]
+
+  puts "Sum: #{sum}, Difference: #{difference}"
+
+rescue XMLRPC::FaultException =&gt; e
+  puts "Error: "
+  puts e.faultCode
+  puts e.faultString
+end</pre>
+<h3><a name="label-6" id="label-6">by calling "call2" which returns a boolean</a></h3><!-- RDLabel: "by calling "call2" which returns a boolean" -->
+<pre>require "xmlrpc/client"
+
+# Make an object to represent the XML-RPC server.
+server = XMLRPC::Client.new( "xmlrpc-c.sourceforge.net", "/api/sample.php")
+
+# Call the remote server and get our result
+ok, result = server.call2("sample.sumAndDifference", 5, 3)
+
+if ok
+  sum = result["sum"]
+  difference = result["difference"]
+
+  puts "Sum: #{sum}, Difference: #{difference}"
+else
+  puts "Error: "
+  puts result.faultCode
+  puts result.faultString
+end</pre>
+<h2><a name="label-7" id="label-7">Client using Proxy</a></h2><!-- RDLabel: "Client using Proxy" -->
+<p>You can create a <code>Proxy</code> object onto which you can call methods. This way it
+looks nicer. Both forms, "call" and "call2" are supported through "proxy" and "proxy2".
+You can additionally give arguments to the Proxy, which will be given to each XML-RPC
+call using that Proxy.</p>
+<pre>require "xmlrpc/client"
+
+# Make an object to represent the XML-RPC server.
+server = XMLRPC::Client.new( "xmlrpc-c.sourceforge.net", "/api/sample.php")
+
+# Create a Proxy object
+sample = server.proxy("sample")
+
+# Call the remote server and get our result
+result = sample.sumAndDifference(5,3)
+
+sum = result["sum"]
+difference = result["difference"]
+
+puts "Sum: #{sum}, Difference: #{difference}"</pre>
+<h2><a name="label-8" id="label-8">CGI-based Server</a></h2><!-- RDLabel: "CGI-based Server" -->
+<p>There are also two ways to define handler, the first is
+like C/PHP, the second like Java, of course both ways
+can be mixed:</p>
+<h3><a name="label-9" id="label-9">C/PHP-like (handler functions)</a></h3><!-- RDLabel: "C/PHP-like (handler functions)" -->
+<pre>require "xmlrpc/server"
+
+s = XMLRPC::CGIServer.new
+
+s.add_handler("sample.sumAndDifference") do |a,b|
+  { "sum" =&gt; a + b, "difference" =&gt; a - b }
+end
+
+s.serve</pre>
+<h3><a name="label-10" id="label-10">Java-like (handler classes)</a></h3><!-- RDLabel: "Java-like (handler classes)" -->
+<pre>require "xmlrpc/server"
+
+s = XMLRPC::CGIServer.new
+
+class MyHandler
+  def sumAndDifference(a, b)
+    { "sum" =&gt; a + b, "difference" =&gt; a - b }
+  end
+end
+
+# NOTE: Security Hole (read below)!!! 
+s.add_handler("sample", MyHandler.new)
+s.serve</pre>
+<p>To return a fault-structure you have to raise an FaultException e.g.:</p>
+<pre>raise XMLRPC::FaultException.new(3, "division by Zero")</pre>
+<h4><a name="label-11" id="label-11">Security Note</a></h4><!-- RDLabel: "Security Note" -->
+<p>From Brian Candler:</p>
+<pre>Above code sample has an extremely nasty security hole, in that you can now call                                                        
+any method of 'MyHandler' remotely, including methods inherited from Object                                                        
+and Kernel! For example, in the client code, you can use                                                                           
+
+  puts server.call("sample.send","`","ls")                                                                                       
+
+(backtick being the method name for running system processes). Needless to                                                         
+say, 'ls' can be replaced with something else.                                                                                     
+
+The version which binds proc objects (or the version presented below in the next section) 
+doesn't have this problem, but people may be tempted to use the second version because it's 
+so nice and 'Rubyesque'. I think it needs a big red disclaimer.</pre>
+<p>From Michael:</p>
+<p>A solution is to undef insecure methods or to use <code>XMLRPC::iPIMethods</code> as shown below:</p>
+<pre>class MyHandler
+  def sumAndDifference(a, b)
+    { "sum" =&gt; a + b, "difference" =&gt; a - b }
+  end
+end
+
+# ... server initialization ...
+
+s.add_handler(XMLRPC::iPIMethods("sample"), MyHandler.new)
+
+# ...</pre>
+<p>This adds only public instance methods explicitly declared in class MyHandler 
+(and not those inherited from any other class).</p>
+<h3><a name="label-12" id="label-12">With interface declarations</a></h3><!-- RDLabel: "With interface declarations" -->
+<p>Code sample from the book Ruby Developer's Guide:</p>
+<pre>require "xmlrpc/server"
+
+class Num
+  INTERFACE = XMLRPC::interface("num") {
+    meth 'int add(int, int)', 'Add two numbers', 'add'
+    meth 'int div(int, int)', 'Divide two numbers'
+  }
+
+  def add(a, b) a + b end
+  def div(a, b) a / b end
+end
+
+
+s = XMLRPC::CGIServer.new
+s.add_handler(Num::INTERFACE, Num.new)
+s.serve</pre>
+<h2><a name="label-13" id="label-13">Standalone server</a></h2><!-- RDLabel: "Standalone server" -->
+<p>Same as CGI-based server, only that the line</p>
+<pre>server = XMLRPC::CGIServer.new</pre>
+<p>must be changed to</p>
+<pre>server = XMLRPC::Server.new(8080)</pre>
+<p>if you want a server listening on port 8080.
+The rest is the same.</p>
+<h2><a name="label-14" id="label-14">Choosing a different XML Parser or XML Writer</a></h2><!-- RDLabel: "Choosing a different XML Parser or XML Writer" -->
+<p>The examples above all use the default parser (which is now since 1.6.9 NQXMLParser)
+and a default XML writer.
+If you want to use XMLParser or XMLStreamParser, then you have to call the <code>#set_parser</code> 
+method onto <code>XMLRPC::Client</code> instances or instances of subclasses of <code>XMLRPC::BasicServer</code> 
+or by editing lib/config.rb.</p>
+<p>Client Example:</p>
+<pre># ...
+server = XMLRPC::Client.new( "xmlrpc-c.sourceforge.net", "/api/sample.php")
+server.set_parser(XMLRPC::XMLParser::XMLParser.new)
+# ...</pre>
+<p>Server Example:</p>
+<pre># ...
+s = XMLRPC::CGIServer.new
+s.set_parser(XMLRPC::XMLParser::XMLStreamParser.new)
+# ...</pre>
+<p>or:</p>
+<pre># ...
+server = XMLRPC::Server.new(8080)
+server.set_parser(XMLRPC::XMLParser::NQXMLParser.new)
+# ...</pre>
+<p>Note that XMLStreamParser is incredible faster (and uses less memory) than XMLTreeParser, NQXMLStreamParser or 
+NQXMLTreeParser, and scales well for large documents. For example for a 0.5 MB XML document with many tags,
+XMLStreamParser is ~350 (!) times faster than NQXMLTreeParser and still ~18 times as fast as 
+XMLTreeParser.</p>
+<p>You can change the XML Writer by calling <code>#set_writer</code>.</p>
+<pre>Much easier is (when using xmlrpc4r version &gt; 1.6.3) to change
+the file xmlrpc/config.rb and change there the settings which
+XML parser/writer to use.  </pre>
+
+</body>
+</html>

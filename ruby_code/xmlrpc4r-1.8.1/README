@@ -1,0 +1,101 @@
+XML-RPC for Ruby
+Copyright (C) 2001, 2002, 2003 by Michael Neumann (mneumann@ntecs.de)
+License is the same as Ruby's
+
+For more information about XML-RPC look at http://www.xmlrpc.com.
+
+ACKNOWLEDGMENTS
+===============
+
+John W. Small (jsmall@laser.net):
+  * I included his ruby-generic-server into this package and use it
+    as a base for the Standalone XML-RPC server. 
+    For copyright notice and license, see file "redist/GServer.rb". 
+    It is available from RAA.
+
+NAKAMURA Hiroshi (NaHi):
+  * Many thanks to him, author of SOAP4R, for idea of marshalling Ruby 
+    objects and it's implementation.
+    Helped to find several bugs.  
+  * included his TCPSocketPipe.rb and application.rb (see redist/), as
+    well as the modified monitor.rb in samples/monitor.
+
+Neil Conway:
+  Inspired and helped implementing Introspection support
+
+Colin Steele
+  bug fix
+  patch for mod_ruby 
+
+Thaddeus Covert
+  bug fix 
+
+Takaaki Tateishi
+  XMLScanStreamParser
+
+and all the others I forgot :-) 
+  
+
+
+PREREQUISITES
+=============
+- One of the following XML parser:
+  * NQXML (tested with 0.6.1, 1.0.3 and 1.1.1) 
+  * XMLParser (tested with 0.6.1 and 0.6.2) 
+  * REXML (tested with 2.3.5) 
+  * xmlscan (tested with 0.2.1)
+- Ruby >= 1.6
+
+Note that you have to edit the config.rb file in directory lib/ if you 
+want to change the used parser (default is now (since 1.6.9) NQXMLParser).
+
+TEST
+=====
+If you want, you can execute the testcases, to make sure, 
+all (for which testcases exist) works correctly.
+Therefore you need "RUNIT" from RAA installed.
+Then go into directory "test" (you have to go into 
+this directory, otherwise it will not work!!!), 
+and run "ruby test.rb". If in the last line there's an
+"OK", all works as expected.
+
+INSTALL
+=======
+
+Edit the lib/config.rb file to configure which XML parser/writer
+to use or which features to enable. 
+
+Type "ruby install.rb" in current directory.
+Make sure you have root priviledges before you do this.
+
+The XML-RPC library files are installed in your site_ruby directory,
+of the actual ruby-version (e.g. "site_ruby/1.6") under the 
+directory "xmlrpc".
+All files in directory redist/ are copied to "site_ruby/1.6".
+
+DOCUMENTATION
+=============
+Open doc/index.html in a web-browser.
+
+
+SAMPLES
+=======
+See samples/validator/validator1.rb for a very good example.
+I've also included one example of an XML-RPC cgi-based server and
+a ruby-program which calles it.
+"samples/xml.cgi" is the cgi-based server, which should be placed
+into your cgi-bin directory of your web-server.
+"sampels/call.rb" is the client-side which calls the server (check 
+the URL /cgi-bin/xml.cgi in samples/call.rb if it points to the cgi-based
+server-script)
+
+PROBLEMS
+========
+A problem is that XML-RPC do not specify the timezone. 
+I use Time.gm(...) to create a Time object!
+
+
+TODO
+====
+See file ToDo.
+

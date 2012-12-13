@@ -1,0 +1,62 @@
+- does not work with localized #to_s method, e.g. using Gtk
+
+- use Date3, URb
+- allow parameter names in signatures: "int methodName(int a, string b )"
+- convertion-hook
+- Service Registry that creates WSDL (Web Service Description Languag)
+- Mix-in for service classes
+- Server: do method-lookup with Hash
+- Conversion-class which handles conversion from and to XMLRPC.
+- write test-cases
+- write documentation (3/4 done)
+- declare exceptions (e.g. ParserException...)
+- add the method-name to the FaultException?
+- client do not handle HTTP 301 redirects
+- "400 Bad Request" on not valid XML ?
+- XML pretty print?
+- write more/better samples
+- Server method hooks (e.g. for converting types and catching exceptions):
+  class Service
+  ...
+  end
+  Server.set_hook {|params|
+    begin
+      x = yield params
+      # convert x
+    rescue
+      # rescue exceptions
+    end
+  }
+  or alternative two hook functions, one for converting paramerters
+  and one for converting the result.
+  Server.set_call_hook {|params|
+    # convert params and return them
+  }
+  Server.set_result_hook {...}
+
+
+* file server.rb: trap("HUP") does not work with mingw => trap(1) works
+* convert from DOM to SAX ? (faster)
+* connection alive
+* Apache Mod Server
+* FastCGI server
+* a Java XMLRPC implementation had <nil\>. should implement?  
+* implement new features of non-standard XML-RPC extensions
+* service introspection
+* add support for NQXML
+* access XML-RPC server via Proxy
+* RPCs like michael.add(2,3) => method_missing
+* raise exception, when DateTime.new or setters get parameters which are out of range (e.g. month=13)
+* make it work under Windows
+* test validation with standalone server
+* TCPServer.new(host, port) in EServer.rb
+* Ruby's fixnum only 30 bit (without sign)? Allow Bignum of 32 bit?
+* XMLRPC::DateTime class (? date3.rb) 
+* conform to validator1 suite
+* check arity (if check_arity is true) before calling hanlder
+* argument_error_handler, which is called due to a ArgumentError exception 
+* added standalone server
+* add Date <-> Time conversions
+* base64 type
+* dateTime.iso8601 type
+

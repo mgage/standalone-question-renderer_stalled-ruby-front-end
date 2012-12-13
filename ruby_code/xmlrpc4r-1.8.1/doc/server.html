@@ -1,0 +1,287 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>xmlrpc/server.rb</title>
+<link href="rubyStyle.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<h1><a name="label-0" id="label-0">xmlrpc/server.rb</a></h1><!-- RDLabel: "xmlrpc/server.rb" -->
+<p>Copyright (C) 2001, 2002, 2003 by Michael Neumann (mneumann@ntecs.de)</p>
+<p>Released under the same term of license as Ruby.</p>
+<h1><a name="label-1" id="label-1">Classes</a></h1><!-- RDLabel: "Classes" -->
+<ul>
+<li><a href="#label-2">XMLRPC::BasicServer</a></li>
+<li><a href="#label-19">XMLRPC::CGIServer</a></li>
+<li><a href="#label-27">XMLRPC::ModRubyServer</a></li>
+<li><a href="#label-30">XMLRPC::Server</a></li>
+<li><a href="#label-41">XMLRPC::WEBrickServlet</a></li>
+</ul>
+<h1><a name="label-2" id="label-2">XMLRPC::BasicServer</a></h1><!-- RDLabel: "XMLRPC::BasicServer" -->
+<h2><a name="label-3" id="label-3">Description</a></h2><!-- RDLabel: "Description" -->
+<p>Is the base class for all XML-RPC server-types (CGI, standalone).
+You can add handler and set a default handler. 
+Do not use this server, as this is/should be an abstract class.</p>
+<h3><a name="label-4" id="label-4">How the method to call is found</a></h3><!-- RDLabel: "How the method to call is found" -->
+<p>The arity (number of accepted arguments) of a handler (method or <code>Proc</code> object) is 
+compared to the given arguments submitted by the client for a RPC <a name="footmark-1" id="footmark-1" href="#foottext-1"><sup><small>*1</small></sup></a>. 
+A handler is only called if it accepts the number of arguments, otherwise the search 
+for another handler will go on. When at the end no handler was found, 
+the <a href="#label-12">default_handler</a> will be called.
+With this technique it is possible to do overloading by number of parameters, but
+only for <code>Proc</code> handler, because you cannot define two methods of the same name in
+the same class. </p>
+<h2><a name="label-5" id="label-5">Class Methods</a></h2><!-- RDLabel: "Class Methods" -->
+<dl>
+<dt><a name="label-6" id="label-6"><code>XMLRPC::BasicServer.new( <var>class_delim</var>="." )</code></a></dt><!-- RDLabel: "XMLRPC::BasicServer.new" -->
+<dd>
+Creates a new <code>XMLRPC::BasicServer</code> instance, which should not be 
+done, because <code>XMLRPC::BasicServer</code> is an abstract class. This
+method should be called from a subclass indirectly by a <code>super</code> call
+in the method <code>initialize</code>. The paramter <var>class_delim</var> is used
+in <a href="#label-8">add_handler</a> when an object is
+added as handler, to delimit the object-prefix and the method-name.</dd>
+</dl>
+<h2><a name="label-7" id="label-7">Instance Methods</a></h2><!-- RDLabel: "Instance Methods" -->
+<dl>
+<dt><a name="label-8" id="label-8"><code>XMLRPC::BasicServer#add_handler( <var>name</var>, <var>signature</var>=<var>nil</var>, <var>help</var>=<var>nil</var> ) { <var>aBlock</var> }</code></a></dt><!-- RDLabel: "XMLRPC::BasicServer#add_handler" -->
+<dd>
+<p>Adds <var>aBlock</var> to the list of handlers, with <var>name</var> as the name of the method.
+Parameters <var>signature</var> and <var>help</var> are used by the Introspection method if specified, 
+where <var>signature</var> is either an Array containing strings each representing a type of it's 
+signature (the first is the return value) or an Array of Arrays if the method has multiple 
+signatures. Value type-names are "int, boolean, double, string, dateTime.iso8601, base64, array, struct".</p>
+<p>Parameter <var>help</var> is a String with informations about how to call this method etc.</p>
+<p>A handler method or code-block can return the types listed at
+<a href="client.html#index:0">XMLRPC::Client#call</a>. 
+When a method fails, it can tell it the client by throwing an 
+<code>XMLRPC::FaultException</code> like in this example:</p>
+<pre>s.add_handler("michael.div") do |a,b|
+  if b == 0
+    raise XMLRPC::FaultException.new(1, "division by zero")
+  else
+    a / b 
+  end
+end </pre>
+<p>The client gets in the case of <code>b==0</code> an object back of type
+<code>XMLRPC::FaultException</code> that has a <var>faultCode</var> and <var>faultString</var>
+field.</p></dd>
+<dt><a name="label-9" id="label-9"><code>XMLRPC::BasicServer#add_handler( <var>prefix</var>, <var>obj</var> )</code></a></dt><!-- RDLabel: "XMLRPC::BasicServer#add_handler" -->
+<dd>
+<p>This is the second form of <a href="#label-8">add_handler</a>.
+To add an object write:</p>
+<pre>server.add_handler("michael", MyHandlerClass.new)</pre>
+<p>All public methods of <code>MyHandlerClass</code> are accessible to
+the XML-RPC clients by michael."name of method". This is 
+where the <var>class_delim</var> in <a href="#label-6">new</a> 
+has it's role, a XML-RPC method-name is defined by 
+<var>prefix</var> + <var>class_delim</var> + "name of method". </p></dd>
+<dt><a name="label-10" id="label-10"><code>XMLRPC::BasicServer#add_handler( <var>interface</var>, <var>obj</var> )</code></a></dt><!-- RDLabel: "XMLRPC::BasicServer#add_handler" -->
+<dd>
+<p>This is the third form of <a href="#label-8">add_handler</a>.</p>
+<p>Use <code>XMLRPC::interface</code> to generate an ServiceInterface object, which
+represents an interface (with signature and help text) for a handler class.</p>
+<p>Parameter <var>interface</var> must be of type <code>XMLRPC::ServiceInterface</code>.
+Adds all methods of <var>obj</var> which are defined in <var>interface</var> to the
+server.</p>
+<p>This is the recommended way of adding services to a server!</p></dd>
+<dt><a name="label-11" id="label-11"><code>XMLRPC::BasicServer#get_default_handler</code></a></dt><!-- RDLabel: "XMLRPC::BasicServer#get_default_handler" -->
+<dd>
+Returns the default-handler, which is called when no handler for
+a method-name is found.
+It is a <code>Proc</code> object or <code>nil</code>.</dd>
+<dt><a name="label-12" id="label-12"><code>XMLRPC::BasicServer#set_default_handler ( &amp;<var>handler</var> )</code></a></dt><!-- RDLabel: "XMLRPC::BasicServer#set_default_handler" -->
+<dd>
+<p>Sets <var>handler</var> as the default-handler, which is called when 
+no handler for a method-name is found. <var>handler</var> is a code-block.
+The default-handler is called with the (XML-RPC) method-name as first argument, and
+the other arguments are the parameters given by the client-call.</p>
+<p>If no block is specified the default of <code>XMLRPC::BasicServer</code> is used, which raises a
+XMLRPC::FaultException saying "method missing".</p></dd>
+<dt><a name="label-13" id="label-13"><code>XMLRPC::BasicServer#set_writer( <var>writer</var> )</code></a></dt><!-- RDLabel: "XMLRPC::BasicServer#set_writer" -->
+<dd>
+Sets the XML writer to use for generating XML output.
+Should be an instance of a class from module <code>XMLRPC::XMLWriter</code>.
+If this method is not called, then <code>XMLRPC::Config::DEFAULT_WRITER</code> is used. </dd>
+<dt><a name="label-14" id="label-14"><code>XMLRPC::BasicServer#set_parser( <var>parser</var> )</code></a></dt><!-- RDLabel: "XMLRPC::BasicServer#set_parser" -->
+<dd>
+Sets the XML parser to use for parsing XML documents.
+Should be an instance of a class from module <code>XMLRPC::XMLParser</code>.
+If this method is not called, then <code>XMLRPC::Config::DEFAULT_PARSER</code> is used.</dd>
+<dt><a name="label-15" id="label-15"><code>XMLRPC::BasicServer#add_introspection</code></a></dt><!-- RDLabel: "XMLRPC::BasicServer#add_introspection" -->
+<dd>
+Adds the introspection handlers "system.listMethods", "system.methodSignature" and "system.methodHelp", 
+where only the first one works.</dd>
+<dt><a name="label-16" id="label-16"><code>XMLRPC::BasicServer#add_multicall</code></a></dt><!-- RDLabel: "XMLRPC::BasicServer#add_multicall" -->
+<dd>
+Adds the multi-call handler "system.multicall".</dd>
+<dt><a name="label-17" id="label-17"><code>XMLRPC::BasicServer#get_service_hook</code></a></dt><!-- RDLabel: "XMLRPC::BasicServer#get_service_hook" -->
+<dd>
+Returns the service-hook, which is called on each service request (RPC) unless it's <code>nil</code>.</dd>
+<dt><a name="label-18" id="label-18"><code>XMLRPC::BasicServer#set_service_hook ( &amp;<var>handler</var> )</code></a></dt><!-- RDLabel: "XMLRPC::BasicServer#set_service_hook" -->
+<dd>
+<p>A service-hook is called for each service request (RPC).
+You can use a service-hook for example to wrap existing methods and catch exceptions of them or
+convert values to values recognized by XMLRPC. You can disable it by passing <code>nil</code> as parameter  
+<var>handler</var> .</p>
+<p>The service-hook is called with a <code>Proc</code> object and with the parameters for this <code>Proc</code>.
+An example:</p>
+<pre>server.set_service_hook {|obj, *args|
+  begin
+    ret = obj.call(*args)  # call the original service-method
+    # could convert the return value 
+  resuce
+    # rescue exceptions
+  end
+}</pre></dd>
+</dl>
+<h1><a name="label-19" id="label-19">XMLRPC::CGIServer</a></h1><!-- RDLabel: "XMLRPC::CGIServer" -->
+<h2><a name="label-20" id="label-20">Synopsis</a></h2><!-- RDLabel: "Synopsis" -->
+<pre>require "xmlrpc/server"
+
+s = XMLRPC::CGIServer.new     
+
+s.add_handler("michael.add") do |a,b|
+  a + b
+end
+
+s.add_handler("michael.div") do |a,b|
+  if b == 0
+    raise XMLRPC::FaultException.new(1, "division by zero")
+  else
+    a / b 
+  end
+end 
+
+s.set_default_handler do |name, *args|
+  raise XMLRPC::FaultException.new(-99, "Method #{name} missing" +
+                                   " or wrong number of parameters!")
+end
+
+s.serve</pre>
+<h2><a name="label-21" id="label-21">Description</a></h2><!-- RDLabel: "Description" -->
+<p>Implements a CGI-based XML-RPC server.</p>
+<h2><a name="label-22" id="label-22">Superclass</a></h2><!-- RDLabel: "Superclass" -->
+<p><a href="#label-2">XMLRPC::BasicServer</a></p>
+<h2><a name="label-23" id="label-23">Class Methods</a></h2><!-- RDLabel: "Class Methods" -->
+<dl>
+<dt><a name="label-24" id="label-24"><code>XMLRPC::CGIServer.new( *<var>a</var> )</code></a></dt><!-- RDLabel: "XMLRPC::CGIServer.new" -->
+<dd>
+Creates a new <code>XMLRPC::CGIServer</code> instance. All parameters given
+are by-passed to <a href="#label-6">XMLRPC::BasicServer.new</a>. You can only create 
+<em>one</em> <code>XMLRPC::CGIServer</code> instance, because more than one makes
+no sense.</dd>
+</dl>
+<h2><a name="label-25" id="label-25">Instance Methods</a></h2><!-- RDLabel: "Instance Methods" -->
+<dl>
+<dt><a name="label-26" id="label-26"><code>XMLRPC::CGIServer#serve</code></a></dt><!-- RDLabel: "XMLRPC::CGIServer#serve" -->
+<dd>
+Call this after you have added all you handlers to the server.
+This method processes a XML-RPC methodCall and sends the answer
+back to the client. 
+Make sure that you don't write to standard-output in a handler, or in
+any other part of your program, this would case a CGI-based server to fail!</dd>
+</dl>
+<h1><a name="label-27" id="label-27">XMLRPC::ModRubyServer</a></h1><!-- RDLabel: "XMLRPC::ModRubyServer" -->
+<h2><a name="label-28" id="label-28">Description</a></h2><!-- RDLabel: "Description" -->
+<p>Implements a XML-RPC server, which works with Apache mod_ruby.</p>
+<p>Use it in the same way as CGIServer!</p>
+<h2><a name="label-29" id="label-29">Superclass</a></h2><!-- RDLabel: "Superclass" -->
+<p><a href="#label-2">XMLRPC::BasicServer</a></p>
+<h1><a name="label-30" id="label-30">XMLRPC::Server</a></h1><!-- RDLabel: "XMLRPC::Server" -->
+<h2><a name="label-31" id="label-31">Synopsis</a></h2><!-- RDLabel: "Synopsis" -->
+<pre>require "xmlrpc/server"
+
+s = XMLRPC::Server.new(8080) 
+
+s.add_handler("michael.add") do |a,b|
+  a + b
+end
+
+s.add_handler("michael.div") do |a,b|
+  if b == 0
+    raise XMLRPC::FaultException.new(1, "division by zero")
+  else
+    a / b 
+  end
+end 
+
+s.set_default_handler do |name, *args|
+  raise XMLRPC::FaultException.new(-99, "Method #{name} missing" +
+                                   " or wrong number of parameters!")
+end
+
+s.serve</pre>
+<h2><a name="label-32" id="label-32">Description</a></h2><!-- RDLabel: "Description" -->
+<p>Implements a standalone XML-RPC server. The method <code>serve</code>) is left if a SIGHUP is sent to the
+program.</p>
+<h2><a name="label-33" id="label-33">Superclass</a></h2><!-- RDLabel: "Superclass" -->
+<p><a href="#label-2">XMLRPC::BasicServer</a></p>
+<h2><a name="label-34" id="label-34">Class Methods</a></h2><!-- RDLabel: "Class Methods" -->
+<dl>
+<dt><a name="label-35" id="label-35"><code>XMLRPC::Server.new( <var>port</var>=<var>8080</var>, <var>host</var>="<var>127</var>.<var>0</var>.<var>0</var>.<var>1</var>", <var>maxConnections</var>=<var>4</var>, <var>stdlog</var>=$<var>stdout</var>, <var>audit</var>=<var>true</var>, <var>debug</var>=<var>true</var>, *<var>a</var> )</code></a></dt><!-- RDLabel: "XMLRPC::Server.new" -->
+<dd>
+<p>Creates a new <code>XMLRPC::Server</code> instance, which is a XML-RPC server listening on
+port <var>port</var> and accepts requests for the host <var>host</var>, which is by default only the localhost. 
+The server is not started, to start it you have to call <a href="#label-37">serve</a>.</p>
+<p>The parameters <var>maxConnections</var>, <var>stdlog</var>, <var>audit</var> and <var>debug</var> are passed to the HTTP server and
+specify it's behaviour more precise.</p>
+<p>All additionally given parameters in <var>*a</var> are by-passed to <a href="#label-6">XMLRPC::BasicServer.new</a>. </p></dd>
+</dl>
+<h2><a name="label-36" id="label-36">Instance Methods</a></h2><!-- RDLabel: "Instance Methods" -->
+<dl>
+<dt><a name="label-37" id="label-37"><code>XMLRPC::Server#serve</code></a></dt><!-- RDLabel: "XMLRPC::Server#serve" -->
+<dd>
+Call this after you have added all you handlers to the server.
+This method starts the server to listen for XML-RPC requests and answer them.</dd>
+<dt><a name="label-38" id="label-38"><code>XMLRPC::Server#shutdown</code></a></dt><!-- RDLabel: "XMLRPC::Server#shutdown" -->
+<dd>
+Stops and shuts the server down.</dd>
+<dt><a name="label-39" id="label-39"><code>XMLRPC::Server#set_valid_ip( *<var>ip_addr</var> )</code></a></dt><!-- RDLabel: "XMLRPC::Server#set_valid_ip" -->
+<dd>
+Specifies the valid IP addresses that are allowed to connect to the server.
+Each IP is either a <code>String</code> or a <code>Regexp</code>.</dd>
+<dt><a name="label-40" id="label-40"><code>XMLRPC::Server#get_valid_ip</code></a></dt><!-- RDLabel: "XMLRPC::Server#get_valid_ip" -->
+<dd>
+Return the via method <a href="#label-39">set_valid_ip</a> specified
+valid IP addresses.</dd>
+</dl>
+<h1><a name="label-41" id="label-41">XMLRPC::WEBrickServlet</a></h1><!-- RDLabel: "XMLRPC::WEBrickServlet" -->
+<h2><a name="label-42" id="label-42">Synopsis</a></h2><!-- RDLabel: "Synopsis" -->
+<pre>require "webrick"
+require "xmlrpc/server"
+
+s = XMLRPC::WEBrickServlet.new
+s.add_handler("michael.add") do |a,b|
+  a + b
+end
+
+s.add_handler("michael.div") do |a,b|
+  if b == 0
+    raise XMLRPC::FaultException.new(1, "division by zero")
+  else
+    a / b 
+  end
+end 
+
+s.set_default_handler do |name, *args|
+  raise XMLRPC::FaultException.new(-99, "Method #{name} missing" +
+                                   " or wrong number of parameters!")
+end
+
+httpserver = WEBrick::HTTPServer.new(:Port =&gt; 8080)    
+httpserver.mount("RPC2", s)
+trap("HUP") { httpserver.shutdown }   # use 1 instead of "HUP" on Windows
+httpserver.start</pre>
+<h2><a name="label-43" id="label-43">Description</a></h2><!-- RDLabel: "Description" -->
+<p>Implements a servlet for use with WEBrick, a pure Ruby (HTTP-) server framework.</p>
+<h2><a name="label-44" id="label-44">Superclass</a></h2><!-- RDLabel: "Superclass" -->
+<p><a href="#label-2">XMLRPC::BasicServer</a></p>
+<hr />
+<p class="foottext">
+<a name="foottext-1" id="foottext-1" href="#footmark-1"><sup><small>*1</small></sup></a><small>Remote Procedure Call</small><br />
+</p>
+</body>
+</html>

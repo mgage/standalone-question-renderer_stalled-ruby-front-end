@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>xmlrpc/base64.rb</title>
+<link href="rubyStyle.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<h1><a name="label-0" id="label-0">xmlrpc/base64.rb</a></h1><!-- RDLabel: "xmlrpc/base64.rb" -->
+<p>Copyright (C) 2001, 2002, 2003 by Michael Neumann (mneumann@ntecs.de)</p>
+<p>Released under the same term of license as Ruby.</p>
+<h1><a name="label-1" id="label-1">Classes</a></h1><!-- RDLabel: "Classes" -->
+<ul>
+<li><a href="#label-2">XMLRPC::Base64</a></li>
+</ul>
+<h1><a name="label-2" id="label-2">XMLRPC::Base64</a></h1><!-- RDLabel: "XMLRPC::Base64" -->
+<h2><a name="label-3" id="label-3">Description</a></h2><!-- RDLabel: "Description" -->
+<p>This class is necessary for xmlrpc4r to determine that a string should 
+be transmitted base64-encoded and not as a raw-string. 
+You can use <code>XMLRPC::Base64</code> on the client and server-side as a 
+parameter and/or return-value.</p>
+<h2><a name="label-4" id="label-4">Class Methods</a></h2><!-- RDLabel: "Class Methods" -->
+<dl>
+<dt><a name="label-5" id="label-5"><code>XMLRPC::Base64.new( <var>str</var>, <var>state</var> = :<var>dec</var> )</code></a></dt><!-- RDLabel: "XMLRPC::Base64.new" -->
+<dd>
+Creates a new <code>XMLRPC::Base64</code> instance with string <var>str</var> as the
+internal string. When <var>state</var> is <code>:dec</code> it assumes that the 
+string <var>str</var> is not in base64 format (perhaps already decoded), 
+otherwise if <var>state</var> is <code>:enc</code> it decodes <var>str</var> 
+and stores it as the internal string.</dd>
+<dt><a name="label-6" id="label-6"><code>XMLRPC::Base64.decode( <var>str</var> )</code></a></dt><!-- RDLabel: "XMLRPC::Base64.decode" -->
+<dd>
+Decodes string <var>str</var> with base64 and returns that value.</dd>
+<dt><a name="label-7" id="label-7"><code>XMLRPC::Base64.encode( <var>str</var> )</code></a></dt><!-- RDLabel: "XMLRPC::Base64.encode" -->
+<dd>
+Encodes string <var>str</var> with base64 and returns that value.</dd>
+</dl>
+<h2><a name="label-8" id="label-8">Instance Methods</a></h2><!-- RDLabel: "Instance Methods" -->
+<dl>
+<dt><a name="label-9" id="label-9"><code>XMLRPC::Base64#decoded</code></a></dt><!-- RDLabel: "XMLRPC::Base64#decoded" -->
+<dd>
+Returns the internal string decoded.</dd>
+<dt><a name="label-10" id="label-10"><code>XMLRPC::Base64#encoded</code></a></dt><!-- RDLabel: "XMLRPC::Base64#encoded" -->
+<dd>
+Returns the internal string encoded with base64.</dd>
+</dl>
+
+</body>
+</html>

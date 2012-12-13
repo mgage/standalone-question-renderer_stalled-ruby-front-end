@@ -1,0 +1,69 @@
+#!/usr/bin/env ruby
+
+#
+# The chat client
+# 
+# Copyright (C) 2001 by Michael Neumann (mneumann@ntecs.de)
+#
+
+require "xmlrpc/client"
+require "xmlrpc/server"
+require "tk"
+
+CLIENT_HOST = "localhost" 
+CLIENT_PORT = (ARGV[0] || 7001).to_i
+SERVER_HOST = "localhost"
+SERVER_PORT = "7000"
+CHANNEL = "mychannel"
+
+require "thread"
+$mutex = Mutex.new
+
+s = XMLRPC::Server.new(CLIENT_PORT)
+s.add_handler("chat.client.message") do |channel, message|
+  $mutex.synchronize {
+  $msg.configure('text'=>$msg.cget('text') + message)
+  }
+  true
+end
+
+
+chat_server = XMLRPC::Client.new(SERVER_HOST, "/RPC2", SERVER_PORT)
+chat_server.call("chat.server.connect", CHANNEL, CLIENT_HOST, CLIENT_PORT)
+
+
+server_thread = Thread.new(s) do |server|
+  server.serve
+end
+
+
+
+
+root = TkRoot.new { title "Chat-Demo (#{CLIENT_PORT})" }
+
+$entry = TkVariable.new
+
+$msg = TkMessage.new(root) {
+  pack
+}
+
+TkEntry.new(root) {
+  textvariable $entry
+  pack
+}
+
+TkButton.new(root) {
+  text "send"
+  command {
+    $mutex.synchronize {
+      Thread.new {
+        chat_server.call("chat.server.send", CHANNEL, $entry.value+"\n")
+      }
+      $entry.value = "" 
+    }
+  } 
+  pack
+}
+
+Tk.mainloop
+  

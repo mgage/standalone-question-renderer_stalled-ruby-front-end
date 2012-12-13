@@ -1,0 +1,78 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>xmlrpc/datetime.rb</title>
+<link href="rubyStyle.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<h1><a name="label-0" id="label-0">xmlrpc/datetime.rb</a></h1><!-- RDLabel: "xmlrpc/datetime.rb" -->
+<p>Copyright (C) 2001, 2002, 2003 by Michael Neumann (mneumann@ntecs.de)</p>
+<p>Released under the same term of license as Ruby.</p>
+<h1><a name="label-1" id="label-1">Classes</a></h1><!-- RDLabel: "Classes" -->
+<ul>
+<li><a href="#label-2">XMLRPC::DateTime</a></li>
+</ul>
+<h1><a name="label-2" id="label-2">XMLRPC::DateTime</a></h1><!-- RDLabel: "XMLRPC::DateTime" -->
+<h2><a name="label-3" id="label-3">Description</a></h2><!-- RDLabel: "Description" -->
+<p>This class is important to handle XMLRPC dateTime.iso8601 values,
+correcly, because normal UNIX-dates (class <code>Date</code>) only handle dates 
+from year 1970 on, and class <code>Time</code> handles dates without the time
+component. <code>XMLRPC::DateTime</code> is able to store a XMLRPC 
+dateTime.iso8601 value correctly.</p>
+<h2><a name="label-4" id="label-4">Class Methods</a></h2><!-- RDLabel: "Class Methods" -->
+<dl>
+<dt><a name="label-5" id="label-5"><code>XMLRPC::DateTime.new( <var>year</var>, <var>month</var>, <var>day</var>, <var>hour</var>, <var>min</var>, <var>sec</var> )</code></a></dt><!-- RDLabel: "XMLRPC::DateTime.new" -->
+<dd>
+Creates a new <code>XMLRPC::DateTime</code> instance with the
+parameters <var>year</var>, <var>month</var>, <var>day</var> as date and 
+<var>hour</var>, <var>min</var>, <var>sec</var> as time.
+Raises <code>ArgumentError</code> if a parameter is out of range, or <var>year</var> is not
+of type <code>Integer</code>.</dd>
+</dl>
+<h2><a name="label-6" id="label-6">Instance Methods</a></h2><!-- RDLabel: "Instance Methods" -->
+<dl>
+<dt><a name="label-7" id="label-7"><code>XMLRPC::DateTime#year</code></a></dt><!-- RDLabel: "XMLRPC::DateTime#year" -->
+<dt><a name="label-8" id="label-8"><code>XMLRPC::DateTime#month</code></a></dt><!-- RDLabel: "XMLRPC::DateTime#month" -->
+<dt><a name="label-9" id="label-9"><code>XMLRPC::DateTime#day</code></a></dt><!-- RDLabel: "XMLRPC::DateTime#day" -->
+<dt><a name="label-10" id="label-10"><code>XMLRPC::DateTime#hour</code></a></dt><!-- RDLabel: "XMLRPC::DateTime#hour" -->
+<dt><a name="label-11" id="label-11"><code>XMLRPC::DateTime#min</code></a></dt><!-- RDLabel: "XMLRPC::DateTime#min" -->
+<dt><a name="label-12" id="label-12"><code>XMLRPC::DateTime#sec</code></a></dt><!-- RDLabel: "XMLRPC::DateTime#sec" -->
+<dd>
+Return the value of the specified date/time component.</dd>
+<dt><a name="label-13" id="label-13"><code>XMLRPC::DateTime#mon</code></a></dt><!-- RDLabel: "XMLRPC::DateTime#mon" -->
+<dd>
+Alias for <a href="#label-8">XMLRPC::DateTime#month</a>.</dd>
+<dt><a name="label-14" id="label-14"><code>XMLRPC::DateTime#year=( <var>value</var> )</code></a></dt><!-- RDLabel: "XMLRPC::DateTime#year=" -->
+<dt><a name="label-15" id="label-15"><code>XMLRPC::DateTime#month=( <var>value</var> )</code></a></dt><!-- RDLabel: "XMLRPC::DateTime#month=" -->
+<dt><a name="label-16" id="label-16"><code>XMLRPC::DateTime#day=( <var>value</var> )</code></a></dt><!-- RDLabel: "XMLRPC::DateTime#day=" -->
+<dt><a name="label-17" id="label-17"><code>XMLRPC::DateTime#hour=( <var>value</var> )</code></a></dt><!-- RDLabel: "XMLRPC::DateTime#hour=" -->
+<dt><a name="label-18" id="label-18"><code>XMLRPC::DateTime#min=( <var>value</var> )</code></a></dt><!-- RDLabel: "XMLRPC::DateTime#min=" -->
+<dt><a name="label-19" id="label-19"><code>XMLRPC::DateTime#sec=( <var>value</var> )</code></a></dt><!-- RDLabel: "XMLRPC::DateTime#sec=" -->
+<dd>
+Set <var>value</var> as the new date/time component.
+Raises <code>ArgumentError</code> if <var>value</var> is out of range, or in the case
+of <code>XMLRPC::DateTime#year=</code> if <var>value</var> is not of type <code>Integer</code>.</dd>
+<dt><a name="label-20" id="label-20"><code>XMLRPC::DateTime#mon=( <var>value</var> )</code></a></dt><!-- RDLabel: "XMLRPC::DateTime#mon=" -->
+<dd>
+Alias for <a href="#label-15">XMLRPC::DateTime#month=</a>.</dd>
+<dt><a name="label-21" id="label-21"><code>XMLRPC::DateTime#to_time</code></a></dt><!-- RDLabel: "XMLRPC::DateTime#to_time" -->
+<dd>
+Return a <code>Time</code> object of the date/time which <code>self</code> represents.
+If the year is below 1970, this method returns <code>nil</code>, 
+because <code>Time</code> cannot handle years below 1970.
+The used timezone is GMT.</dd>
+<dt><a name="label-22" id="label-22"><code>XMLRPC::DateTime#to_date</code></a></dt><!-- RDLabel: "XMLRPC::DateTime#to_date" -->
+<dd>
+Return a <code>Date</code> object of the date which <code>self</code> represents.
+The <code>Date</code> object do <em>not</em> contain the time component (only date).</dd>
+<dt><a name="label-23" id="label-23"><code>XMLRPC::DateTime#to_a</code></a></dt><!-- RDLabel: "XMLRPC::DateTime#to_a" -->
+<dd>
+Returns all date/time components in an array.
+Returns <code>[year, month, day, hour, min, sec]</code>.</dd>
+</dl>
+
+</body>
+</html>

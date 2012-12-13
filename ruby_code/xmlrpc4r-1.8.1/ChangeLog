@@ -1,0 +1,212 @@
+=begin
+= ChangeLog for xmlrpc4r
+
+ChangeLog no more available! See commit messages!
+ 
+: 1.8.0 
+
+* xmlrpc4r is now included into Ruby 1.8.0
+
+* lib/config.rb: REXML is now the standard parser
+
+* lib/client.rb, lib/server.rb, lib/utils.rb: introduced a parse_content_type
+  method, fixes bug for "Content-Type: text/xml; xxx"
+
+:1.7.17 (2003-06-03)
+
+* lib/client.rb: fixed undefined method call (thanks to Vaclav Kulakovs) 
+
+:1.7.16 (2003-04-08)
+
+* doc/howto.rb: added security note (thanks to Brian Candler)
+
+* lib/client.rb: fixed bug in Client#new3 (Richard Kilmer)
+
+* fix 'warning' and 'NoMethodError' in parser.rb/client.rb (by MoonWolf)
+
+:1.7.15 (2003-01-30)
+
+* lib/httpserver.rb: fixed missing comma
+
+:1.7.14 (2003-01-25)
+
+* lib/parser.rb: added support for xmlscan parser (XMLScanStreamParser), thanks Takaaki Tateishi
+* lib/server.rb: status_code changed from 405 to 403 (Forbidden) on invalid IP
+
+
+:1.7.13  (2002-10-24)
+
+* lib/server.rb: added methods Server#get/set_valid_ip
+
+:1.7.12  (2002-10-23)
+
+* lib/client.rb: bug fixed: removed http.finish if async (SUTOU Kouhei)
+* lib/server.rb: added ip_auth_handler method.
+* lib/httpserver.rb: call ip_auth_handler of handler object before calling request_handler 
+
+:1.7.11 (2002-06-10)
+
+* test/: refactored test suite
+* lib/parser.rb: added support for REXML parser. 
+* lib/parser.rb: update to work with XMLParser 0.6.2.
+
+:1.7.10 (2002-05-01)
+
+* fixed bug when marshalling user-defined types using a stream parser
+* updated tests to work with Ruby 1.6.7 (marshalling output changed)
+
+:1.7.9 (2002-01-09)
+
+* added WEBrickServlet (thanks to Rich Kilmer)
+
+:1.7.8 (2001-12-12)
+
+* create <params> tag, even if no parameters specified (thanks, Idan Sofer)
+
+:1.7.7 (2001-11-23)
+
+* fixed bug for mswin32 Ruby (signal HUP). Submitted by Martin Stannard.
+
+:1.7.6 (2001-11-02)
+
+* fixed bug in StreamParserMixin (NQXMLStreamParser and XMLStreamParser):
+  <boolean>0</boolean> resulted in "" instead of false (found by covert
+  thaddeus).
+
+:1.7.5 (2001-10-30)
+
+* fixed bug in XMLParser::XMLStreamParser (found by covert thaddeus).
+
+:1.7.4 (2001-10-22)
+
+* added testcase for bug below 
+* create.rb: fixed bug when used with XMLRPC::Marshal
+
+:1.7.3 (2001-10-09)
+* server.rb: when platform=mingw use trap(1) instead of trap("HUP") 
+
+* fixed bug in stream parsers (both NQXML and XMLParser). Instead of a
+  XMLRPC::FaultException a Hash was returned for the "fault" tag. 
+  Added to the testcases.
+* fixed bug in method dispatching (server.rb), found by Andreas Bolka
+
+:1.7.2 (2001-08-01)
+* added xmlrpc/marshal.rb for simple XML-RPC methodCall/Response parsing/creating 
+* changed installer
+
+:1.7.1 (2001-07-27)
+* NQXMLStreamParser is now the default parser
+* added NQXMLStreamParser (slightly faster than NQXMLTreeParser, but
+  scales a bit better for larger documents)
+* Base64: remove whitespaces
+
+:1.7 (2001-07-26)
+* added XMLStreamParser; on the average 20 times faster than NQXMLParser and
+  still about twice as fast as XMLParser (DOM). 
+  XMLStreamParser scales well for large XML documents (e.g. 0.5 MB in size), so is it
+  ~350 (!) times faster than NQXMLParser and still ~18 times faster than
+  XMLParser.
+
+:1.6.9 (2001-07-19)
+* added redist/ directory (TCPSocketPipe.rb, application.rb and dump.rb)
+* now NQXML is the default parser
+* improved HttpServer (used for standalone server)
+
+:1.6.8 (2001-07-06)
+* added server-side support for mod_ruby (XMLRPC::ModRubyServer)
+* added Service::PublicInstanceMethodsInterface, or short form with method XMLRPC::iPIMethods, which 
+  allows to add all instance methods of a class as handlers to a server 
+* added Service::Interface class (or method XMLRPC::interface) and a third
+  form of BasicServer#add_handler(interface, obj)
+
+:1.6.7 (2001-07-02)
+* Client: added two new constructors: 
+  * Client.new2(uri, proxy=nil, timeout=nil)
+  * Client.new3(hash={})
+* Client: added read-timeout (method timeout/timeout=)
+* Client: added asynchronous methods: call_async, call2_async, multicall_async, mutlicall2_async, proxy_async, proxy2_async
+* Client: if user/password specified sends every time a Authorization header (Basic), do not check WWW-Authentificate header. 
+* includes new version of GServer.rb which fixed two minor logging-misbehaviours
+
+:1.6.6 (2001-06-25)
+* added Client-interface wrapper for SandStorm component architecture (see SourceForge.net).
+  See file samples/sandstorm/active.rb
+* added Basic HTTP (401) Authorization to Client and support for SSL.
+    Client#new(host, url, port, proxy_host, proxy_port, user, password, use_ssl)
+  For SSL you need the SSL package from RAA. 
+* added full support for Introspection (only proc-handlers are supported)
+* instance variables which value is  nil are not marshalled unless ENABLE_NIL_CREATE is true
+* Marshallable classes need not have method initialize without arguments (adapted from SOAP4R)
+* changed config.rb (made it simpler)
+* added two flags ENABLE_MULTICALL and ENABLE_INTROSPECTION to config.rb
+
+:1.6.5 (2001-06-21)
+* modified multicall/multicall2 return value [1,2,3] instead of [[1], [2], [3]]
+* CGIServer works now with FastCGI (see samples/xml.fcgi)
+* renamed Server#stop to Server#shutdown
+* added XMLRPC::Marshallable, to marshall any Ruby object to a hash and
+  restore the object later from that hash.
+* fixed bug where <value>  </value> was stripped to ""
+
+:1.6.4 (2001-06-19)
+* clients can use Symbol as type which is converted to a String
+* added <nil/> (optionally) as well as BigInt (Bignum's > 32 bits)
+* added configuration file (config.rb) for changing globally the parser/writer
+  to use as well as which features to enable
+
+:1.6.3 (2001-06-12)
+* fixed default_handler bug
+* added system.multicall extension
+* added parser test-cases
+* fixed bug: <value></value> was invalid (found by Thaddeus Covert)
+* added Introspection (BasicServer#add_introspection) (by Neil Conway)
+* added service-hook (which is called for each RPC)
+
+:1.6.2 (2001-06-03)
+* fixed bug; in create.rb XMLWrite::Simple did not escape text, thanx to Colin Steele
+* a XMLRPC::Base64 object is no longer returned from a RPC, instead a Ruby String is returned.
+
+:1.6.1
+* changed HOWTO (added information on how to use NQXML)
+* NQXML parser support
+* possibility to choose between different XML parsers and XML writers, with
+  Client#set_parser/#set_writer and BasicServer#set_parser/#set_writer
+* added HTTP.version_1_1, so now works with Ruby versions > 1.7
+* now you can do XML-RPC calls through a proxy server (Client.new).
+  Thanks to Hiroshi.
+
+:1.6
+* added RAA (Ruby Application Archive) XML-RPC example TkRAA
+* added XMLRPC::Client#proxy and #proxy2 as well as subclass Client::Proxy
+* fixed another empty string bug, which occured when an empty name-tag (hash-key) was used.
+
+: 1.5.4
+* fixed empty string bug, thanks to NaHi
+
+: 1.5.3
+* added HOWTO
+* XMLRPC::DateTime.new and all setter-methods, raise now an ArgumentError if the value is out of range
+
+: 1.5.2 
+* added Struct as possible type in a XMLRPC::Client#call/call2 or as a return value from a server-handler.
+
+: 1.5.1
+* now works also with Windows (validates)
+* standalone-server (XMLRPC::Server) works correctly (changed \n to \r\n), and validates
+* XMLRPC::Server.new has now a second paramter "host" to specify the host to listen on
+
+: 1.5
+* allow BigNum's that fit in 32-bit
+* now, always check the parity of a method before calling it
+* in server.rb, BasicServer#set/get_argument_error_handler removed
+* in server.rb, BasicServer.new removed argument "check_parity", now always on
+* introduced new type XMLRPC::DateTime to handle times which
+  year is before 1970 (DateTime is now always returned, no more Date/Time)
+* xmlrpc4r now validates to the validator1 test-suite
+* added validator sample
+* fixed a bug in parser, which causes the validator-suite to fail
+* started writing ChangeLog
+
+: 1.4
+
+=end

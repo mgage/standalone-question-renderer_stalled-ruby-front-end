@@ -1,0 +1,305 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ChangeLog for xmlrpc4r</title>
+<link href="rubyStyle.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<h1><a name="label-0" id="label-0">ChangeLog for xmlrpc4r</a></h1><!-- RDLabel: "ChangeLog for xmlrpc4r" -->
+<p>ChangeLog no more available! See commit messages!</p>
+<dl>
+<dt><a name="label-1" id="label-1">1.8.0</a></dt><!-- RDLabel: "1.8.0" -->
+</dl>
+<ul>
+<li>xmlrpc4r is now included into Ruby 1.8.0</li>
+<li>lib/config.rb: REXML is now the standard parser</li>
+<li>lib/client.rb, lib/server.rb, lib/utils.rb: introduced a parse_content_type
+  method, fixes bug for "Content-Type: text/xml; xxx"</li>
+</ul>
+<dl>
+<dt><a name="label-2" id="label-2">1.7.17 (2003-06-03)</a></dt><!-- RDLabel: "1.7.17 (2003-06-03)" -->
+</dl>
+<ul>
+<li>lib/client.rb: fixed undefined method call (thanks to Vaclav Kulakovs) </li>
+</ul>
+<dl>
+<dt><a name="label-3" id="label-3">1.7.16 (2003-04-08)</a></dt><!-- RDLabel: "1.7.16 (2003-04-08)" -->
+</dl>
+<ul>
+<li>doc/howto.rb: added security note (thanks to Brian Candler)</li>
+<li>lib/client.rb: fixed bug in Client#new3 (Richard Kilmer)</li>
+<li>fix 'warning' and 'NoMethodError' in parser.rb/client.rb (by MoonWolf)</li>
+</ul>
+<dl>
+<dt><a name="label-4" id="label-4">1.7.15 (2003-01-30)</a></dt><!-- RDLabel: "1.7.15 (2003-01-30)" -->
+</dl>
+<ul>
+<li>lib/httpserver.rb: fixed missing comma</li>
+</ul>
+<dl>
+<dt><a name="label-5" id="label-5">1.7.14 (2003-01-25)</a></dt><!-- RDLabel: "1.7.14 (2003-01-25)" -->
+</dl>
+<ul>
+<li>lib/parser.rb: added support for xmlscan parser (XMLScanStreamParser), thanks Takaaki Tateishi</li>
+<li>lib/server.rb: status_code changed from 405 to 403 (Forbidden) on invalid IP</li>
+</ul>
+<dl>
+<dt><a name="label-6" id="label-6">1.7.13  (2002-10-24)</a></dt><!-- RDLabel: "1.7.13  (2002-10-24)" -->
+</dl>
+<ul>
+<li>lib/server.rb: added methods Server#get/set_valid_ip</li>
+</ul>
+<dl>
+<dt><a name="label-7" id="label-7">1.7.12  (2002-10-23)</a></dt><!-- RDLabel: "1.7.12  (2002-10-23)" -->
+</dl>
+<ul>
+<li>lib/client.rb: bug fixed: removed http.finish if async (SUTOU Kouhei)</li>
+<li>lib/server.rb: added ip_auth_handler method.</li>
+<li>lib/httpserver.rb: call ip_auth_handler of handler object before calling request_handler </li>
+</ul>
+<dl>
+<dt><a name="label-8" id="label-8">1.7.11 (2002-06-10)</a></dt><!-- RDLabel: "1.7.11 (2002-06-10)" -->
+</dl>
+<ul>
+<li>test/: refactored test suite</li>
+<li>lib/parser.rb: added support for REXML parser. </li>
+<li>lib/parser.rb: update to work with XMLParser 0.6.2.</li>
+</ul>
+<dl>
+<dt><a name="label-9" id="label-9">1.7.10 (2002-05-01)</a></dt><!-- RDLabel: "1.7.10 (2002-05-01)" -->
+</dl>
+<ul>
+<li>fixed bug when marshalling user-defined types using a stream parser</li>
+<li>updated tests to work with Ruby 1.6.7 (marshalling output changed)</li>
+</ul>
+<dl>
+<dt><a name="label-10" id="label-10">1.7.9 (2002-01-09)</a></dt><!-- RDLabel: "1.7.9 (2002-01-09)" -->
+</dl>
+<ul>
+<li>added WEBrickServlet (thanks to Rich Kilmer)</li>
+</ul>
+<dl>
+<dt><a name="label-11" id="label-11">1.7.8 (2001-12-12)</a></dt><!-- RDLabel: "1.7.8 (2001-12-12)" -->
+</dl>
+<ul>
+<li>create &lt;params&gt; tag, even if no parameters specified (thanks, Idan Sofer)</li>
+</ul>
+<dl>
+<dt><a name="label-12" id="label-12">1.7.7 (2001-11-23)</a></dt><!-- RDLabel: "1.7.7 (2001-11-23)" -->
+</dl>
+<ul>
+<li>fixed bug for mswin32 Ruby (signal HUP). Submitted by Martin Stannard.</li>
+</ul>
+<dl>
+<dt><a name="label-13" id="label-13">1.7.6 (2001-11-02)</a></dt><!-- RDLabel: "1.7.6 (2001-11-02)" -->
+</dl>
+<ul>
+<li>fixed bug in StreamParserMixin (NQXMLStreamParser and XMLStreamParser):
+  &lt;boolean&gt;0&lt;/boolean&gt; resulted in "" instead of false (found by covert
+  thaddeus).</li>
+</ul>
+<dl>
+<dt><a name="label-14" id="label-14">1.7.5 (2001-10-30)</a></dt><!-- RDLabel: "1.7.5 (2001-10-30)" -->
+</dl>
+<ul>
+<li>fixed bug in XMLParser::XMLStreamParser (found by covert thaddeus).</li>
+</ul>
+<dl>
+<dt><a name="label-15" id="label-15">1.7.4 (2001-10-22)</a></dt><!-- RDLabel: "1.7.4 (2001-10-22)" -->
+</dl>
+<ul>
+<li>added testcase for bug below </li>
+<li>create.rb: fixed bug when used with XMLRPC::Marshal</li>
+</ul>
+<dl>
+<dt><a name="label-16" id="label-16">1.7.3 (2001-10-09)</a></dt><!-- RDLabel: "1.7.3 (2001-10-09)" -->
+</dl>
+<ul>
+<li>server.rb: when platform=mingw use trap(1) instead of trap("HUP") </li>
+<li>fixed bug in stream parsers (both NQXML and XMLParser). Instead of a
+  XMLRPC::FaultException a Hash was returned for the "fault" tag. 
+  Added to the testcases.</li>
+<li>fixed bug in method dispatching (server.rb), found by Andreas Bolka</li>
+</ul>
+<dl>
+<dt><a name="label-17" id="label-17">1.7.2 (2001-08-01)</a></dt><!-- RDLabel: "1.7.2 (2001-08-01)" -->
+</dl>
+<ul>
+<li>added xmlrpc/marshal.rb for simple XML-RPC methodCall/Response parsing/creating </li>
+<li>changed installer</li>
+</ul>
+<dl>
+<dt><a name="label-18" id="label-18">1.7.1 (2001-07-27)</a></dt><!-- RDLabel: "1.7.1 (2001-07-27)" -->
+</dl>
+<ul>
+<li>NQXMLStreamParser is now the default parser</li>
+<li>added NQXMLStreamParser (slightly faster than NQXMLTreeParser, but
+  scales a bit better for larger documents)</li>
+<li>Base64: remove whitespaces</li>
+</ul>
+<dl>
+<dt><a name="label-19" id="label-19">1.7 (2001-07-26)</a></dt><!-- RDLabel: "1.7 (2001-07-26)" -->
+</dl>
+<ul>
+<li>added XMLStreamParser; on the average 20 times faster than NQXMLParser and
+  still about twice as fast as XMLParser (DOM). 
+  XMLStreamParser scales well for large XML documents (e.g. 0.5 MB in size), so is it
+  ~350 (!) times faster than NQXMLParser and still ~18 times faster than
+  XMLParser.</li>
+</ul>
+<dl>
+<dt><a name="label-20" id="label-20">1.6.9 (2001-07-19)</a></dt><!-- RDLabel: "1.6.9 (2001-07-19)" -->
+</dl>
+<ul>
+<li>added redist/ directory (TCPSocketPipe.rb, application.rb and dump.rb)</li>
+<li>now NQXML is the default parser</li>
+<li>improved HttpServer (used for standalone server)</li>
+</ul>
+<dl>
+<dt><a name="label-21" id="label-21">1.6.8 (2001-07-06)</a></dt><!-- RDLabel: "1.6.8 (2001-07-06)" -->
+</dl>
+<ul>
+<li>added server-side support for mod_ruby (XMLRPC::ModRubyServer)</li>
+<li>added Service::PublicInstanceMethodsInterface, or short form with method XMLRPC::iPIMethods, which 
+  allows to add all instance methods of a class as handlers to a server </li>
+<li>added Service::Interface class (or method XMLRPC::interface) and a third
+  form of BasicServer#add_handler(interface, obj)</li>
+</ul>
+<dl>
+<dt><a name="label-22" id="label-22">1.6.7 (2001-07-02)</a></dt><!-- RDLabel: "1.6.7 (2001-07-02)" -->
+</dl>
+<ul>
+<li>Client: added two new constructors: 
+<ul>
+<li>Client.new2(uri, proxy=nil, timeout=nil)</li>
+<li>Client.new3(hash={})</li>
+</ul></li>
+<li>Client: added read-timeout (method timeout/timeout=)</li>
+<li>Client: added asynchronous methods: call_async, call2_async, multicall_async, mutlicall2_async, proxy_async, proxy2_async</li>
+<li>Client: if user/password specified sends every time a Authorization header (Basic), do not check WWW-Authentificate header. </li>
+<li>includes new version of GServer.rb which fixed two minor logging-misbehaviours</li>
+</ul>
+<dl>
+<dt><a name="label-23" id="label-23">1.6.6 (2001-06-25)</a></dt><!-- RDLabel: "1.6.6 (2001-06-25)" -->
+</dl>
+<ul>
+<li>added Client-interface wrapper for SandStorm component architecture (see SourceForge.net).
+  See file samples/sandstorm/active.rb</li>
+<li><p>added Basic HTTP (401) Authorization to Client and support for SSL.</p>
+<pre>Client#new(host, url, port, proxy_host, proxy_port, user, password, use_ssl)</pre>
+<p>For SSL you need the SSL package from RAA. </p></li>
+<li>added full support for Introspection (only proc-handlers are supported)</li>
+<li>instance variables which value is  nil are not marshalled unless ENABLE_NIL_CREATE is true</li>
+<li>Marshallable classes need not have method initialize without arguments (adapted from SOAP4R)</li>
+<li>changed config.rb (made it simpler)</li>
+<li>added two flags ENABLE_MULTICALL and ENABLE_INTROSPECTION to config.rb</li>
+</ul>
+<dl>
+<dt><a name="label-24" id="label-24">1.6.5 (2001-06-21)</a></dt><!-- RDLabel: "1.6.5 (2001-06-21)" -->
+</dl>
+<ul>
+<li>modified multicall/multicall2 return value [1,2,3] instead of [[1], [2], [3]]</li>
+<li>CGIServer works now with FastCGI (see samples/xml.fcgi)</li>
+<li>renamed Server#stop to Server#shutdown</li>
+<li>added XMLRPC::Marshallable, to marshall any Ruby object to a hash and
+  restore the object later from that hash.</li>
+<li>fixed bug where &lt;value&gt;  &lt;/value&gt; was stripped to ""</li>
+</ul>
+<dl>
+<dt><a name="label-25" id="label-25">1.6.4 (2001-06-19)</a></dt><!-- RDLabel: "1.6.4 (2001-06-19)" -->
+</dl>
+<ul>
+<li>clients can use Symbol as type which is converted to a String</li>
+<li>added &lt;nil/&gt; (optionally) as well as BigInt (Bignum's &gt; 32 bits)</li>
+<li>added configuration file (config.rb) for changing globally the parser/writer
+  to use as well as which features to enable</li>
+</ul>
+<dl>
+<dt><a name="label-26" id="label-26">1.6.3 (2001-06-12)</a></dt><!-- RDLabel: "1.6.3 (2001-06-12)" -->
+</dl>
+<ul>
+<li>fixed default_handler bug</li>
+<li>added system.multicall extension</li>
+<li>added parser test-cases</li>
+<li>fixed bug: &lt;value&gt;&lt;/value&gt; was invalid (found by Thaddeus Covert)</li>
+<li>added Introspection (BasicServer#add_introspection) (by Neil Conway)</li>
+<li>added service-hook (which is called for each RPC)</li>
+</ul>
+<dl>
+<dt><a name="label-27" id="label-27">1.6.2 (2001-06-03)</a></dt><!-- RDLabel: "1.6.2 (2001-06-03)" -->
+</dl>
+<ul>
+<li>fixed bug; in create.rb XMLWrite::Simple did not escape text, thanx to Colin Steele</li>
+<li>a XMLRPC::Base64 object is no longer returned from a RPC, instead a Ruby String is returned.</li>
+</ul>
+<dl>
+<dt><a name="label-28" id="label-28">1.6.1</a></dt><!-- RDLabel: "1.6.1" -->
+</dl>
+<ul>
+<li>changed HOWTO (added information on how to use NQXML)</li>
+<li>NQXML parser support</li>
+<li>possibility to choose between different XML parsers and XML writers, with
+  Client#set_parser/#set_writer and BasicServer#set_parser/#set_writer</li>
+<li>added HTTP.version_1_1, so now works with Ruby versions &gt; 1.7</li>
+<li>now you can do XML-RPC calls through a proxy server (Client.new).
+  Thanks to Hiroshi.</li>
+</ul>
+<dl>
+<dt><a name="label-29" id="label-29">1.6</a></dt><!-- RDLabel: "1.6" -->
+</dl>
+<ul>
+<li>added RAA (Ruby Application Archive) XML-RPC example TkRAA</li>
+<li>added XMLRPC::Client#proxy and #proxy2 as well as subclass Client::Proxy</li>
+<li>fixed another empty string bug, which occured when an empty name-tag (hash-key) was used.</li>
+</ul>
+<dl>
+<dt><a name="label-30" id="label-30">1.5.4</a></dt><!-- RDLabel: "1.5.4" -->
+</dl>
+<ul>
+<li>fixed empty string bug, thanks to NaHi</li>
+</ul>
+<dl>
+<dt><a name="label-31" id="label-31">1.5.3</a></dt><!-- RDLabel: "1.5.3" -->
+</dl>
+<ul>
+<li>added HOWTO</li>
+<li>XMLRPC::DateTime.new and all setter-methods, raise now an ArgumentError if the value is out of range</li>
+</ul>
+<dl>
+<dt><a name="label-32" id="label-32">1.5.2</a></dt><!-- RDLabel: "1.5.2" -->
+</dl>
+<ul>
+<li>added Struct as possible type in a XMLRPC::Client#call/call2 or as a return value from a server-handler.</li>
+</ul>
+<dl>
+<dt><a name="label-33" id="label-33">1.5.1</a></dt><!-- RDLabel: "1.5.1" -->
+</dl>
+<ul>
+<li>now works also with Windows (validates)</li>
+<li>standalone-server (XMLRPC::Server) works correctly (changed \n to \r\n), and validates</li>
+<li>XMLRPC::Server.new has now a second paramter "host" to specify the host to listen on</li>
+</ul>
+<dl>
+<dt><a name="label-34" id="label-34">1.5</a></dt><!-- RDLabel: "1.5" -->
+</dl>
+<ul>
+<li>allow BigNum's that fit in 32-bit</li>
+<li>now, always check the parity of a method before calling it</li>
+<li>in server.rb, BasicServer#set/get_argument_error_handler removed</li>
+<li>in server.rb, BasicServer.new removed argument "check_parity", now always on</li>
+<li>introduced new type XMLRPC::DateTime to handle times which
+  year is before 1970 (DateTime is now always returned, no more Date/Time)</li>
+<li>xmlrpc4r now validates to the validator1 test-suite</li>
+<li>added validator sample</li>
+<li>fixed a bug in parser, which causes the validator-suite to fail</li>
+<li>started writing ChangeLog</li>
+</ul>
+<dl>
+<dt><a name="label-35" id="label-35">1.4</a></dt><!-- RDLabel: "1.4" -->
+</dl>
+
+</body>
+</html>
