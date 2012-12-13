@@ -405,7 +405,7 @@ sub defineProblemEnvir {
 	) = @_;
 	
 	my %envir;
-	my $rh = $extras->{rh};
+	my $rh = $extras->{rh}; #externally defined environment
 	# ----------------------------------------------------------------------
 	
 	# PG environment variables
@@ -419,9 +419,9 @@ sub defineProblemEnvir {
 	$envir{psvn}                = 4321 ;#$set->psvn;
 	$envir{psvnNumber}          = "psvnNumber-is-deprecated-Please-use-psvn-Instead"; #FIXME
 	$envir{probNum}             = 1; #$problem->problem_id;
-	$envir{questionNumber}      = $envir{probNum};
+#	$envir{questionNumber}      = $envir{probNum};
 #	$envir{fileName}            = $problem->source_file;	 
-	$envir{probFileName}        = $envir{fileName};		 
+	$envir{probFileName}        = $rh->{envir}->{probFileName};	 
 	$envir{problemSeed}         = 1234; #$problem->problem_seed;
 	$envir{displayMode}         = translateDisplayModeNames($options->{displayMode});
 	$envir{languageMode}        = $envir{displayMode};	 

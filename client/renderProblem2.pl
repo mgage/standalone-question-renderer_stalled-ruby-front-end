@@ -241,7 +241,7 @@ our $xmlrpc_client = new WebworkClient (
 
 
 $fileName =~ s|/opt/webwork/libraries/NationalProblemLibrary|Library|;
-$input->{envir}->{fileName} = $fileName;
+$input->{envir}->{probFileName} = $fileName;
 
 #xmlrpcCall('renderProblem');
 our $output;

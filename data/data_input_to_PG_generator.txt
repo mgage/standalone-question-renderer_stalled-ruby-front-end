@@ -9,9 +9,7 @@ $main::rh_input ={
     CAPA_Graphics_URL => q{http://webwork-db.math.rochester.edu/capa_graphics/} ,
     CAPA_MCTools => q{/ww/webwork/CAPA/CAPA_MCTools/} ,
     CAPA_Tools => q{/ww/webwork/CAPA/CAPA_Tools/} ,
-    PRINT_FILE_NAMES_FOR =>  [ q{gage} ,
- ] 
- ,
+    PRINT_FILE_NAMES_FOR =>  [ q{gage} , ]  ,
     answerDate => q{4014438528} ,
     cgiDirectory => q{Not defined} ,
     cgiURL => q{foobarNot defined} ,
@@ -24,7 +22,7 @@ $main::rh_input ={
     externalGif2EpsPath => q{not defined} ,
     externalPng2EpsPath => q{not defined} ,
     externalTTHPath => q{/usr/local/bin/tth} ,
-    fileName => q{input.txt} ,
+    fileName => q{input.txt} ,   #track this down
     formattedAnswerDate => q{6/19/00} ,
     formattedDueDate => q{6/19/00} ,
     formattedOpenDate => q{6/19/00} ,
