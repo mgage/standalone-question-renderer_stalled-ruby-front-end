@@ -68,8 +68,9 @@ use MIME::Base64 qw( encode_base64 decode_base64);
  
  my $use_site;
  #$use_site = 'test_webwork';    # select a rendering site 
- $use_site = 'local';           # select a rendering site 
+ #$use_site = 'local';           # select a rendering site 
  #$use_site = 'hosted2';  # select a rendering site 
+ $use_site = 'test';
  
  
  ############################################################
@@ -131,7 +132,12 @@ if ($use_site eq 'local') {
 	$FORM_ACTION_URL  =  'https://test.webwork.maa.org/webwork2/html2xml';
 	$XML_PASSWORD     = 'xmlwebwork';
 	$XML_COURSE       = 'daemon_course';
-
+} elsif ($use_site eq 'test') {
+	$XML_URL      	  =  'http://0.0.0.0:8080';
+	$FORM_ACTION_URL  =  'https://test.webwork.maa.org/webwork2/html2xml';
+	$XML_PASSWORD     = 'xmlwebwork';
+	$XML_COURSE       = 'daemon_course';
+	
 }
 
 ##################################################
@@ -146,7 +152,8 @@ our $UNIT_TESTS_ON             = 0;
 
 
 my $credential_path;
-my @path_list = ('.ww_credentials', '/Users/mgage1/.ww_credentials', '/Users/mgage1/ww_session_credentials');
+my @path_list = ('.ww_credentials', '/Users/mgage1/.ww_credentials', '/Users/mgage1/ww_session_credentials',
+                   '/Users/gage/.ww_credentials', '/Users/gage/ww_session_credentials');
 foreach my $path (@path_list) {
 	if (-r "$path" ) {
 		$credential_path = $path;
