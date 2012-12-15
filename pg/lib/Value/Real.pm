@@ -148,7 +148,7 @@ sub compare {
 #   Numeric functions
 #
 
-sub abs  {my $self = shift; $self->make(CORE::CORE::abs($self->{data}[0]))}
+sub abs  {my $self = shift; $self->make(CORE::abs($self->{data}[0]))}
 sub neg  {my $self = shift; $self->make(-($self->{data}[0]))}
 sub exp  {my $self = shift; $self->make(CORE::exp($self->{data}[0]))}
 sub log  {my $self = shift; $self->make(CORE::log($self->{data}[0]))}
