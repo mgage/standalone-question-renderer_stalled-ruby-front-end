@@ -288,6 +288,8 @@ sub initialize {
 	$safe_cmpt -> share('%envir');
 	#local($rf_answer_eval) = sub { $self->PG_answer_eval(@_); };
 	#local($rf_restricted_eval) = sub { $self->PG_restricted_eval(@_); };
+	local($PREPROCESS_CODE) = sub {&{$self->{preprocess_code}} ( @_ ) };
+	$safe_cmpt -> share ('$PREPROCESS_CODE'); # for the benefit of IO::includePGtext()
 	#$safe_cmpt -> share('$rf_answer_eval');
 	#$safe_cmpt -> share('$rf_restricted_eval');
 	use strict;
@@ -1651,7 +1653,7 @@ since at some point one might like to make the answer evaluations more stringent
 
 
 sub PG_answer_eval {
-   local($string) = shift;   # I made this local just in case -- see PG_restricted_eval
+   my($string) = shift;   # I made this local just in case -- see PG_restricted_eval
    my $errors = '';
    my $full_error_report = '';
    my ($pck,$file,$line) = caller; 
@@ -1665,7 +1667,7 @@ sub PG_answer_eval {
     # We seem to need PG_priv instead of main when PG_answer_eval is called within a completion
     # 'package PG_priv; '
     
-        local $SIG{__WARN__} = sub {die(@_)};  # make warn die, so all errors are reported.
+    local $SIG{__WARN__} = sub {die(@_)};  # make warn die, so all errors are reported.
 	local $SIG{__DIE__} = "DEFAULT";
 	
     no strict;
@@ -1719,6 +1721,7 @@ sub default_postprocess_code {
 	$evalString_ref;
 }
 
+no strict;   
 sub dumpvar {
     my ($packageName) = @_;
 
