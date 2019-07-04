@@ -1,5 +1,14 @@
 Project
 ------------
+This was a hackathon project for a computer science class in fall 2012 taught by Prof. Chen Ding. 
+A fair amount of progress was made in creating a Ruby front end in one day of hacking but the 
+project remains unfinished.  It might be an interesting starting place for someone interested in finishing
+the job.  See also the repos  mgage/standaloneProblemRenderer for a similar idea but with a perl front end.
+It is under more active construction.  The most active project along this line is the file sendXMLRPC.pl in 
+openwebwork/webwork2/clients.  All of these are designed to cement the API between PG and some front end (e.g. webwork2).
+
+
+
 
 Put a Ruby webserver front end on the PG renderer so that the client
 can send a .pg file, have it rendered and 
